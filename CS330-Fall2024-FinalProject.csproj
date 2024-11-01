@@ -11,6 +11,12 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
+    <None Remove="Views\ChatBot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Images\images.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
     <None Update="app.db" CopyToOutputDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
   </ItemGroup>
 
@@ -21,6 +27,15 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="Views\ChatBot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\Images\images.jpeg" />
+    <Content Remove="wwwroot\Images\" />
+  </ItemGroup>
 </Project>

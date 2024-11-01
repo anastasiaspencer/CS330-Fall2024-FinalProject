@@ -3,3 +3,6 @@
 
 // Write your JavaScript code.
 
+function goToChatBot() {
+    window.location.href = '/ChatBot/Index';
+}

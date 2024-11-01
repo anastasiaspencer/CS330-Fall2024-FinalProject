@@ -7,6 +7,7 @@
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/CS330-Fall2024-FinalProject.runtimeconfig.json
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/CS330-Fall2024-FinalProject.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/CS330-Fall2024-FinalProject.pdb
+/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/Azure.AI.OpenAI.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/Azure.Core.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/Azure.Identity.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/Humanizer.dll
@@ -40,9 +41,11 @@
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/Mono.TextTemplating.dll
+/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/OpenAI.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/SQLitePCLRaw.batteries_v2.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/SQLitePCLRaw.core.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/SQLitePCLRaw.provider.e_sqlite3.dll
+/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/System.ClientModel.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/System.CodeDom.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
 /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/bin/Debug/net7.0/System.Drawing.Common.dll

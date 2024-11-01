@@ -1,0 +1,49 @@
+﻿
+@model CS330_Fall2024_FinalProject.Models.ChatBot
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="/wwwroot/css/site.css">
+    <script src="/wwwroot/js/site.js"></script>
+
+</head>
+<body>
+
+
+    <div>
+        <h1 id="Title"> Chat Bot </h1>
+        <br /> <br />
+
+        @if (Model == null)
+            {
+        <form asp-action="GenerateResponse" method="post">
+            <div class="form-group">
+                <label for="userPrompt">Enter your prompt:</label>
+                <input type="text" id="userPrompt" name="userPrompt" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Send to ChatBot</button>
+        </form>
+            }
+            else
+            {
+
+        @if (Model != null && Model.response.Any())
+            {
+            <div class="mt-3">
+                <h3>ChatBot Responses:</h3>
+                <ul>
+                    @foreach (var response in Model.response)
+                    {
+                        <li>@response</li>
+                        }
+                </ul>
+            </div>
+            }
+            else
+            { <p id="Summary"> it was empty or something . </p>}
+            }
+        <p id="Summary"> Input chat bot request. </p>
+
+    </div>
+</body>
+
