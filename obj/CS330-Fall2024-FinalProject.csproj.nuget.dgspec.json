@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject.csproj": {}
+    "/Users/brookeboskus/Desktop/CS330Final/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject.csproj": {}
   },
   "projects": {
-    "/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject.csproj": {
+    "/Users/brookeboskus/Desktop/CS330Final/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject.csproj",
+        "projectUniqueName": "/Users/brookeboskus/Desktop/CS330Final/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject.csproj",
         "projectName": "CS330-Fall2024-FinalProject",
-        "projectPath": "/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject.csproj",
-        "packagesPath": "/Users/anastasiaspencer/.nuget/packages/",
-        "outputPath": "/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/obj/",
+        "projectPath": "/Users/brookeboskus/Desktop/CS330Final/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject.csproj",
+        "packagesPath": "/Users/brookeboskus/.nuget/packages/",
+        "outputPath": "/Users/brookeboskus/Desktop/CS330Final/CS330-Fall2024-FinalProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/anastasiaspencer/.nuget/NuGet/NuGet.Config"
+          "/Users/brookeboskus/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/sdk/7.0.317/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -33,6 +32,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "all"
         }
       },
       "frameworks": {
@@ -79,6 +83,20 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.19, 7.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[7.0.19, 7.0.19]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.19, 7.0.19]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -87,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.317/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.100-preview.6.24328.19/RuntimeIdentifierGraph.json"
         }
       }
     }
