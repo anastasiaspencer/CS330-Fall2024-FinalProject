@@ -40,3 +40,9 @@ p.text-muted{
     background-color: #0056b3;
     border-color: #0056b3;
 }
+
+
+/* this is for schedule page, where i left mt-10. mt-10 doesn't exist prebuilt for bootstrap unlike tailwind css*/
+.mt-10 {
+  margin-top: 6rem; 
+}
