@@ -9,59 +9,61 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CS330_Fall2024_FinalProject
 build_property.RootNamespace = CS330_Fall2024_FinalProject
-build_property.ProjectDir = /Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/
-build_property.EnableComHosting = 
-build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.ProjectDir = /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = /Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject
+build_property.MSBuildProjectDirectory = /Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Areas/Identity/Pages/_ViewStart.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvSWRlbnRpdHkvUGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/ChatBot/index.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/ChatBot/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ2hhdEJvdC9pbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/Home/Index.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/Home/Privacy.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/Schedule/Index.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/Schedule/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2NoZWR1bGUvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/Shared/Error.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/Shared/_LoginPartial.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/Shared/_ValidationScriptsPartial.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/Stats/Index.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/SnowReport/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU25vd1JlcG9ydC9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/Stats/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU3RhdHMvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/_ViewImports.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/_ViewStart.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/brianson/Desktop/CS330/Fall2024-Final-json10/CS330-Fall2024-FinalProject/Views/Shared/_Layout.cshtml]
+[/Users/anastasiaspencer/Projects/CS330-Fall2024-FinalProject/CS330-Fall2024-FinalProject/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ikv8gofakp
