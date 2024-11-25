@@ -13,6 +13,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddHttpClient<ISnowReportService, SnowReportService>();
+builder.Services.AddScoped<SnowReportApplicationService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -6,8 +6,24 @@ namespace CS330_Fall2024_FinalProject.Controllers;
 
 public class SnowReport : Controller
 {
-    public IActionResult Index()
-    {
-        return View();
+    private readonly SnowReportApplicationService _applicationService;
+
+    public SnowReport(SnowReportApplicationService applicationService){
+        _applicationService = applicationService;
+    }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+    public async Task<JsonResult> Report(string locationName){
+        if(string.IsNullOrEmpty(locationName))
+        {
+            return Json(new { error = "Location name not given."});
+        }
+
+        var report = await _applicationService.GetReportAsync(locationName);
+        return Json(report);
     }
 }
