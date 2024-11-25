@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Snow Report";
+}
+    <div class="container my-5">
+        <h1 class="text-center">Snow Report</h1>
+        <p class="text-center">Select a Resort to view the latest snow conditions.</p>
+
+        <!--User will choose a resort selection for now, later I want a few to be shown automatically so we can see it update dynamcially-->
+            <div class="mb-3">
+                <label for="resort-select" class="form-label">Choose a Resort:</label>
+                <select id="resort-select" class="form-select">
+                     <option value="" disabled selected>Select a resort</option>
+                     <option value="resort1">Resort 1</option>
+                     <option value="resort2">Resort 2</option>
+                     <option value="resort3">Resort 3</option>
+                </select>
+            </div>
+
+            <!-- button to triger api call-->
+            <button id="get-report" class="btn btn-primary">Get Snow Report</button>
+
+                <!-- Snow Report Display -->
+                <div id="snow-report" class="mt-4">
+                <!-- Dynamic content will load here -->
+                </div>
+            </div>
+        </div>
