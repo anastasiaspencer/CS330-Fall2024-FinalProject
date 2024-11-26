@@ -22,10 +22,10 @@ public class AthleteService : IAthleteService
     //     return await _context.Set<Athlete>().FirstOrDefaultAsync(a => a.Number == number);
     // }
 
-    // public async Task<List<Athlete>> GetAllAsync() //IMPLEMENT THIS
-    // {
-    //     return await _context.Set<Athlete>().ToListAsync();
-    // }
+    public async Task<List<Athlete>> GetAllAsync() //gets all athletes in teh database
+    {
+        return await _context.Set<Athlete>().ToListAsync();
+    }
 }
 
 

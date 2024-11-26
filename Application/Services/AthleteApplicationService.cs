@@ -30,13 +30,13 @@ public class AthleteApplicationService
 
 
 
-    // public async Task<Athlete> GetAthleteByNumberAsync(int number)
+    // public async Task<Athlete> GetAthleteByNumberAsync(int number) //just an idea of something we migt want to implement
     // {
     //     return await _athleteService.GetByIdAsync(number);
     // }
 
-    // public async Task<List<Athlete>> GetAllAthletesAsync() // for roster purposes
-    // {
-    //     return await _athleteService.GetAllAsync();
-    // }
+    public async Task<List<Athlete>> GetAllAthletesAsync() // for roster purposes
+    {
+        return await _athleteService.GetAllAsync();
+    }
 }

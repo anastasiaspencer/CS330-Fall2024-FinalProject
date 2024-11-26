@@ -1,0 +1,30 @@
+@model CS330_Fall2024_FinalProject.Models.RosterViewModel
+
+@* -Roster View *@
+@{
+    ViewData["Title"] = "Roster Page";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-3 text-primary">Team Roster</h1>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 d-flex flex-column align-items-center">
+            <h2 class="text-primary">Roster</h2>
+
+            <tbody>
+                @foreach (var athlete in Model.Athletes)
+                {
+                    <tr>
+                        <td>@athlete.Name</td>
+                        <td>@athlete.Number</td>
+                        <td><button class="btn btn-primary">See Athletes Stats</button></td>
+
+                    </tr>
+                }
+            </tbody>
+        </div>
+    </div>
+</div>
