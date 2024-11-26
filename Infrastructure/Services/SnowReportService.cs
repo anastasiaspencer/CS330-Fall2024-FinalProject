@@ -61,19 +61,25 @@ public class SnowReportService : ISnowReportService
                 LocationName = locationName,
                 Temperature = 0,
                 WeatherDescription = "No forecast available",
-                Snowfall = 0
+   
 
                 };
             }
-
+            //firstForecast will not be null once it gets to this point
             var firstForecast = data.List.FirstOrDefault();
+
             return new SnowReportModel
             {
-
+                
+            
             LocationName = locationName,
             Temperature = firstForecast?.Main.Temp ?? 0, 
+            FeelsLike = firstForecast?.Main?.FeelsLike ?? 0,
             WeatherDescription = firstForecast?.Weather.FirstOrDefault()?.Description ?? "No description available", 
-            Snowfall = 0 // If snowfall data is still relevant, include it as before
+            LowTemp = firstForecast?.Main.TempMin ?? 0,
+            HighTemp = firstForecast?.Main.TempMax ?? 0,
+            Pressure = firstForecast?.Main.Pressure ?? 0,
+            Humidity = firstForecast?.Main.Humidity ?? 0
 
             };
         }
