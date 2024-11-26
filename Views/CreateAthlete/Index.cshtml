@@ -1,0 +1,53 @@
+
+
+@model CS330_Fall2024_FinalProject.Models.CreateAthleteViewModel
+
+@* -Create New Athlete View -> should only be able to be viewed by coaches or admin or whatever *@
+@{
+    ViewData["Title"] = "Create Athlete Page";
+}
+
+<div class="container text-center mt-5">
+    <h1 class="display-3 text-primary">Create New Athlete</h1>
+    <p class="lead text-secondary mt-3">Add a new athlete to the team.</p>
+</div>
+
+<form asp-action="CreateAthlete" method="post">
+    <div class="form-group">
+        <label for="Name">Enter the Name:</label>
+        <input type="text" id="Name" name="Name" class="form-control" required />
+    </div>
+    
+    <div class="form-group">
+        <label for="Number">Enter the Number:</label>
+        <input type="number" id="Number" name="Number" class="form-control" required />
+    </div>
+
+    <h3>Ski Stats</h3>
+    <div class="form-group">
+        <label for="BestTime">Best Time:</label>
+        <input type="number" step="0.01" id="BestTime" name="BestTime" class="form-control" required />
+    </div>
+    
+    <div class="form-group">
+        <label for="TopSpeed">Top Speed:</label>
+        <input type="number" step="0.01" id="TopSpeed" name="TopSpeed" class="form-control" required />
+    </div>
+    
+    <div class="form-group">
+        <label for="BestDistance">Best Distance:</label>
+        <input type="number" step="0.01" id="BestDistance" name="BestDistance" class="form-control" required />
+    </div>
+    
+    <div class="form-group">
+        <label for="VerticalDrop">Vertical Drop:</label>
+        <input type="number" step="0.01" id="VerticalDrop" name="VerticalDrop" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Ranking">Ranking:</label>
+        <input type="number" step="0.01" id="Ranking" name="Ranking" class="form-control" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Create Athlete</button>
+</form>
