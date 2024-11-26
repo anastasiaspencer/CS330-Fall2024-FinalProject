@@ -1,11 +1,11 @@
 using CS330_Fall2024_FinalProject.Controllers;
 using CS330_Fall2024_FinalProject.Models;
 //Provides connection between the domain and presentation layer, coordinates flow of data
-public class AthleteApplicaitonService
+public class AthleteApplicationService
 {
     private readonly IAthleteService _athleteService;
 
-    public AthleteApplicaitonService(IAthleteService athleteService)
+    public AthleteApplicationService(IAthleteService athleteService)
     {
         _athleteService = athleteService;
     }

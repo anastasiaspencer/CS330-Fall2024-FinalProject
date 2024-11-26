@@ -1,3 +1,4 @@
+namespace CS330_Fall2024_FinalProject.Models;
 public class CreateAthleteViewModel
 {
     public string Name { get; set; }
