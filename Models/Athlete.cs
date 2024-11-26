@@ -8,12 +8,14 @@ public class Athlete
     public string Name  { get; set; }
     public int Number { get; set; }
     //Add fields for other data we want stored in each athlete model
+    public SkiStats Stats { get; set; }
 
 
-
-    public Athlete()
+    public Athlete(int number, string name, SkiStats stats)
     {
-
+        Number = number;
+        Name = name;
+        Stats = stats;
     }
 }
 

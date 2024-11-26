@@ -24,6 +24,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<ISnowReportService, SnowReportService>();
 builder.Services.AddScoped<SnowReportApplicationService>();
 
+
+
 // for email service
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 
