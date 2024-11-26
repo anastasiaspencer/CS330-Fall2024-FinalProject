@@ -7,53 +7,76 @@
 }
 
 <div class="container text-center mt-5">
-    <h1 class="display-3 text-primary">Snow Ski</h1>
+    <h1 class="display-3 text-primary fw-bold">Snow Ski</h1>
     <p class="lead text-secondary">#1 in the SEC</p>
 </div>
 
 <!-- About Us Section -->
 <section class="my-5 bg-light py-4 rounded shadow">
     <div class="container">
-        <h2 class="display-5 text-primary">About Us</h2>
+        @* <h2 class="display-5 text-primary">About Us</h2> *@
         <p class="text-muted">
             Welcome to the Snow Ski Team! We're dedicated to excellence on the slopes and in the classroom. Our team
             has consistently ranked #1 in the SEC, showcasing unparalleled performance and sportsmanship.
         </p>
     </div>
+    <br></br>
+
 </section>
 
- <div class="row">
-    <div id="snow-report1" class="col-md-4 mb-4"></div>
-    <div id="snow-report2" class="col-md-4 mb-4"></div>
-    <div id="snow-report3" class="col-md-4 mb-4"></div>
- </div>
-
-
-<!-- Chat Bot Button -->
-<div class="text-center my-5">
-    <button class="btn btn-lg btn-primary shadow" onclick="goToChatBot()">Chat with Our Team Bot</button>
-</div>
-
-<!-- Divider line -->
-<hr class="my-5">
-
-
-<!-- Team Gallery Section -->
-<section class="my-5">
+<!-- Snow Report Section -->
+<section class="my-5 py-5" style="background-color: #e9f7fe;">
     <div class="container">
-        <h2 class="display-5 text-primary text-center">Team Gallery</h2>
-        <p class="text-secondary text-center mb-4">A glimpse of our incredible journey on and off the slopes.</p>
+        <h2 class="text-primary text-center mb-4">Current Snow Conditions</h2>
+        <br></br>
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded">
+            <div class="col-md-4">
+                <div id="snow-report1" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
+                    <h1>TESTING</h1>
+                </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded">
+            <div class="col-md-4">
+                <div id="snow-report2" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
+                    <h1>TESTING</h1>
+                </div>
             </div>
-            <div class="col-md-4 mb-4">
-                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded">
+            <div class="col-md-4">
+                <div id="snow-report3" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
+                    <h1>TESTING</h1>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+
+
+<!-- Chat Bot Button -->
+<div class="text-center my-5">
+    <button class="btn btn-lg btn-primary shadow px-5" onclick="goToChatBot()">Chat with Our Team Bot</button>
+</div>
+
+<!-- Divider -->
+<hr class="my-4 border-primary">
+
+<!-- Team Gallery Section -->
+<section class="my-5 py-5" style="background-color: #f8f9fa;">
+    <div class="container">
+        <h2 class="display-5 text-primary text-center mb-4">Team Gallery</h2>
+        <p class="text-secondary text-center fs-5">A glimpse of our incredible journey on and off the slopes.</p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-4 mb-4">
+                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Divider -->
+<hr class="my-4 border-primary">
