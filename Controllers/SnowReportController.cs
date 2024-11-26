@@ -16,7 +16,7 @@ public class SnowReportController : Controller
     public async Task<JsonResult> Report(string locationName)
     {
         if (string.IsNullOrEmpty(locationName))
-        {
+        { 
             return Json(new { error = "Location name not given." });
         }
 

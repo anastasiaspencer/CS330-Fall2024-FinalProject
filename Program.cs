@@ -24,9 +24,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddHttpClient<ISnowReportService, SnowReportService>();
 builder.Services.AddScoped<SnowReportApplicationService>();
 
-// builder.Services.AddScoped<IAthleteService, AthleteService>();
-// builder.Services.AddScoped<AthleteApplicationService>();
 
+builder.Services.AddScoped<IAthleteService, AthleteService>();
+builder.Services.AddScoped<AthleteApplicationService>();
 
 
 // for email service
