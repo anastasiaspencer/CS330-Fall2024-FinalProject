@@ -12,10 +12,6 @@ public class SnowReport : Controller
         _applicationService = applicationService;
     }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
 
     public async Task<JsonResult> Report(string locationName){
         if(string.IsNullOrEmpty(locationName))
