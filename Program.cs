@@ -7,12 +7,12 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => 
+builder.Services.AddDefaultIdentity<IdentityUser>(options =>
     {
         options.SignIn.RequireConfirmedAccount = true;
         options.Tokens.EmailConfirmationTokenProvider = "Default";
@@ -23,6 +23,9 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient<ISnowReportService, SnowReportService>();
 builder.Services.AddScoped<SnowReportApplicationService>();
+
+builder.Services.AddScoped<IAthleteService, AthleteService>(); // Register your service
+builder.Services.AddScoped<AthleteApplicationService>();
 
 
 
@@ -38,7 +41,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts(); 
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
@@ -46,7 +49,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication(); 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
