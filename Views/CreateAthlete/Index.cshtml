@@ -1,51 +1,63 @@
 @model CS330_Fall2024_FinalProject.Models.CreateAthleteViewModel
-
 @* -Create New Athlete View -> should only be able to be viewed by coaches or admin or whatever *@
+
 @{
     ViewData["Title"] = "Create Athlete Page";
 }
 
-<div class="container text-center mt-5">
-    <h1 class="display-5 text-primary fw-bold">Create New Athlete</h1>
-    <p class="lead text-secondary mt-3">Add a new athlete to the team **THIS SHOULD ONLY BE VISABLE FOR COACHES/ADMIN**.</p>
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-5 text-primary fw-bold">Create New Athlete</h1>
+        <p class="lead text-secondary">Add a new athlete to the team.</p>
+        <p></p> <strong>DEVELOPMENT NOTE: Visible to Coaches/Admin only. Refer to top comment above in the code</strong> </p>
+    </div>
+
+    <div id="athelete-info-section" class="card shadow-sm mx-auto">
+        <div class="card-body">
+            <h3 id="create-athlete-text1" class="card-title text-center mb-4">Athlete Information</h3>
+
+            <form asp-action="CreateAthlete" method="post">
+                <div class="form-group mb-3">
+                    <label for="Name" class="form-label">Enter the Name:</label>
+                    <input type="text" id="Name" name="Name" class="form-control" required />
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="Number" class="form-label">Enter the Number:</label>
+                    <input type="number" id="Number" name="Number" class="form-control" required />
+                </div>
+
+                <h4 id="create-athlete-ski-stats" class=" mt-4 mb-3">Ski Stats</h4>
+
+                <div class="form-group mb-3">
+                    <label for="BestTime" class="form-label">Best Time:</label>
+                    <input type="number" step="0.01" id="BestTime" name="BestTime" class="form-control" required />
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="TopSpeed" class="form-label">Top Speed:</label>
+                    <input type="number" step="0.01" id="TopSpeed" name="TopSpeed" class="form-control" required />
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="BestDistance" class="form-label">Best Distance:</label>
+                    <input type="number" step="0.01" id="BestDistance" name="BestDistance" class="form-control" required />
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="VerticalDrop" class="form-label">Vertical Drop:</label>
+                    <input type="number" step="0.01" id="VerticalDrop" name="VerticalDrop" class="form-control" required />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="Ranking" class="form-label">Ranking:</label>
+                    <input type="number" step="0.01" id="Ranking" name="Ranking" class="form-control" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Create Athlete</button>
+            </form>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
 </div>
-
-<form asp-action="CreateAthlete" method="post">
-    <div class="form-group">
-        <label for="Name">Enter the Name:</label>
-        <input type="text" id="Name" name="Name" class="form-control" required />
-    </div>
-    
-    <div class="form-group">
-        <label for="Number">Enter the Number:</label>
-        <input type="number" id="Number" name="Number" class="form-control" required />
-    </div>
-
-    <h3>Ski Stats</h3>
-    <div class="form-group">
-        <label for="BestTime">Best Time:</label>
-        <input type="number" step="0.01" id="BestTime" name="BestTime" class="form-control" required />
-    </div>
-    
-    <div class="form-group">
-        <label for="TopSpeed">Top Speed:</label>
-        <input type="number" step="0.01" id="TopSpeed" name="TopSpeed" class="form-control" required />
-    </div>
-    
-    <div class="form-group">
-        <label for="BestDistance">Best Distance:</label>
-        <input type="number" step="0.01" id="BestDistance" name="BestDistance" class="form-control" required />
-    </div>
-    
-    <div class="form-group">
-        <label for="VerticalDrop">Vertical Drop:</label>
-        <input type="number" step="0.01" id="VerticalDrop" name="VerticalDrop" class="form-control" required />
-    </div>
-
-    <div class="form-group">
-        <label for="Ranking">Ranking:</label>
-        <input type="number" step="0.01" id="Ranking" name="Ranking" class="form-control" required />
-    </div>
-
-    <button type="submit" class="btn btn-primary mt-2">Create Athlete</button>
-</form>

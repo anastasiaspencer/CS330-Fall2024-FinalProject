@@ -144,3 +144,18 @@ nav#navbar-section {
 }
 
 
+
+/* athlete creation page */
+#athelete-info-section {
+    max-width: 600px;
+}
+
+
+#create-athlete-ski-stats {
+  color: #1B6EC2;
+}
+
+#create-athlete-text1 {
+  /* color: #00BFA6; */
+  color: #476194;
+}
