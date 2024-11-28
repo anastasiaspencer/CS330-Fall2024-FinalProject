@@ -71,40 +71,38 @@ p.text-muted{
 }
 
 /* home page ; chat bot button styling */
-/* Chat Bot Button Styling */
 .btn-chat {
   position: relative;
-  overflow: hidden; /* Prevents overflow from the gradient animation */
-  border: 2px solid #1b6ec2; /* Matches Bootstrap primary color */
-  border-radius: 0.75rem; /* Rounded corners for modern design */
-  background-color: #1b6ec2; /* Primary color */
-  color: #fff; /* White text */
-  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+  overflow: hidden; 
+  border: 2px solid #1b6ec2; 
+  border-radius: 0.75rem; 
+  background-color: #1b6ec2; 
+  color: #fff; 
+  transition: all 0.3s ease-in-out; 
 }
 
 .btn-chat::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%; /* Start off-screen */
-  width: 200%; /* Wide enough for a diagonal gradient effect */
+  left: -100%; 
+  width: 200%; 
   height: 100%;
   background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent);
-  transform: skewX(-30deg); /* Creates a slanted effect */
+  transform: skewX(-30deg); 
   transition: all 0.4s ease-in-out;
 }
 
 .btn-chat:hover::before {
-  left: 100%; /* Slide gradient across the button */
+  left: 100%; 
 }
 
 .btn-chat:hover {
-  background-color: #fff; /* Button changes to white */
-  color: #1b6ec2; /* Text changes to primary color */
-  border-color: #1b6ec2; /* Keeps the primary border color */
+  background-color: #fff; 
+  color: #1b6ec2; 
+  border-color: #1b6ec2; 
 }
 
-/* Ensures text is centered and consistent */
 .btn-chat:hover .btn-label {
   color: inherit;
 }
