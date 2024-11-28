@@ -2,101 +2,115 @@
     ViewData["Title"] = "Snow Ski Team Home Page";
 }
 
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 @section Scripts {
     <script src="~/js/snowReport.js"></script>
+    <script src="~/js/homepageSnowParticles.js"></script>
 }
 
-<div class="container text-center mt-5">
-    <h1 class="display-5 text-primary fw-bold">Snow Ski</h1>
-    <p class="lead text-secondary">#1 in the SEC</p>
-</div>
-
-<!-- About Us Section -->
-<section class="my-5 bg-light py-4 rounded shadow">
-    <div class="container text-center">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <p class="text-muted">
-                    Welcome to the Snow Ski Team! We're dedicated to excellence on the slopes and in the classroom. Our team
-                    has consistently ranked #1 in the SEC, showcasing unparalleled performance and sportsmanship.
-                </p>
-            </div>
-            <div class="col-md-6">
-                <img id="homepage-snowglobe-svg" src="~/Images/homepage-snowglobe.svg" alt="Snow Globe" class="img-fluid" >
-            </div>
-        </div>
+<body id="homepage-section">
+    <div class="container text-center mt-5">
+        <h1 class="display-5 text-primary fw-bold">Snow Ski</h1>
+        <p class="lead text-secondary">#1 in the SEC</p>
     </div>
-</section>
+
+    <div id="snow-particles"></div>
 
 
-<!-- Snow Report Section -->
-<section id="snow-report-section" class="my-5 py-5" >
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 text-center ">
-                <img id="homepage-weather-svg" src="~/Images/homepage-weather.svg" alt="Snow Globe" class="img-fluid mt-5" >
-            </div>
-
-            <div class="col-md-6">
-                <h2 class="text-primary mb-4 ms-0">Current Snow Conditions</h2>
-                <p class="text-secondary fs-5 text-wrap">Stay updated with the latest snow conditions</p>
-                <p class="text-secondary fs-5 text-wrap">for your favorite slopes.</p>
-            </div>
-        </div>
-        
-        <br><br>
-
-        <!-- Snow Report Cards -->
-        <div class="row mt-5">
-            <div class="col-md-4">
-                <div id="snow-report1" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
-                    <h1>Loading . . .</h1>
+    <!-- About Us Section -->
+    <div id="about-us-section" class="position-relative">
+        <div id="snow-particles"></div>
+        <section class="my-5 bg-light py-4 rounded shadow">
+            <div id="about-us-container-section" class="container text-center position-relative">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="text-muted">
+                            Welcome to the Snow Ski Team! We're dedicated to excellence on the slopes and in the classroom. Our team
+                            has consistently ranked #1 in the SEC, showcasing unparalleled performance and sportsmanship.
+                        </p>
+                    </div>
+                    <div class="col-md-6">
+                        <img id="homepage-snowglobe-svg" src="~/Images/homepage-snowglobe.svg" alt="Snow Globe" class="img-fluid">
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div id="snow-report2" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
-                    <h1>Loading . . .</h1>
+        </section>
+    </div>
+
+
+
+    <!-- Snow Report Section -->
+    <section id="snow-report-section" class="my-5 py-5" >
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center ">
+                    <img id="homepage-weather-svg" src="~/Images/homepage-weather.svg" alt="Snow Globe" class="img-fluid mt-5" >
+                </div>
+
+                <div class="col-md-6">
+                    <h2 class="text-primary mb-4 ms-0">Current Snow Conditions</h2>
+                    <p class="text-secondary fs-5 text-wrap">Stay updated with the latest snow conditions</p>
+                    <p class="text-secondary fs-5 text-wrap">for your favorite slopes.</p>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div id="snow-report3" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
-                    <h1>Loading . . .</h1>
+            
+            <br><br>
+
+            <!-- Snow Report Cards -->
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div id="snow-report1" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
+                        <h1>Loading . . .</h1>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="snow-report2" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
+                        <h1>Loading . . .</h1>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="snow-report3" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
+                        <h1>Loading . . .</h1>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
+
+
+    <!-- Chat Bot Button -->
+    <div class="text-center my-5">
+        <button class="btn btn-primary btn-chat shadow-lg px-5 py-3" onclick="goToChatBot()">
+            Chat with Our Team Bot
+        </button>
     </div>
-</section>
 
 
-<!-- Chat Bot Button -->
-<div class="text-center my-5">
-    <button class="btn btn-primary btn-chat shadow-lg px-5 py-3" onclick="goToChatBot()">
-        Chat with Our Team Bot
-    </button>
-</div>
+    <!-- Divider -->
+    <hr class="my-4 border-primary">
 
-
-<!-- Divider -->
-<hr class="my-4 border-primary">
-
-<!-- Team Gallery Section -->
-<section id="team-gallery-section" class="my-5 py-5">
-    <div class="container">
-        <h2 class="display-5 text-primary text-center mb-4">Team Gallery</h2>
-        <p class="text-secondary text-center fs-5">A glimpse of our incredible journey on and off the slopes.</p>
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
-            </div>
-            <div class="col-md-4 mb-4">
-                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
-            </div>
-            <div class="col-md-4 mb-4">
-                <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
+    <!-- Team Gallery Section -->
+    <section id="team-gallery-section" class="my-5 py-5">
+        <div class="container">
+            <h2 class="display-5 text-primary text-center mb-4">Team Gallery</h2>
+            <p class="text-secondary text-center fs-5">A glimpse of our incredible journey on and off the slopes.</p>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="~/Images/images.jpeg" alt="Ski Photo" class="img-fluid rounded shadow-sm">
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Divider -->
-<hr class="my-4 border-primary">
+    <!-- Divider -->
+    <hr class="my-4 border-primary">
+
+</body>
+    

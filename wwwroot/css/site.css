@@ -19,6 +19,7 @@ html {
 
 body {
   margin-bottom: 60px;
+
 }
 
 h1, h2{
@@ -48,9 +49,6 @@ p.text-muted{
 }
 
 
-
-
-
 /* snow report .js file's location name css styling */
 #snowReport-locationName {
     color: #6A7FF3;
@@ -58,7 +56,38 @@ p.text-muted{
 
 
 
-/* hoem page */
+/* home page */
+
+#homepage-section {
+  /* background-color: #E6E6E6; */
+  background-color: #CCD7DE;
+
+}
+
+/* home page snow particle effect styling */
+#snow-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+#about-us-section {
+  position: relative;
+  overflow: hidden; 
+}
+
+#about-us-container-section {
+  z-index: 2;
+
+}
+
+
+
 /* home page index.cshtml file; sthe 3 snow report div's background color (grayish) */
 #snow-report1, #snow-report2, #snow-report3  {
     background-color: #F2F2F3;
@@ -159,3 +188,5 @@ nav#navbar-section {
   /* color: #00BFA6; */
   color: #476194;
 }
+
+
