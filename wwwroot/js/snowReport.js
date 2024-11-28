@@ -20,12 +20,16 @@ async function fetchSnowReport(resortName, num) {
             // Update the page with the report
             const snowReportDiv = document.getElementById("snow-report" + num);
             snowReportDiv.innerHTML = `
-                        <h3>Snow Report for ${report.locationName}</h3>
-                        <p>Temperature: ${report.temperature} °C</p>
-                        <p>Description: ${report.weatherDescription}</p>
-                        <p>Pressure: ${report.pressure} hPa </p>
-                        <p>Humidity: ${report.humidity} % </p>
-                    `;
+                <div class="card-body text-center">
+                    <h4 id="snowReport-locationName">${report.locationName}</h4>
+                    <hr class="border-primary">
+                    <p class="fs-7"><strong>Temperature:</strong> ${report.temperature} °C</p>
+                    <p class="fs-7"><strong>Description:</strong> ${report.weatherDescription}</p>
+                    <p class="fs-7"><strong>Pressure:</strong> ${report.pressure} hPa</p>
+                    <p class="fs-7"><strong>Humidity:</strong> ${report.humidity} %</p>
+                </div>
+            `;
+
         } else {
             alert("Failed to get report");
         }

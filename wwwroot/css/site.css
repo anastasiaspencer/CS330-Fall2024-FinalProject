@@ -48,3 +48,101 @@ p.text-muted{
 }
 
 
+
+
+
+/* snow report .js file's location name css styling */
+#snowReport-locationName {
+    color: #6A7FF3;
+}
+
+
+
+/* hoem page */
+/* home page index.cshtml file; sthe 3 snow report div's background color (grayish) */
+#snow-report1, #snow-report2, #snow-report3  {
+    background-color: #F2F2F3;
+}
+
+/* home page snow globe svg styling */
+#homepage-snowglobe-svg {
+    max-width: 80%;
+    height: auto;
+}
+
+/* home page ; chat bot button styling */
+/* Chat Bot Button Styling */
+.btn-chat {
+  position: relative;
+  overflow: hidden; /* Prevents overflow from the gradient animation */
+  border: 2px solid #1b6ec2; /* Matches Bootstrap primary color */
+  border-radius: 0.75rem; /* Rounded corners for modern design */
+  background-color: #1b6ec2; /* Primary color */
+  color: #fff; /* White text */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.btn-chat::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* Start off-screen */
+  width: 200%; /* Wide enough for a diagonal gradient effect */
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-30deg); /* Creates a slanted effect */
+  transition: all 0.4s ease-in-out;
+}
+
+.btn-chat:hover::before {
+  left: 100%; /* Slide gradient across the button */
+}
+
+.btn-chat:hover {
+  background-color: #fff; /* Button changes to white */
+  color: #1b6ec2; /* Text changes to primary color */
+  border-color: #1b6ec2; /* Keeps the primary border color */
+}
+
+/* Ensures text is centered and consistent */
+.btn-chat:hover .btn-label {
+  color: inherit;
+}
+
+
+
+
+/* snow report section */
+#snow-report-section {
+    background-color: #e9f7fe;
+}
+
+/* snow report section; weather svg icon styling*/
+#homepage-weather-svg {
+    max-width: 80%;
+    height: auto;
+}
+
+
+/* team gallery section */
+#team-gallery-section {
+    background-color: #f8f9fa;
+}
+
+
+
+/* navbar styling */
+nav#navbar-section {
+  background-color: #D1DFEC !important;
+}
+
+
+/* stats page */
+
+/* the two svgs on stats page styling */
+#statspage-charts-svg, #statspage-charts2-svg {
+    max-width: 50%;
+    height: auto;
+}
+
+

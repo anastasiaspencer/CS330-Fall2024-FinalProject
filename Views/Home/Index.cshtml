@@ -7,42 +7,59 @@
 }
 
 <div class="container text-center mt-5">
-    <h1 class="display-3 text-primary fw-bold">Snow Ski</h1>
+    <h1 class="display-5 text-primary fw-bold">Snow Ski</h1>
     <p class="lead text-secondary">#1 in the SEC</p>
 </div>
 
 <!-- About Us Section -->
 <section class="my-5 bg-light py-4 rounded shadow">
-    <div class="container">
-        @* <h2 class="display-5 text-primary">About Us</h2> *@
-        <p class="text-muted">
-            Welcome to the Snow Ski Team! We're dedicated to excellence on the slopes and in the classroom. Our team
-            has consistently ranked #1 in the SEC, showcasing unparalleled performance and sportsmanship.
-        </p>
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <p class="text-muted">
+                    Welcome to the Snow Ski Team! We're dedicated to excellence on the slopes and in the classroom. Our team
+                    has consistently ranked #1 in the SEC, showcasing unparalleled performance and sportsmanship.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img id="homepage-snowglobe-svg" src="~/Images/homepage-snowglobe.svg" alt="Snow Globe" class="img-fluid" >
+            </div>
+        </div>
     </div>
-    <br></br>
-
 </section>
 
+
 <!-- Snow Report Section -->
-<section class="my-5 py-5" style="background-color: #e9f7fe;">
+<section id="snow-report-section" class="my-5 py-5" >
     <div class="container">
-        <h2 class="text-primary text-center mb-4">Current Snow Conditions</h2>
-        <br></br>
-        <div class="row">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center ">
+                <img id="homepage-weather-svg" src="~/Images/homepage-weather.svg" alt="Snow Globe" class="img-fluid mt-5" >
+            </div>
+
+            <div class="col-md-6">
+                <h2 class="text-primary mb-4">Current Snow Conditions</h2>
+                <p class="text-secondary fs-5 text-wrap">Stay updated with the latest snow conditions for your favorite slopes.</p>
+            </div>
+        </div>
+        
+        <br><br>
+
+        <!-- Snow Report Cards -->
+        <div class="row mt-5">
             <div class="col-md-4">
                 <div id="snow-report1" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
-                    <h1>TESTING</h1>
+                    <h1>Loading . . .</h1>
                 </div>
             </div>
             <div class="col-md-4">
                 <div id="snow-report2" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
-                    <h1>TESTING</h1>
+                    <h1>Loading . . .</h1>
                 </div>
             </div>
             <div class="col-md-4">
                 <div id="snow-report3" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
-                    <h1>TESTING</h1>
+                    <h1>Loading . . .</h1>
                 </div>
             </div>
         </div>
@@ -51,16 +68,25 @@
 
 
 
-<!-- Chat Bot Button -->
+
+@* <!-- Chat Bot Button -->
 <div class="text-center my-5">
     <button class="btn btn-lg btn-primary shadow px-5" onclick="goToChatBot()">Chat with Our Team Bot</button>
+</div> *@
+
+<!-- Chat Bot Button -->
+<div class="text-center my-5">
+    <button class="btn btn-primary btn-chat shadow-lg px-5 py-3" onclick="goToChatBot()">
+        Chat with Our Team Bot
+    </button>
 </div>
+
 
 <!-- Divider -->
 <hr class="my-4 border-primary">
 
 <!-- Team Gallery Section -->
-<section class="my-5 py-5" style="background-color: #f8f9fa;">
+<section id="team-gallery-section" class="my-5 py-5">
     <div class="container">
         <h2 class="display-5 text-primary text-center mb-4">Team Gallery</h2>
         <p class="text-secondary text-center fs-5">A glimpse of our incredible journey on and off the slopes.</p>
