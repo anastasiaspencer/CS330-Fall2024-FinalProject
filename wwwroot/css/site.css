@@ -57,6 +57,8 @@ p.text-muted{
 
 
 
+
+
 /* snow report .js file's location name css styling */
 #snowReport-locationName {
     color: #6A7FF3;
@@ -115,7 +117,7 @@ p.text-muted{
   color:#555;
 } */
 
-/* home page ; chat bot button styling */
+/* home page ; chat bot button styling; these .btn stuff aren't in use. using chat-bot ones instead just below this section */
 .btn-chat {
   position: relative;
   overflow: hidden; 
@@ -127,6 +129,7 @@ p.text-muted{
   color:#555;
   transition: all 0.3s ease-in-out; 
 }
+
 
 .btn-chat::before {
   content: "";
@@ -155,6 +158,32 @@ p.text-muted{
   color: inherit;
 }
 
+/* the actually in use styling for the chat bot from layout cshtml*/
+#chat-bot-button {
+  position: fixed;
+  bottom: 20px; 
+  right: 20px; 
+  background-color: #7C8BDE;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  z-index: 1000; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+#chat-bot-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+#chat-bot-button img {
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
 
 
 /* snow report section */
@@ -207,5 +236,4 @@ nav#navbar-section {
   /* color: #00BFA6; */
   color: #476194;
 }
-
 

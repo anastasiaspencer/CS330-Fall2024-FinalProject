@@ -10,7 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CS330_Fall2024_FinalProject.styles.css" asp-append-version="true" />
+    
 </head>
+
 
 <body>
     <header>
@@ -50,11 +52,17 @@
         </nav>
     </header>
 
-    <div class="container min-vh-100 d-flex flex-column">
-        <main role="main" class="pb-3 flex-grow-1">
+    <div class="container min-vh-100 d-flex flex-column positive-relative">
+        <main role="main" class="pb- flex-grow-1">
             @RenderBody()
         </main>
     </div>
+
+    <!-- Chat Bot Button on bottom right  -->
+    <button id="chat-bot-button" class="btn2 btn-primary btn2-chat shadow-lg d-flex align-items-center justify-content-center" onclick="goToChatBot()">
+        <img src="~/Images/chatbot-icon.svg" alt="ChatBot Icon" style="width: 24px; height: 24px;" />
+    </button>
+
 
     <footer id="footer-section" class="border-top footer text-muted text-center mt-auto">
         <div class="container">
