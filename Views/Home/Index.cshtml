@@ -11,7 +11,7 @@
 
 <body id="homepage-section">
     <div class="container text-center mt-5">
-        <h1 class="display-5 text-primary fw-bold">Snow Ski</h1>
+        <h1 class="display-6 text-primary fw-bold">Snow Ski</h1>
         <p class="lead text-secondary">#1 in the SEC</p>
     </div>
 
@@ -50,16 +50,18 @@
 
                 <div class="col-md-6">
                     <h2 class="text-primary mb-4 ms-0">Current Snow Conditions</h2>
-                    <p class="text-secondary fs-5 text-wrap">Stay updated with the latest snow conditions</p>
-                    <p class="text-secondary fs-5 text-wrap">for your favorite slopes.</p>
+                    <p class="text-secondary fs-6 text-wrap">Stay updated with the latest snow conditions</p>
+                    <p class="text-secondary fs-6 text-wrap">for your favorite slopes.</p>
                 </div>
             </div>
             
             <br><br>
 
             <!-- Snow Report Cards -->
+            <!-- for reference, reference to wwwroot/js/snowReport.js (try block)  -->
             <div class="row mt-5">
                 <div class="col-md-4">
+                    <!-- for reference, the background color for these divs for the 3 reports/locations are in site.css, about-us-section the id'script and search  -->
                     <div id="snow-report1" class="card snow-card border border-2 border-black rounded-3 shadow-sm p-3 h-100">
                         <h1>Loading . . .</h1>
                     </div>
@@ -79,9 +81,9 @@
     </section>
 
 
-    <!-- Chat Bot Button -->
+    <!-- Chat Bot Button; styling is in wwwroot/css/site.css under .btn-chat (NOT #chat-bot-button) -->
     <div class="text-center my-5">
-        <button class="btn btn-primary btn-chat shadow-lg px-5 py-3" onclick="goToChatBot()">
+        <button id="chat-bot-button" class="btn btn-primary btn-chat shadow-lg px-5 py-3" onclick="goToChatBot()">
             Chat with Our Team Bot
         </button>
     </div>

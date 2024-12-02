@@ -19,6 +19,9 @@ html {
 
 body {
   margin-bottom: 60px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  padding: 0;
 
 }
 
@@ -47,6 +50,11 @@ p.text-muted{
 .mt-10 {
   margin-top: 6rem; 
 }
+/* text-color for the schedule page (games, practices, events) & stats page texts as well */
+#schedule-page-section-titles-1, #schedule-page-section-titles-2, #schedule-page-section-titles-3, #stats-page-section-titles-1, #stats-page-section-titles-2, #stats-page-section-titles-3 {
+  color: #454856; 
+}
+
 
 
 /* snow report .js file's location name css styling */
@@ -90,7 +98,9 @@ p.text-muted{
 
 /* home page index.cshtml file; sthe 3 snow report div's background color (grayish) */
 #snow-report1, #snow-report2, #snow-report3  {
-    background-color: #F2F2F3;
+    /* background-color: #F2F2F3; */
+    background-color: #EFEFEF;
+
 }
 
 /* home page snow globe svg styling */
@@ -99,14 +109,22 @@ p.text-muted{
     height: auto;
 }
 
+/* chat bot button styling */
+/* #chat-bot-button {
+  background-color: #ffffff;
+  color:#555;
+} */
+
 /* home page ; chat bot button styling */
 .btn-chat {
   position: relative;
   overflow: hidden; 
-  border: 2px solid #1b6ec2; 
+  /* border: 2px solid #1b6ec2;  */
   border-radius: 0.75rem; 
-  background-color: #1b6ec2; 
-  color: #fff; 
+  /* background-color: #1b6ec2;  */
+  background-color: #ffffff;
+  /* color: #fff;  */
+  color:#555;
   transition: all 0.3s ease-in-out; 
 }
 
@@ -122,20 +140,20 @@ p.text-muted{
   transition: all 0.4s ease-in-out;
 }
 
+
 .btn-chat:hover::before {
   left: 100%; 
 }
 
 .btn-chat:hover {
   background-color: #fff; 
-  color: #1b6ec2; 
+  background-color: #1b6ec2; 
   border-color: #1b6ec2; 
 }
 
 .btn-chat:hover .btn-label {
   color: inherit;
 }
-
 
 
 
@@ -152,10 +170,11 @@ p.text-muted{
 
 
 /* team gallery section */
+/* for now decided to just use the background of home page section, instead of giving team gallery its own background color */
 #team-gallery-section {
-    background-color: #f8f9fa;
+    /* background-color: #f8f9fa; */
+    background-color: #CCD7DE; 
 }
-
 
 
 /* navbar styling */

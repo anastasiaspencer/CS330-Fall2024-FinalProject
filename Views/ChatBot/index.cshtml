@@ -7,43 +7,42 @@
     <script src="/wwwroot/js/site.js"></script>
 
 </head>
+@* <div class="container text-center mt-5">
+        <h1 class="display-5 text-primary fw-bold">Snow Ski</h1>
+        <p class="lead text-secondary">#1 in the SEC</p>
+    </div> *@
 <body>
+    <div class="container text-center my-5">
+        <h1 class="display-6 text-primary fw-bold" id="Title"> Ski Bot </h1> <!-- our chat bot -->
+        <p class="lead text-secondary"> Type a prompt to our Ski Bot! </p>
 
-
-    <div>
-        <h1 id="Title"> Chat Bot </h1>
         <br /> <br />
-
-        @if (Model == null)
-            {
-        <form asp-action="GenerateResponse" method="post">
-            <div class="form-group">
-                <label for="userPrompt">Enter your prompt:</label>
-                <input type="text" id="userPrompt" name="userPrompt" class="form-control" required />
-            </div>
-            <button type="submit" class="btn btn-primary mt-2">Send to ChatBot</button>
-        </form>
-            }
-            else
-            {
-
-        @if (Model != null && Model.response.Any())
-            {
-            <div class="mt-3">
-                <h3>ChatBot Responses:</h3>
-                <ul>
-                    @foreach (var response in Model.response)
-                    {
-                        <li>@response</li>
+        @if (Model == null) {
+            <form asp-action="GenerateResponse" method="post">
+                <div class="form-group">
+                    @* <label for="userPrompt">Enter your prompt:</label> *@
+                    <input type="text" id="userPrompt" name="userPrompt" class="form-control" required placeholder="Enter your prompt:"/>
+                    <br />
+                </div>
+                <button type="submit" class="btn btn-primary mt-2">Send to ChatBot</button>
+            
+            </form>
+        }
+        else {
+            @if (Model != null && Model.response.Any()) {
+                <div class="mt-3">
+                    <h3>ChatBot Responses:</h3>
+                    <ul>
+                        @foreach (var response in Model.response) {
+                            <li>@response</li>
                         }
-                </ul>
-            </div>
+                    </ul>
+                </div>
+            } else
+                { <p id="Summary"> it was empty or something . </p>}
             }
-            else
-            { <p id="Summary"> it was empty or something . </p>}
-            }
+        <br />
         <p id="Summary"> Input chat bot request. </p>
-
     </div>
 </body>
 
