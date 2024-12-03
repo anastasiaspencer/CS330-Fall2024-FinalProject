@@ -13,11 +13,11 @@ public class Athlete
     public string SkiLevel { get; set; }
     //Add fields for other data we want stored in each athlete model
     public SkiStats Stats { get; set; }
-    public DateTime Birthday { get; set; }
+    public DateTime Birthday { get; set; } 
 
     public byte[] ProfilePicture { get; set; }
 
-    public Athlete() { } //paramaterless constructor that EF Core Expects
+    public Athlete(int number) { } //paramaterless constructor that EF Core Expects
     public Athlete(int number, string name, SkiStats stats, string skilevel, DateTime birthday, byte[] profilePicture)
     {
         Number = number;

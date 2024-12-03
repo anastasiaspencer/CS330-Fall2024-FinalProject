@@ -11,7 +11,7 @@ public class CreateAthleteViewModel
      public int Number { get; set; }
     public string? SkiLevel { get; set; } = null;
     public byte[]? ProfilePicture { get; set; } = null;
-    public DateTime Birthday { get; set; }
+    public DateTime Birthday { get; set; } 
     public double BestTime { get; set; }
     public double TopSpeed { get; set; }
     public double BestDistance { get; set; }
