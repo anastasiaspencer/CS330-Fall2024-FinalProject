@@ -122,7 +122,7 @@ public async Task<IActionResult> GenerateResponse(string userPrompt)
     var chatBot = new ChatBot { response = new List<string>() };
 
     var prompt = $"'{userPrompt}'.";
-    var introductoryMessage = "Hi! How can I help you today? - Ski Bot ";
+    var introductoryMessage = "Hi! Welcome to Ski Bot, a helpful tool for all users!\n";
 
     // Prepare request body
     var requestBody = new

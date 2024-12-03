@@ -36,7 +36,9 @@
             @if (Model != null && Model.response.Any()) {
                 <div class="mt-3">
                     @foreach (var response in Model.response) {
-                        @response
+                        @* @response *@
+                        <p>@Html.Raw(response.Replace("\n", "<br>"))</p>
+
                     }
                 </div>
             } else
