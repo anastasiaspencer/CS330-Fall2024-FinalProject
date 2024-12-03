@@ -23,7 +23,7 @@ public class AthleteApplicationService
         model.VerticalDrop,
         model.Ranking
     );
-    var athlete = new Athlete(model.Number, model.Name, skiStats, model.SkiLevel, model.Birthday, model.ProfilePicture);
+    var athlete = new Athlete(model.Number, model.Name, skiStats, model.SkiLevel, model.Birthday); //model.ProfilePicture
 
     
     await _athleteService.AddAsync(athlete);
