@@ -44,14 +44,7 @@
                             <td>
                                 <button class="btn btn-primary btn-sm">See Athlete Stats</button>
                                 
-                            </td>
-                            <td>
-                            <form asp-action="DeleteAthlete" method="post">
-                                <input type="hidden" name="id" value="@athlete.Id">
-                                <button type="submit" class="btn btn-primary btn-sm">Delete Athlete</button>
-                                </form>
-                            </td>
-                            
+                            </td>         
                             <td> 
                                 <form asp-action="DeleteAthlete" method="post">
                                 <input type="hidden" name="id" value="@athlete.Id">
