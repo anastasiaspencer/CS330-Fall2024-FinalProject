@@ -1,6 +1,7 @@
 using CS330_Fall2024_FinalProject.Data;
 using CS330_Fall2024_FinalProject.Models;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using SQLitePCL;
 //Part that actually talks to the database -> implementation of IAthleteService interface
 public class AthleteService : IAthleteService
@@ -14,6 +15,9 @@ public class AthleteService : IAthleteService
 
     public async Task AddAsync(Athlete athlete)
     {
+        Console.WriteLine($"Athlete: {JsonConvert.SerializeObject(athlete)}");
+
+        Console.WriteLine("-------********------------------------------", athlete.SkiLevel);
         await _context.Set<Athlete>().AddAsync(athlete);
         await _context.SaveChangesAsync();
     }
