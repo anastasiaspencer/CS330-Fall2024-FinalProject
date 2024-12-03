@@ -1,6 +1,7 @@
 using CS330_Fall2024_FinalProject.Controllers;
 using CS330_Fall2024_FinalProject.Data;
 using CS330_Fall2024_FinalProject.Models;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 //Provides connection between the domain and presentation layer, coordinates flow of data
 public class AthleteApplicationService
 {
@@ -13,6 +14,7 @@ public class AthleteApplicationService
 
   public async Task AddAthleteAsync(CreateAthleteViewModel model)
 {
+   
     // Map the ViewModel to domain models
     var skiStats = new SkiStats(
         model.BestTime,
@@ -21,8 +23,7 @@ public class AthleteApplicationService
         model.VerticalDrop,
         model.Ranking
     );
-
-    var athlete = new Athlete(model.Number, model.Name, skiStats);
+    var athlete = new Athlete(model.Number, model.Name, skiStats, model.SkiLevel, model.Birthday, model.ProfilePicture);
 
     
     await _athleteService.AddAsync(athlete);

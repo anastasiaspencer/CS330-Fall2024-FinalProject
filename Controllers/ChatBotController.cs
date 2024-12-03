@@ -16,8 +16,8 @@ namespace Fall2024_Assignment3_akspencer1.Controllers
         private readonly ApplicationDbContext _context; //Represents the session with the database and is used to
         //interact with the data
 
-        private readonly string apiUrl = "https://fall2024-assignment3-json10-openai.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-08-01-preview";
-        private readonly string apiKey = "01837e74cf2a4eb08a3291b1a3732c34";
+        private readonly string apiUrl = "https://fall2024-akspencer1-openai.openai.azure.com/";
+        private readonly string apiKey = "621a53b06eaa453396b06be276cbc4e4";
         private readonly ILogger<ChatBotController> _logger;
 
 
@@ -88,26 +88,26 @@ namespace Fall2024_Assignment3_akspencer1.Controllers
                                                             .ToList();
                                 chatBot.response = answer;
                             }
-                           // _logger.LogError("An error occurred while generating reviews for movie: {MovieTitle}", movieReviews.MovieTitle);
+                            // _logger.LogError("An error occurred while generating reviews for movie: {MovieTitle}", movieReviews.MovieTitle);
                         }
                         else
                         {
-                          //  _logger.LogError("There were items returned", movieReviews.MovieTitle);
+                            //  _logger.LogError("There were items returned", movieReviews.MovieTitle);
                         }
 
                     }
                 }
-                
+
                 return View("Index", chatBot);
             }
             catch (Exception ex)
             {
-               //_logger.LogError(ex, "An error occurred while generating reviews for movie: {MovieTitle}", movieReviews.MovieTitle);
+                //_logger.LogError(ex, "An error occurred while generating reviews for movie: {MovieTitle}", movieReviews.MovieTitle);
                 throw; // Re-throw if you want to handle it further up the pipeline
             }
 
-            
-           
+
+
         }
     }
 }
