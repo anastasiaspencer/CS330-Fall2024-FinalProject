@@ -29,4 +29,11 @@ public class RosterController : Controller
         return View(rosterViewModel);
   
     }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteAthlete(string id){
+        await _applicationService.DeleteAthleteAsync(id);
+        return RedirectToAction("Index");
+    }
+
 }

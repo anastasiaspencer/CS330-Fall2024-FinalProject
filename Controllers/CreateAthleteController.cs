@@ -34,4 +34,6 @@ public class CreateAthleteController : Controller
     // for if validaiton fails
     return View(model);
     }
+
+    
 }

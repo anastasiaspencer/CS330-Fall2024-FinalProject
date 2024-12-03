@@ -28,7 +28,9 @@ public class AthleteApplicationService
     await _athleteService.AddAsync(athlete);
 }
 
-
+    public async Task DeleteAthleteAsync(string id){
+        await _athleteService.DeleteAsync(id);
+    }
 
     // public async Task<Athlete> GetAthleteByNumberAsync(int number) //just an idea of something we migt want to implement
     // {

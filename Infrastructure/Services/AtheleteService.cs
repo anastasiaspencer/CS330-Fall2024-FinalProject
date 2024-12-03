@@ -1,6 +1,7 @@
 using CS330_Fall2024_FinalProject.Data;
 using CS330_Fall2024_FinalProject.Models;
 using Microsoft.EntityFrameworkCore;
+using SQLitePCL;
 //Part that actually talks to the database -> implementation of IAthleteService interface
 public class AthleteService : IAthleteService
 {
@@ -17,14 +18,22 @@ public class AthleteService : IAthleteService
         await _context.SaveChangesAsync();
     }
 
-    // public async Task<Athlete> GetByIdAsync(int number) //IMPLEMENT THIS
+    // public async Task<Athlete> GetByIdAsync(string name) //IMPLEMENT THIS
     // {
-    //     return await _context.Set<Athlete>().FirstOrDefaultAsync(a => a.Number == number);
+    //     return await _context.Set<Athlete>().FirstOrDefaultAsync(a => a.Name == name);
     // }
 
     public async Task<List<Athlete>> GetAllAsync() //gets all athletes in teh database
     {
         return await _context.Set<Athlete>().ToListAsync();
+    }
+
+    public async Task DeleteAsync(string id){
+        var athlete = _context.Set<Athlete>().FirstOrDefaultAsync(a => a.Name == id);
+        _context.Remove(athlete);
+    
+      
+        await _context.SaveChangesAsync();
     }
 }
 
