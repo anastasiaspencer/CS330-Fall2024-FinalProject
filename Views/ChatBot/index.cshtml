@@ -1,20 +1,23 @@
-﻿
+﻿@{
+    Layout = "~/Views/ChatBot/chatbot_Layout.cshtml";
+}
+
 @model CS330_Fall2024_FinalProject.Models.ChatBot
 <head>
     <meta charset="utf-8" />
     <title></title>
-    @* <link rel="stylesheet" href="/wwwroot/css/site.css"> *@
-    @* <script src="/wwwroot/js/site.js"></script> *@
 
 </head>
 @* <div class="container text-center mt-5">
         <h1 class="display-5 text-primary fw-bold">Snow Ski</h1>
         <p class="lead text-secondary">#1 in the SEC</p>
     </div> *@
+
 <body>
-    <div class="container text-center my-5">
+    <div class="container text-center my-5 border-1">
         <h1 class="display-6 text-primary fw-bold" id="Title"> Ski Bot </h1> <!-- our chat bot -->
         <p class="lead text-secondary"> Type a prompt to our Ski Bot! </p>
+        <hr>
 
         <br /> <br />
         @if (Model == null) {
