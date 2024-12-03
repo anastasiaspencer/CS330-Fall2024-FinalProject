@@ -21,10 +21,14 @@
             <form asp-action="GenerateResponse" method="post">
                 <div class="form-group">
                     @* <label for="userPrompt">Enter your prompt:</label> *@
-                    <input type="text" id="userPrompt" name="userPrompt" class="form-control" required placeholder="Enter your prompt:"/>
-                    <br />
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <input type="text" id="userPrompt" name="userPrompt" class="form-control" required placeholder="Enter your prompt:" />
+                            <br><br>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-2">Send to ChatBot</button>
+                <button type="submit" class="btn btn-primary mt-2">Submit</button>
             
             </form>
         }
