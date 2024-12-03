@@ -29,11 +29,22 @@ public class AthleteService : IAthleteService
     }
 
     public async Task DeleteAsync(int id){
-        var athlete = _context.Athletes.Find(id);
-        _context.Athletes.Remove(athlete);
+        // var athlete = _context.Athletes.Find(id);
+        // _context.Athletes.Remove(athlete);
     
       
-        await _context.SaveChangesAsync();
+        // await _context.SaveChangesAsync();
+
+        var athlete = await _context.Athletes.FindAsync(id); 
+        if (athlete != null) 
+        {
+            _context.Athletes.Remove(athlete);
+            await _context.SaveChangesAsync();
+        }
+        else
+        {
+            throw new InvalidOperationException($"Athlete with ID {id} not found.");
+        }
     }
 }
 

@@ -1,7 +1,7 @@
 namespace CS330_Fall2024_FinalProject.Models;
 public class CreateAthleteViewModel
 {
-    public string Name { get; set; }
+    public required string Name { get; set; }
     public int Id { get; set; }
     public int Number { get; set; }
     public double BestTime { get; set; }

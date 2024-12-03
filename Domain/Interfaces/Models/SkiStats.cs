@@ -1,5 +1,5 @@
 public class SkiStats{
-     public int Id { get; set; }  // This is the primary key
+    public int Id { get; set; }  // This is the primary key
     public double BestTime { get; set; } 
     public double TopSpeed { get; set; } 
     public double BestDistance { get; set; }
