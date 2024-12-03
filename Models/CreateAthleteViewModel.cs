@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations;
 namespace CS330_Fall2024_FinalProject.Models;
 public class CreateAthleteViewModel
 {
-    [Required]
-    public string Name { get; set; }
+    public required string Name { get; set; }
     public int Id { get; set; }
     
      [Required]

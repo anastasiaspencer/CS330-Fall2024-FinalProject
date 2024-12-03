@@ -51,37 +51,66 @@ public class SnowReportService : ISnowReportService
 
         if(response.IsSuccessStatusCode){
             var data = await response.Content.ReadFromJsonAsync<SnowReportResponseDto>();
-             Console.WriteLine("Forecast Data: " + JsonConvert.SerializeObject(data.List));
-        
-            // check if data is returned
-            if(data.List == null || !data.List.Any()){
-                return new SnowReportModel
-                {
+            // if data is not null, then console log
+            if (data != null) {
+                // Console.WriteLine("Data: " + JsonConvert.SerializeObject(data.List));
+                if (data.List == null || !data.List.Any()){
+                    return new SnowReportModel {
+                    LocationName = locationName,
+                    Temperature = 0,
+                    WeatherDescription = "No forecast available",
+                    };
+                }
+                var firstForecast = data.List.FirstOrDefault();
 
-                LocationName = locationName,
-                Temperature = 0,
-                WeatherDescription = "No forecast available",
-   
+                return new SnowReportModel {
+                    
+                    LocationName = locationName,
+                    Temperature = firstForecast?.Main.Temp ?? 0, 
+                    FeelsLike = firstForecast?.Main?.FeelsLike ?? 0,
+                    WeatherDescription = firstForecast?.Weather.FirstOrDefault()?.Description ?? "No description available", 
+                    LowTemp = firstForecast?.Main.TempMin ?? 0,
+                    HighTemp = firstForecast?.Main.TempMax ?? 0,
+                    Pressure = firstForecast?.Main.Pressure ?? 0,
+                    Humidity = firstForecast?.Main.Humidity ?? 0
 
                 };
-            }
-            //firstForecast will not be null once it gets to this point
-            var firstForecast = data.List.FirstOrDefault();
 
-            return new SnowReportModel
-            {
+            } else {
+                Console.WriteLine("Data is null");
+            }
+
+            // Console.WriteLine("Forecast Data: " + JsonConvert.SerializeObject(data.List));
+        
+            // check if data is returned
+            // if(data.List == null || !data.List.Any()){
+            //     return new SnowReportModel
+            //     {
+
+            //     LocationName = locationName,
+            //     Temperature = 0,
+            //     WeatherDescription = "No forecast available",
+   
+
+            //     };
+            // }
+            //firstForecast will not be null once it gets to this point
+            // var firstForecast = data.List.FirstOrDefault();
+
+            // return new SnowReportModel
+            // {
                 
             
-            LocationName = locationName,
-            Temperature = firstForecast?.Main.Temp ?? 0, 
-            FeelsLike = firstForecast?.Main?.FeelsLike ?? 0,
-            WeatherDescription = firstForecast?.Weather.FirstOrDefault()?.Description ?? "No description available", 
-            LowTemp = firstForecast?.Main.TempMin ?? 0,
-            HighTemp = firstForecast?.Main.TempMax ?? 0,
-            Pressure = firstForecast?.Main.Pressure ?? 0,
-            Humidity = firstForecast?.Main.Humidity ?? 0
+            // LocationName = locationName,
+            // Temperature = firstForecast?.Main.Temp ?? 0, 
+            // FeelsLike = firstForecast?.Main?.FeelsLike ?? 0,
+            // WeatherDescription = firstForecast?.Weather.FirstOrDefault()?.Description ?? "No description available", 
+            // LowTemp = firstForecast?.Main.TempMin ?? 0,
+            // HighTemp = firstForecast?.Main.TempMax ?? 0,
+            // Pressure = firstForecast?.Main.Pressure ?? 0,
+            // Humidity = firstForecast?.Main.Humidity ?? 0
 
-            };
+            // };
         }
 
         throw new Exception("Error fetching weather data.");

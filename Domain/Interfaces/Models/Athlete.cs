@@ -6,8 +6,7 @@ public class Athlete
 {
 
     public int Id { get; set; }  // This is the primary key
-    public string Name { get; set; }
-
+    public string Name  { get; set; } = "Unknown";
     public int Number { get; set; }
 
     public string SkiLevel { get; set; }

@@ -23,8 +23,6 @@ namespace CS330_Fall2024_FinalProject.Services
             var emailSettings = _configuration.GetSection("EmailSettings");
 
             var password = Environment.GetEnvironmentVariable("ICLOUD_APP_PASSWORD") ?? emailSettings["AppPassword"];
-
-
             if (string.IsNullOrEmpty(password))
             {
                 _logger.LogError("ICLOUD_APP_PASSWORD is not set or is empty.");
@@ -32,6 +30,13 @@ namespace CS330_Fall2024_FinalProject.Services
             }
 
             _logger.LogInformation("Using iCloud SMTP password: {Password}", password); //  don't forget to remove in production
+
+            var portValue = emailSettings["Port"];
+            if (string.IsNullOrWhiteSpace(portValue) || !int.TryParse(portValue, out int port))
+            {
+                _logger.LogError("SMTP port is not configured or is invalid.");
+                throw new InvalidOperationException("SMTP port is not configured or is invalid.");
+            }
 
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress(emailSettings["SenderName"], emailSettings["SenderEmail"]));
@@ -49,7 +54,7 @@ namespace CS330_Fall2024_FinalProject.Services
                 try
                 {
                     _logger.LogInformation("Connecting to SMTP server...");
-                    await client.ConnectAsync(emailSettings["SMTPServer"], int.Parse(emailSettings["Port"]), MailKit.Security.SecureSocketOptions.StartTls);
+                    await client.ConnectAsync(emailSettings["SMTPServer"], port, MailKit.Security.SecureSocketOptions.StartTls);
 
                     _logger.LogInformation("Authenticating with SMTP server...");
                     await client.AuthenticateAsync(emailSettings["SenderEmail"], password);
@@ -59,11 +64,13 @@ namespace CS330_Fall2024_FinalProject.Services
 
                     _logger.LogInformation("Email sent successfully.");
                 }
+
                 catch (Exception ex)
                 {
-                    _logger.LogError($"Failed to send email: {ex.Message}");
+                    _logger.LogError(ex, "Failed to send email to {Email}", email);
                     throw;
                 }
+
                 finally
                 {
                     await client.DisconnectAsync(true);
