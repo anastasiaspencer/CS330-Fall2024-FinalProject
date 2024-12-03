@@ -9,21 +9,24 @@ public class Athlete
     public string Name  { get; set; } = "Unknown";
     public int Number { get; set; }
 
-    public string SkiLevel { get; set; }
+    // public string SkiLevel { get; set; }
+    public string? SkiLevel { get; set; } = null;
+
     //Add fields for other data we want stored in each athlete model
-    public SkiStats Stats { get; set; }
+    // public SkiStats Stats { get; set; }
+    public SkiStats? Stats { get; set; } = null;
     public DateTime Birthday { get; set; } 
 
     // public byte[] ProfilePicture { get; set; }
     // public byte[]? ProfilePicture { get; set; } = null;
 
     public Athlete(int number) { } //paramaterless constructor that EF Core Expects
-    public Athlete(int number, string name, SkiStats stats, string skilevel, DateTime birthday) //, byte[] profilePicture
+    public Athlete(int number, string name, SkiStats stats, string? skilevel, DateTime birthday) //, byte[] profilePicture
     {
         Number = number;
         Name = name;
         Stats = stats;
-        SkiLevel = skilevel;
+        SkiLevel = skilevel ?? "Unknown";
         Birthday = birthday;
         // ProfilePicture = profilePicture;
     }

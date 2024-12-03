@@ -6,8 +6,8 @@ public class CreateAthleteViewModel
     public required string Name { get; set; }
     public int Id { get; set; }
     
-     [Required]
-     public int Number { get; set; }
+    [Required]
+    public int Number { get; set; }
     public string? SkiLevel { get; set; } = null;
     
     // public byte[]? ProfilePicture { get; set; } = null;
