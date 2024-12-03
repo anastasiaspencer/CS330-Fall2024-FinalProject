@@ -56,6 +56,11 @@ p.text-muted{
 }
 
 
+/* <img id="schedule-page-image-1" src="~/Images/schedulepage-1.svg" alt="Games Schedule" class="img-fluid mb-3" style="max-width: 30%; height: auto;"> */
+#schedule-page-image-1, #schedule-page-image-2, #schedule-page-image-3 {
+  max-width: 30%;
+  height: auto;
+}
 
 
 
@@ -116,6 +121,11 @@ p.text-muted{
   background-color: #ffffff;
   color:#555;
 } */
+
+#chat-bot-button-icon {
+  width: 24px;
+  height: 24px;
+}
 
 /* home page ; chat bot button styling; these .btn stuff aren't in use. using chat-bot ones instead just below this section */
 .btn-chat {
@@ -221,6 +231,10 @@ nav#navbar-section {
 }
 
 
+#stats-page-team-history-1  {
+    max-width: 600px;
+}
+
 
 /* athlete creation page */
 #athelete-info-section {
@@ -237,3 +251,12 @@ nav#navbar-section {
   color: #476194;
 }
 
+
+
+
+/* Login.cshtml */
+/*     <div id="login-cshtml-1" class="card shadow-lg p-4" style="max-width: 400px; width: 100%;"> */
+#login-cshtml-1, #register-cshtml-1 {
+    max-width: 400px;
+    width: 100%;
+}

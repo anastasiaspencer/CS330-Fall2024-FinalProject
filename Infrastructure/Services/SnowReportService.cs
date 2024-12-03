@@ -42,7 +42,7 @@ public class SnowReportService : ISnowReportService
 
     public async Task<SnowReportModel> GetReportAsync(string locationName)
     { 
-        Console.WriteLine(locationName + "location???");
+        // Console.WriteLine(locationName + "location???");
         GetLocationLatLong(locationName);
         var apiKey = _configuration["OpenWeatherMap:ApiKey"];
         var baseUrl = _configuration["OpenWeatherMap:BaseUrl"];
@@ -56,9 +56,9 @@ public class SnowReportService : ISnowReportService
                 // Console.WriteLine("Data: " + JsonConvert.SerializeObject(data.List));
                 if (data.List == null || !data.List.Any()){
                     return new SnowReportModel {
-                    LocationName = locationName,
-                    Temperature = 0,
-                    WeatherDescription = "No forecast available",
+                        LocationName = locationName,
+                        Temperature = 0,
+                        WeatherDescription = "No forecast available",
                     };
                 }
                 var firstForecast = data.List.FirstOrDefault();

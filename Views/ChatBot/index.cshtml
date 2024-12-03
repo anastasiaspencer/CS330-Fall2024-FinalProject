@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
-    <link rel="stylesheet" href="/wwwroot/css/site.css">
-    <script src="/wwwroot/js/site.js"></script>
+    @* <link rel="stylesheet" href="/wwwroot/css/site.css"> *@
+    @* <script src="/wwwroot/js/site.js"></script> *@
 
 </head>
 @* <div class="container text-center mt-5">
@@ -35,18 +35,15 @@
         else {
             @if (Model != null && Model.response.Any()) {
                 <div class="mt-3">
-                    <h3>ChatBot Responses:</h3>
-                    <ul>
-                        @foreach (var response in Model.response) {
-                            <li>@response</li>
-                        }
-                    </ul>
+                    @foreach (var response in Model.response) {
+                        @response
+                    }
                 </div>
             } else
                 { <p id="Summary"> it was empty or something . </p>}
             }
         <br />
-        <p id="Summary"> Input chat bot request. </p>
+        @* <p id="Summary"> Input chat bot request. </p> *@
     </div>
 </body>
 
