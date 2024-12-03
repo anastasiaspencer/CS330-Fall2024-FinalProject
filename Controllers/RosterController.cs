@@ -22,6 +22,7 @@ public class RosterController : Controller
             {
                 Name = a.Name,
                 Number = a.Number,
+                Id = a.Id,
             }).ToList()
         };
 
@@ -31,7 +32,7 @@ public class RosterController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> DeleteAthlete(string id){
+    public async Task<IActionResult> DeleteAthlete(int id){
         await _applicationService.DeleteAthleteAsync(id);
         return RedirectToAction("Index");
     }

@@ -28,9 +28,9 @@ public class AthleteService : IAthleteService
         return await _context.Set<Athlete>().ToListAsync();
     }
 
-    public async Task DeleteAsync(string id){
-        var athlete = _context.Set<Athlete>().FirstOrDefaultAsync(a => a.Name == id);
-        _context.Remove(athlete);
+    public async Task DeleteAsync(int id){
+        var athlete = _context.Athletes.Find(id);
+        _context.Athletes.Remove(athlete);
     
       
         await _context.SaveChangesAsync();

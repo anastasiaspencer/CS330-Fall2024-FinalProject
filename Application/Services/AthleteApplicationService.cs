@@ -28,7 +28,7 @@ public class AthleteApplicationService
     await _athleteService.AddAsync(athlete);
 }
 
-    public async Task DeleteAthleteAsync(string id){
+    public async Task DeleteAthleteAsync(int id){
         await _athleteService.DeleteAsync(id);
     }
 

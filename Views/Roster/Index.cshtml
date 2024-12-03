@@ -19,10 +19,13 @@
         <div class="col-12">
             <!-- search bar -->
             <div class="mb-4">
-                <input type="text" id="searchInput" class="form-control"
-                    placeholder="Search athletes by name or number">
+                <input type="text" id="searchInput" class="form-control" placeholder="Search athletes by name or number">
             </div>
 
+            <form asp-action="GenerateAverageReport" method="post">
+                                <input type="hidden" name="id" >
+                                <button type="submit" class="btn btn-primary btn-sm">Generate Average Report</button>
+            </form>
             <!-- roster table -->
             <table class="table table-striped table-hover border shadow-sm rounded" id="rosterTable">
                 <thead class="table-primary">
@@ -48,6 +51,14 @@
                                 <button type="submit" class="btn btn-primary btn-sm">Delete Athlete</button>
                                 </form>
                             </td>
+                            
+                            <td> 
+                                <form asp-action="DeleteAthlete" method="post">
+                                <input type="hidden" name="id" value="@athlete.Id">
+                                <button type="submit" class="btn btn-primary btn-sm">Delete Athlete</button>
+                                </form>
+                            
+                            </td>
                         </tr>
                     }
                 </tbody>
@@ -55,3 +66,4 @@
         </div>
     </div>
 </div>
+

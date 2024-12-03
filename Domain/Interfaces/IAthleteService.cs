@@ -5,5 +5,5 @@ public interface IAthleteService{
     // Task<Athlete> GetByIdAsync(int number); //TODO Implement this
     Task<List<Athlete>> GetAllAsync();  
 
-    Task DeleteAsync(string id);
+    Task DeleteAsync(int id);
 }
