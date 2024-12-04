@@ -6,8 +6,8 @@ namespace CS330_Fall2024_FinalProject.Controllers
 {
     public class RoleController : Controller{
         
-        [Authorize(Policy = "AthleteOnly")] //Once it sees this tag, it will go to program.cs to check for the requirements of the athlete only policy
-        // [Authorize(Roles = $"{Constants.Roles.Athlete}")]
+        //[Authorize(Policy = "AthleteOnly")] //Once it sees this tag, it will go to program.cs to check for the requirements of the athlete only policy
+        [Authorize(Roles = $"{Constants.Roles.Athlete}")]
         public IActionResult Index(){
             return View();
         }

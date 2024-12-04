@@ -70,10 +70,10 @@ app.Run();
 
 //Add authorization and add athlete only policy that requires the athletenumber claim as a requirement
 void AddAuthorizationPolicies(){
-    builder.Services.AddAuthorization(options =>
-    {
-        options.AddPolicy("AthleteOnly", policy => policy.RequireClaim("AthleteNumber"));
-    });
+    // builder.Services.AddAuthorization(options =>
+    // {
+    //     options.AddPolicy("AthleteOnly", policy => policy.RequireClaim("AthleteNumber"));
+    // });
 
     builder.Services.AddAuthorization(options =>
     {
