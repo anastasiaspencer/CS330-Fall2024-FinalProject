@@ -8,22 +8,17 @@
     <title></title>
 
 </head>
-@* <div class="container text-center mt-5">
-        <h1 class="display-5 text-primary fw-bold">Snow Ski</h1>
-        <p class="lead text-secondary">#1 in the SEC</p>
-    </div> *@
 
 <body>
     <div class="container text-center my-5 border-1">
-        <h1 class="display-6 text-primary fw-bold" id="Title"> Ski Bot </h1> <!-- our chat bot -->
-        <p class="lead text-secondary"> Type a prompt to our Ski Bot! </p>
+        <h1 class="display-6 text-primary fw-bold" id="Title"> Welcome to Ski Bot! </h1> <!-- our chat bot -->
+        <p class="lead text-secondary"> Your helpful assistant for all things snow skiing. </p>
         <hr>
 
-        <br /> <br />
+        <br>
         @if (Model == null) {
             <form asp-action="GenerateResponse" method="post">
                 <div class="form-group">
-                    @* <label for="userPrompt">Enter your prompt:</label> *@
                     <div class="row justify-content-center">
                         <div class="col-md-6">
                             <input type="text" id="userPrompt" name="userPrompt" class="form-control" required placeholder="Enter your prompt:" />
@@ -37,18 +32,18 @@
         }
         else {
             @if (Model != null && Model.response.Any()) {
-                <div class="mt-3">
+                <div class="mt-3 p-3 rounded border border-info shadow-sm bg-light">
                     @foreach (var response in Model.response) {
-                        @* @response *@
-                        <p>@Html.Raw(response.Replace("\n", "<br>"))</p>
-
+                        <p class="mb-2 text-dark">@Html.Raw(response.Replace("\n", "<br>"))</p>
                     }
+                    <a href="/ChatBot" class="btn btn-primary mt-2">Go Back</a>
+
+
                 </div>
             } else
-                { <p id="Summary"> it was empty or something . </p>}
+                { <p id="Summary"> Sorry! Ski Bot is currently out of service! </p>}
             }
         <br />
-        @* <p id="Summary"> Input chat bot request. </p> *@
     </div>
 </body>
 
