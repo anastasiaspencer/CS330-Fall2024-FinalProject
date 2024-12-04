@@ -14,9 +14,24 @@ public class HomeController : Controller
     }
 
     public IActionResult Index()
-    {
-        return View();
-    }
+{
+    // var userClaims = User.Claims.Select(c => new { c.Type, c.Value }).ToList();
+    
+    // // Iterate and print claims
+    // foreach (var claim in userClaims)
+    // {
+    //     Console.WriteLine($"Claim Type: {claim.Type}, Claim Value: {claim.Value}");
+    // }
+
+    // // Alternatively, serialize to JSON for a single log statement
+    // var claimsJson = System.Text.Json.JsonSerializer.Serialize(userClaims);
+    // Console.WriteLine($"User Claims JSON: {claimsJson}");
+
+    return View();
+}
+
+
+
 
     public IActionResult Privacy()
     {

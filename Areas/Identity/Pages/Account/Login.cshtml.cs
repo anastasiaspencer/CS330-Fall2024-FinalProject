@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
 {
@@ -109,18 +110,59 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
-                if (result.Succeeded)
-                {
+                //instead of directly calling passwordsigninasync method, use the database to check email
+                var user = await _signInManager.UserManager.FindByNameAsync(Input.Email);
+                if(user == null){
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    return Page();
+                }
+
+                var result = await _signInManager.CheckPasswordSignInAsync(user, Input.Password, false); //check if password matches or not
+                if(result.Succeeded){
+
+                    var claims = new List<Claim>()
+                    {
+                        new Claim("amr", "pwd"),
+                        //new Claim("AthleteNumber", "1")
+                    };
+
+                    var roles = await _signInManager.UserManager.GetRolesAsync(user);
+                    if(roles.Any()){
+                        var roleClaim = string.Join(",", roles);
+                        claims.Add(new Claim("Roles", roleClaim));
+                    }
+                    Console.WriteLine("User logged in with claims: " + string.Join(", ", claims.Select(c => $"{c.Type}: {c.Value}")));
+            
+
+                    await _signInManager.SignInWithClaimsAsync(user, Input.RememberMe, claims); // sign in with these defaiult claims
+                    Console.WriteLine("BRUHhhhhhhhhhhh");
+
+                    _logger.LogInformation("User logged in,");
+                    return LocalRedirect(returnUrl);
+                }
+                if(result.Succeeded){
                     _logger.LogInformation("User logged in.");
                     return LocalRedirect(returnUrl);
                 }
-                if (result.RequiresTwoFactor)
-                {
-                    return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                if(result.Succeeded){
+                    _logger.LogInformation("User logged in.");
+                    return LocalRedirect(returnUrl);
                 }
+                if(result.RequiresTwoFactor){
+                    return RedirectToPage("./LoginWith2fa", new {ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                }
+                // This doesn't count login failures towards account lockout
+                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+                // var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+                // if (result.Succeeded)
+                // {
+                //     _logger.LogInformation("User logged in.");
+                //     return LocalRedirect(returnUrl);
+                // }
+                // if (result.RequiresTwoFactor)
+                // {
+                //     return RedirectToPage("./LoginWith2fa", new { ReturnUrl = returnUrl, RememberMe = Input.RememberMe });
+                // }
                 if (result.IsLockedOut)
                 {
                     _logger.LogWarning("User account locked out.");
