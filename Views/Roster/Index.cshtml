@@ -23,16 +23,20 @@
             </div>
 
             <form asp-action="GenerateAverageReport" method="post">
-                                <input type="hidden" name="id" >
-                                <button type="submit" class="btn btn-primary btn-sm">Generate Average Report</button>
+                <input type="hidden" name="id" >
+                <button type="submit" class="btn btn-primary btn-sm">Generate Average Report</button>
             </form>
-         
+            
+            <hr>
+        
             <!-- roster table -->
             <table class="table table-striped table-hover border shadow-sm rounded" id="rosterTable">
                 <thead class="table-primary">
-                    <tr>
+                    <tr class="container justify-content-center text-center">
                         <th scope="col">Name</th>
                         <th scope="col">Number</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Ski Level</th>
                         <th scope="col">Actions</th>
                     </tr>
                 </thead>
@@ -40,18 +44,21 @@
                     @foreach (var athlete in Model.Athletes)
                     {
                         <tr>
-                            <td>@athlete.Name</td>
-                            <td>@athlete.Number</td>
-                            <td>
-                                <button class="btn btn-primary btn-sm">See Athlete Stats</button>
-                                
-                            </td>         
-                            <td> 
-                                <form asp-action="DeleteAthlete" method="post">
-                                <input type="hidden" name="id" value="@athlete.Id">
-                                <button type="submit" class="btn btn-primary btn-sm">Delete Athlete</button>
-                                </form>
-                            
+                            <td class="text-center">@athlete.Name</td>
+                            <td class="text-center">@athlete.Ranking</td>
+                            <td class="text-center">@athlete.Birthday</td>
+                            <td class="text-center">@athlete.SkiLevel</td>
+
+                            <td class="d-flex flex-column align-items-center gap-3">
+                                <div class="w-100 d-flex justify-content-center">
+                                    <button class="btn btn-primary btn-sm w-50">See Athlete Stats</button>
+                                </div>                                
+                                <div class="w-100 d-flex justify-content-center">
+                                    <form asp-action="DeleteAthlete" method="post" class="w-50">
+                                        <input type="hidden" name="id" value="@athlete.Id">
+                                        <button type="submit" class="btn btn-primary btn-sm w-100">Delete Athlete</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     }
