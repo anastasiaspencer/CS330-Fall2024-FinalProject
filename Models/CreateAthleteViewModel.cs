@@ -17,4 +17,5 @@ public class CreateAthleteViewModel
     public double BestDistance { get; set; }
     public double VerticalDrop { get; set; }
     public double Ranking { get; set; }
+    
 }
