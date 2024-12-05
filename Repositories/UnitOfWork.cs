@@ -8,9 +8,11 @@ namespace CS330_Fall2024_FinalProject.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         public IAthleteRepository Athlete {get;}
-        public UnitOfWork(IAthleteRepository athlete)
+        public IRoleRepository Role {get;}
+        public UnitOfWork(IAthleteRepository athlete, IRoleRepository role)
         {
             Athlete = athlete;
+            Role = role;
         }
     }
 }
