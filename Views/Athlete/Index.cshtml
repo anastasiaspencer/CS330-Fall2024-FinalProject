@@ -12,6 +12,9 @@
                 <thead>
                     <tr>
                         <th scope="col">Email</th>
+                         <th scope="col">Name</th>
+                         <th scope="col">Birthday</th>
+                         <th scope="col">Number</th>
                         <th scope="col">Edit</th>
                    
                     </tr>
@@ -22,6 +25,9 @@
                     {
                         <tr>
                             <th scope="row">@user.Email</th>
+                            <th scope="row">@user.Name</th>
+                            <th scope="row">@user.Birthday</th>
+                            <th scope="row">@user.Number</th>
                             <td>
                                 <a asp-controller="Athlete" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
                             </td>

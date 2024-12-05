@@ -90,5 +90,6 @@ void AddAuthorizationPolicies(){
 
 void AddScoped(){
     builder.Services.AddScoped<IAthleteRepository, AthleteRepository>();
+    builder.Services.AddScoped<IRoleRepository, RoleRepository>();
     builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 }

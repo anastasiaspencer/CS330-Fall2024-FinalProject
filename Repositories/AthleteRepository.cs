@@ -9,7 +9,8 @@ namespace CS330_Fall2024_FinalProject.Repositories
     public class AthleteRepository : IAthleteRepository
     {
         public readonly ApplicationDbContext _context;
-        public AthleteRepository(ApplicationDbContext context){
+        public AthleteRepository(ApplicationDbContext context)
+        {
             _context = context;
         }
         public ICollection<Athlete> GetUser()
@@ -17,8 +18,16 @@ namespace CS330_Fall2024_FinalProject.Repositories
             return _context.Users.ToList();
         }
 
-        public Athlete GetUser(int id){
+        public Athlete GetUser(string id)
+        {
             return _context.Users.FirstOrDefault(u => u.Id == id);
+        }
+    
+        public Athlete UpdateAthlete(Athlete athlete)
+        {
+            _context.Update(athlete);
+            _context.SaveChanges();
+            return athlete;
         }
     }
 }

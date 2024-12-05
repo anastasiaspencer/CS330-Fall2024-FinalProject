@@ -7,7 +7,9 @@ namespace CS330_Fall2024_FinalProject.Core.Repositories
     {
         ICollection<Athlete> GetUser();
 
-        Athlete GetUser(int id);
+        Athlete GetUser(string id);
+
+        Athlete UpdateAthlete(Athlete athlete);
     }
 }
 
