@@ -4,10 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CS330_Fall2024_FinalProject.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationDbContext : IdentityDbContext<Athlete>
 {
 
-    public DbSet<Athlete> Athletes { get; set; }
     public DbSet<SkiStats> SkiStats { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

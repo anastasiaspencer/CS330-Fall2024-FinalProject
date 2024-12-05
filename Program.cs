@@ -5,6 +5,9 @@ using CS330_Fall2024_FinalProject.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Authorization;
+using CS330_Fall2024_FinalProject.Core.Repositories;
+using CS330_Fall2024_FinalProject.Repositories;
+using CS330_Fall2024_FinalProject.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,9 +17,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options =>
+builder.Services.AddDefaultIdentity<Athlete>(options =>
     {
-        options.SignIn.RequireConfirmedAccount = true;
+        options.SignIn.RequireConfirmedAccount = true; //change this later
         options.Tokens.EmailConfirmationTokenProvider = "Default";
     })
     .AddRoles<IdentityRole>()
@@ -29,6 +32,8 @@ builder.Services.AddControllersWithViews();
 AddAuthorizationPolicies();
 
 #endregion
+
+AddScoped();
 
 builder.Services.AddHttpClient<ISnowReportService, SnowReportService>();
 builder.Services.AddScoped<SnowReportApplicationService>();
@@ -81,4 +86,9 @@ void AddAuthorizationPolicies(){
         options.AddPolicy("RequireManager", policy=> policy.RequireRole("Manager"));
         options.AddPolicy("RequireAthlete", policy=> policy.RequireRole("Athlete"));
     });
+}
+
+void AddScoped(){
+    builder.Services.AddScoped<IAthleteRepository, AthleteRepository>();
+    builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 }
