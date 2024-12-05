@@ -37,11 +37,10 @@ public class Athlete : IdentityUser
         // ProfilePicture = profilePicture;
     }
 
-    public Athlete() { }
 
-    public Athlete(int id, string name, int number, string skiLevel, DateTime birthday)
+    public Athlete(string name, int number, string skiLevel, DateTime birthday)
     {
-        Id = id;
+     //   Id = id;
         Name = name;
         Number = number;
         SkiLevel = skiLevel;

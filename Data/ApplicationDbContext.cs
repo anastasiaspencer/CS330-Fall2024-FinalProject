@@ -24,10 +24,10 @@ public class ApplicationDbContext : IdentityDbContext<Athlete>
         //     new Athlete { Id = 2, Name = "Jane Smith", Number = 15, SkiLevel = "Beginner", Birthday = new DateTime(1998, 7, 14) }
         // );
 
-        modelBuilder.Entity<SkiStats>().HasData(
-            new SkiStats { Id = 1, BestTime = 45.6, TopSpeed = 120.0, BestDistance = 3000.0, VerticalDrop = 800.0, Ranking = 1.2 },
-            new SkiStats { Id = 2, BestTime = 50.0, TopSpeed = 110.0, BestDistance = 2800.0, VerticalDrop = 700.0, Ranking = 2.5 }
-        );
+        // modelBuilder.Entity<SkiStats>().HasData(
+        //     new SkiStats { Id = 1, BestTime = 45.6, TopSpeed = 120.0, BestDistance = 3000.0, VerticalDrop = 800.0, Ranking = 1.2 },
+        //     new SkiStats { Id = 2, BestTime = 50.0, TopSpeed = 110.0, BestDistance = 2800.0, VerticalDrop = 700.0, Ranking = 2.5 }
+        // );
 
         modelBuilder.Entity<Schedule>().HasData(
             new Schedule { Id = 1, Type = "Game", Date = new DateTime(2024, 12, 10, 15, 0, 0), Description = "Season Opener", Location = "Mountain Arena" },
