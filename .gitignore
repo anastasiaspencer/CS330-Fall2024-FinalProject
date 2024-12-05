@@ -1,3 +1,8 @@
 .DS_Store
 /obj/
 /bin/
+
+Migrations/
+appsettings.Development.json
+secrets.json
+.vs/

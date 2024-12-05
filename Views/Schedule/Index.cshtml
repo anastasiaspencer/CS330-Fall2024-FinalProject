@@ -1,4 +1,6 @@
 ﻿@* -schedule page for games, practices, and events- *@
+@model List<CS330_Fall2024_FinalProject.Models.Schedule>
+
 @{
     ViewData["Title"] = "Snow Ski Team Schedule Page";
 }
@@ -22,9 +24,10 @@
             <br><br>
             <br><br>
             <ul class="list-group w-50 mx-auto">
-                <li class="list-group-item">Game 1: TBD</li>
-                <li class="list-group-item">Game 2: TBD</li>
-                <li class="list-group-item">Game 3: TBD</li>
+                @foreach (var schedule in Model.Where(s => s.Type == "Game"))
+                {
+                    <li class="list-group-item">@schedule.Description on @schedule.Date.ToString("MMMM dd, yyyy HH:mm")</li>
+                }
             </ul>
         </div>
     </div>
@@ -40,9 +43,10 @@
             <br><br>
             <br><br>
             <ul class="list-group w-50 mx-auto">
-                <li class="list-group-item">Practice 1: TBD</li>
-                <li class="list-group-item">Practice 2: TBD</li>
-                <li class="list-group-item">Practice 3: TBD</li>
+                @foreach (var schedule in Model.Where(s => s.Type == "Practice"))
+                {
+                    <li class="="list-group-item">@schedule.Description on @schedule.Date.ToString("MMMM dd, yyyy HH:mm")</li>
+                }
             </ul>
         </div>
     </div>
@@ -58,11 +62,22 @@
             <br><br>
             <br><br>
             <ul class="list-group w-50 mx-auto">
-                <li class="list-group-item">Event 1: TBD</li>
-                <li class="list-group-item">Event 2: TBD</li>
-                <li class="list-group-item">Event 3: TBD</li>
+                @foreach (var schedule in Model.Where(s => s.Type == "Event"))
+                {
+                    <li class="="list-group-item">@schedule.Description on @schedule.Date.ToString("MMMM dd, yyyy HH:mm")</li>
+                }
             </ul>
         </div>
     </div>
     <br><br>
+</div>
+
+<!-- Divider -->
+<hr class="my-5 border-primary">
+
+<!-- Add Event Button for Coaches and Managers -->
+<div class="text-center mt-5">
+    <a asp-action="Create" asp-controller="Schedule" class="btn btn-success btn-lg">
+        Add Event
+    </a>
 </div>

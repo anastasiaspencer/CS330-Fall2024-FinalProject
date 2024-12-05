@@ -30,6 +30,17 @@ public class Athlete
         Birthday = birthday;
         // ProfilePicture = profilePicture;
     }
+
+    public Athlete() { }
+
+    public Athlete(int id, string name, int number, string skiLevel, DateTime birthday)
+    {
+        Id = id;
+        Name = name;
+        Number = number;
+        SkiLevel = skiLevel;
+        Birthday = birthday;
+    }
 }
 
 
