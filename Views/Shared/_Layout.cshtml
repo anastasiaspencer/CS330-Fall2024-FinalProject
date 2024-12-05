@@ -1,12 +1,37 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Snow Ski</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <!-- Need to add Hashing to this link-->
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon">
+    <link href="~/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"> 
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Main CSS File -->
+    <link href="~/assets/css/main.css" rel="stylesheet">
+
+    <!-- =======================================================
+    * Template Name: Squadfree
+    * Template URL: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/
+    * Updated: Aug 07 2024 with Bootstrap v5.3.3
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -16,62 +41,51 @@
 
 
 <body>
-    <header>
-        <nav id="navbar-section"
-            class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Snow Ski</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Schedule"
-                                asp-action="Index">Schedule</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Stats"
-                                asp-action="Index">Stats</a>
-                        </li>
-                        <li class="nav-item">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <!--<nav id="navbar-section" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">-->
+            <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+                <!-- Logo Section -->
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="logo d-flex align-items-center">
+                    <h1 class="sitename">Snow Ski</h1>
+                </a>
+                <!-- Navbar Section -->
+
+                <nav id="navmenu" class="navmenu"> 
+                    <ul>
+                    <!-- Standard Links -->
+                        <li><a asp-controller="Home" asp-action="Index" class="active">Home</a></li>
+                        <li><a asp-controller="Schedule" asp-action="Index">Schedule</a></li>
+                        <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
+                    
+                    <!-- Role-Based Links -->
+                        <li>
                             @if (User.Identity?.IsAuthenticated == true)
                             {
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Index">Athletes Page</a> <!-- athletes only page -->
+                                <a asp-controller="Role" asp-action="Index">Athletes Page</a>
                             }
                         </li>
-                        <!-- what we can do here is add another one for athletes only, to differentiate justify-content-between not logged in button logged in with the lowest permissions  -->
-                        <li class="nav-item">
+                        <li>
                             @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Coach"))
                             {
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Coach">Coachs Page</a> <!-- coach only page -->
+                                <a asp-controller="Role" asp-action="Coach">Coach's Page</a>
                             }
                         </li>
-                        <li class="nav-item">
+                        <li>
                             @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Manager"))
                             {
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Role" asp-action="Manager">Manager Page </a> <!-- mananger only page -->
+                                <a asp-controller="Role" asp-action="Manager">Manager's Page</a>
                             }
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CreateAthlete"
-                                asp-action="Index">Create New Athlete</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Roster"
-                                asp-action="Index">Roster</a>
-                        </li>
+                        <li><a asp-controller="CreateAthlete" asp-action="Index">Create New Athlete</a></li>
+                        <li><a asp-controller="Roster" asp-action="Index">Roster</a></li>
                     </ul>
 
-                    <partial name="_LoginPartial" />
-                </div>
+                    <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+
+                </nav>
             </div>
-        </nav>
-    </header>
+        <!--</nav> -->
+    </header> 
 
     <div class="container min-vh-100 d-flex flex-column positive-relative">
         <main role="main" class="pb- flex-grow-1">
@@ -86,17 +100,39 @@
         <img id="chat-bot-button-icon" src="~/Images/chatbot-icon.svg" alt="ChatBot Icon" />
     </button>
 
-
-    <footer id="footer-section" class="border-top footer text-muted text-center mt-auto">
-        <div class="container">
-            This website is built by Anastasia Spencer, Brooke Boskus, [], [], and Jeongbin Son for CS 330 - Final
-            Project
+    <footer id="footer" class="footer dark-background">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6 footer-about">
+                    <a href="~/" class="logo d-flex align-items-center">
+                        <h1 class="sitename">Snow Ski</h1>
+                    </a>
+                    <div class="footer-contact pt-3">
+                        <p>A108 Adam Street</p>
+                        <p>New York, NY 535022</p>
+                        <p><strong>Phone:</strong> +1 5589 55488 55</p>
+                        <p><strong>Email:</strong> info@example.com</p>
+                    </div>
+                    <div class="container pt-3">
+                        This website is built by Anastasia Spencer, Brooke Boskus, [], [], and Jeongbin Son for CS 330 - Final
+                        Project
+                    </div>
+                </div>
+                <!-- Add other footer columns as needed -->
+            </div>
         </div>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 
