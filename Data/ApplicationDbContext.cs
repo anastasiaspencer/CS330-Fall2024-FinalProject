@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CS330_Fall2024_FinalProject.Data;
 
-public class ApplicationDbContext : IdentityDbContext
+public class ApplicationDbContext : IdentityDbContext<Athlete>
 {
-    public DbSet<Athlete> Athletes { get; set; }
+
     public DbSet<SkiStats> SkiStats { get; set; }
     public DbSet<Schedule> Schedules { get; set; }
 
@@ -19,10 +19,10 @@ public class ApplicationDbContext : IdentityDbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<Athlete>().HasData(
-            new Athlete { Id = 1, Name = "John Doe", Number = 7, SkiLevel = "Intermediate", Birthday = new DateTime(1995, 4, 23) },
-            new Athlete { Id = 2, Name = "Jane Smith", Number = 15, SkiLevel = "Beginner", Birthday = new DateTime(1998, 7, 14) }
-        );
+        // modelBuilder.Entity<Athlete>().HasData(
+        //     new Athlete { Id = 1, Name = "John Doe", Number = 7, SkiLevel = "Intermediate", Birthday = new DateTime(1995, 4, 23) },
+        //     new Athlete { Id = 2, Name = "Jane Smith", Number = 15, SkiLevel = "Beginner", Birthday = new DateTime(1998, 7, 14) }
+        // );
 
         modelBuilder.Entity<SkiStats>().HasData(
             new SkiStats { Id = 1, BestTime = 45.6, TopSpeed = 120.0, BestDistance = 3000.0, VerticalDrop = 800.0, Ranking = 1.2 },

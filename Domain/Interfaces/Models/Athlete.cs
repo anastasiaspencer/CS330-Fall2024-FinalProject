@@ -1,11 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Identity;
 namespace CS330_Fall2024_FinalProject.Models;
-public class Athlete
+
+public class UserRole : IdentityRole{
+    
+}
+public class Athlete : IdentityUser
 {
 
-    public int Id { get; set; }  // This is the primary key
+   // public int Id { get; set; }  // This is the primary key
     public string Name  { get; set; } = "Unknown";
     public int Number { get; set; }
 
@@ -14,13 +19,14 @@ public class Athlete
 
     //Add fields for other data we want stored in each athlete model
     // public SkiStats Stats { get; set; }
+
     public SkiStats? Stats { get; set; } = null;
     public DateTime Birthday { get; set; } 
 
     // public byte[] ProfilePicture { get; set; }
     // public byte[]? ProfilePicture { get; set; } = null;
 
-    public Athlete(int number) { } //paramaterless constructor that EF Core Expects
+    public Athlete() { } //paramaterless constructor that EF Core Expects
     public Athlete(int number, string name, SkiStats stats, string? skilevel, DateTime birthday) //, byte[] profilePicture
     {
         Number = number;
@@ -42,6 +48,8 @@ public class Athlete
         Birthday = birthday;
     }
 }
+
+
 
 
 

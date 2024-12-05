@@ -42,4 +42,5 @@ public class AthleteApplicationService
     {
         return await _athleteService.GetAllAsync();
     }
+    
 }

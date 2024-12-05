@@ -18,7 +18,7 @@ public class AthleteService : IAthleteService
         Console.WriteLine($"Athlete: {JsonConvert.SerializeObject(athlete)}");
 
         Console.WriteLine("-------********------------------------------", athlete.SkiLevel);
-        await _context.Set<Athlete>().AddAsync(athlete);
+        await _context.Users.AddAsync(athlete);
         await _context.SaveChangesAsync();
     }
 
@@ -29,7 +29,7 @@ public class AthleteService : IAthleteService
 
     public async Task<List<Athlete>> GetAllAsync() //gets all athletes in teh database
     {
-        return await _context.Set<Athlete>().ToListAsync();
+        return await _context.Users.ToListAsync();
     }
 
     public async Task DeleteAsync(int id){
@@ -39,10 +39,10 @@ public class AthleteService : IAthleteService
       
         // await _context.SaveChangesAsync();
 
-        var athlete = await _context.Athletes.FindAsync(id); 
+        var athlete = await _context.Users.FindAsync(id); 
         if (athlete != null) 
         {
-            _context.Athletes.Remove(athlete);
+            _context.Users.Remove(athlete);
             await _context.SaveChangesAsync();
         }
         else
