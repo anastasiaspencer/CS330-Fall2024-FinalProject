@@ -1,8 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Identity;
 namespace CS330_Fall2024_FinalProject.Models;
-public class Athlete
+public class Athlete : IdentityUser
 {
 
     public int Id { get; set; }  // This is the primary key
@@ -20,7 +21,7 @@ public class Athlete
     // public byte[] ProfilePicture { get; set; }
     // public byte[]? ProfilePicture { get; set; } = null;
 
-    public Athlete(int number) { } //paramaterless constructor that EF Core Expects
+    public Athlete() { } //paramaterless constructor that EF Core Expects
     public Athlete(int number, string name, SkiStats stats, string? skilevel, DateTime birthday) //, byte[] profilePicture
     {
         Number = number;
