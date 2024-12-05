@@ -25,9 +25,9 @@ body {
 
 }
 
-h1, h2{
+h1, h2, h4{
     font-family: 'Arial', sans-serif;
-    color: #0056b3;
+    color: #67b0d1;
 }
 
 p.text-muted{

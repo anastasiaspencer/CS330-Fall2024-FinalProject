@@ -46,17 +46,15 @@
             <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
                 <!-- Logo Section -->
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="logo d-flex align-items-center">
-                    <h1 class="sitename">Snow Ski</h1>
+                    <h1 class="sitename">Snow Ski Team</h1>
                 </a>
                 <!-- Navbar Section -->
-
                 <nav id="navmenu" class="navmenu"> 
                     <ul>
                     <!-- Standard Links -->
                         <li><a asp-controller="Home" asp-action="Index" class="active">Home</a></li>
                         <li><a asp-controller="Schedule" asp-action="Index">Schedule</a></li>
                         <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
-                    
                     <!-- Role-Based Links -->
                         <li>
                             @if (User.Identity?.IsAuthenticated == true)
