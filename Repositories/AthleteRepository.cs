@@ -18,10 +18,17 @@ namespace CS330_Fall2024_FinalProject.Repositories
             return _context.Users.ToList();
         }
 
+        // public Athlete GetUser(string id)
+        // {
+        //     return _context.Users.FirstOrDefault(u => u.Id == id);
+        // }
+
         public Athlete GetUser(string id)
         {
-            return _context.Users.FirstOrDefault(u => u.Id == id);
+            return _context.Users.FirstOrDefault(u => u.Id == id) 
+                ?? throw new InvalidOperationException($"Athlete with ID {id} not found.");
         }
+
     
         public Athlete UpdateAthlete(Athlete athlete)
         {

@@ -31,9 +31,15 @@ namespace CS330_Fall2024_FinalProject.Controllers
             var roles = _unitOfWork.Role.GetRoles();
             var userRoles = await _signInManager.UserManager.GetRolesAsync(athlete);
 
+            // var roleItems = roles.Select(role =>
+            // new SelectListItem(role.Name, role.Id, userRoles.Any(ur => ur.Contains(role.Name)))).ToList();
             var roleItems = roles.Select(role =>
-            new SelectListItem(role.Name, role.Id, userRoles.Any(ur => ur.Contains(role.Name)))).ToList();
-
+                new SelectListItem(
+                    role.Name,
+                    role.Id,
+                    userRoles.Any(ur => ur != null && role.Name != null && ur.Contains(role.Name))
+                )
+            ).ToList();
 
             var vm = new EditAthleteViewModel
             {
@@ -45,6 +51,12 @@ namespace CS330_Fall2024_FinalProject.Controllers
         [HttpPost]
         public async Task<IActionResult> OnPostAsync(EditAthleteViewModel data)
         {
+
+            if (data.Athlete == null || string.IsNullOrEmpty(data.Athlete.Id))
+            {
+                return BadRequest("Invalid athlete data.");
+            }
+
             var athlete = _unitOfWork.Athlete.GetUser(data.Athlete.Id);
             if (athlete == null)
             {
@@ -57,6 +69,11 @@ namespace CS330_Fall2024_FinalProject.Controllers
             //Check if the Role is Assinged in DB
             //If assigned, do nothing
             // If not assigned add role
+
+            if (data.Roles == null || !data.Roles.Any())
+            {
+                return BadRequest("Roles cannot be null or empty.");
+            }
 
             foreach (var role in data.Roles)
             {

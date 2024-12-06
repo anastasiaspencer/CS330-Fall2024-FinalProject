@@ -4,6 +4,15 @@
 
 @model CS330_Fall2024_FinalProject.Core.ViewModels.EditAthleteViewModel;
 
+@if (Model == null || Model.Athlete == null)
+{
+    <div class="alert alert-danger">Error: Model or Athlete data is missing.</div>
+    return;
+}
+
+
+
+
 <div class="container">
     <div class="py-5 text-center">
         <h2>Edit User</h2>
@@ -39,7 +48,7 @@
         <hr class="mb-4">
         <hr class="mb-4">
         <h4 class="mb-3">Roles</h4>
-        <div class="d-block my-3">
+        @* <div class="d-block my-3">
 
             @for (int i = 0; i < @Model.Roles.Count(); i++)
             {
@@ -51,15 +60,30 @@
                     @Html.HiddenFor(h=> @Model.Roles[i].Text)
                 </div>
             }
-            @* @foreach (var role in @Model.Roles)
+        </div> *@
+
+        <div class="d-block my-3">
+            @if (Model.Roles == null || !Model.Roles.Any())
             {
-                <div class="form-check">
-                    <input id="@role.Value" name="paymentMethod" type="radio" class="form-check-input" checked="@role.Selected"
-                        required="">
-                    <label class="form-check-label" asp-for="@role.Value">@role.Text</label>
-                </div>
-            } *@
+                <div class="alert alert-warning">No roles available to display.</div>
+            }
+            else
+            {
+                for (int i = 0; i < Model.Roles.Count; i++)
+                {
+                    <div class="form-check">
+                        @Html.CheckBox($"Roles[{i}].Selected", Model.Roles[i].Selected, new { @class = "form-check-input" })
+                        @Html.Hidden($"Roles[{i}].Value", Model.Roles[i].Value ?? string.Empty)
+
+                        <label for="Roles[{i}].Selected" class="form-check-label">
+                            @(Model.Roles[i].Text ?? string.Empty)
+                        </label>
+                        @Html.Hidden($"Roles[{i}].Text", Model.Roles[i].Text ?? string.Empty)
+                    </div>
+                }
+            }
         </div>
+
         <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
 
     }
