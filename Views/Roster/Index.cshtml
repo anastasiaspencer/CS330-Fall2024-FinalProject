@@ -34,6 +34,7 @@
             <table class="table table-striped table-hover border shadow-sm rounded" id="rosterTable">
                 <thead class="table-primary">
                     <tr class="container justify-content-center text-center">
+                        <th scope="col">Profile Picture</th>
                         <th scope="col">Name</th>
                         <th scope="col">ID</th>
                         <th scope="col">Birthday</th>
@@ -46,6 +47,19 @@
                     @foreach (var athlete in Model.Athletes)
                     {
                         <tr>
+                            <td class="text-center">
+                                @if (athlete.ProfilePicture != null)
+                                {
+                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(athlete.ProfilePicture)" 
+                                         alt="Profile Picture" 
+                                         class="img-thumbnail" 
+                                         style="max-width: 100px;" />
+                                }
+                                else
+                                {
+                                    <p>No profile picture available.</p>
+                                }
+                            </td>
                             <td class="text-center">@athlete.Name</td>
                             <td class="text-center">@athlete.Id</td>
                             <td class="text-center">@athlete.Birthday</td>

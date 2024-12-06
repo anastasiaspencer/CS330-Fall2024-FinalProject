@@ -19,6 +19,30 @@ public class CreateAthleteController : Controller
         return View();
     }
 
+// [HttpPost]
+//     public async Task<IActionResult> CreateAthlete(CreateAthleteViewModel model, IFormFile ProfilePicture)
+//     {
+//         if (ModelState.IsValid)
+//         {
+//             if (ProfilePicture != null && ProfilePicture.Length > 0)
+//             {
+//                 using (var memoryStream = new MemoryStream())
+//                 {
+//                     await ProfilePicture.CopyToAsync(memoryStream);
+//                     model.ProfilePicture = memoryStream.ToArray();
+//                 }
+//             }
+//             await _applicationService.AddAthleteAsync(model);
+
+//             return RedirectToAction("Index");
+//         }
+
+//         return View();
+//     }
+
+    
+// }
+
     [HttpPost]
     public async Task<IActionResult> CreateAthlete(CreateAthleteViewModel model)
     {
