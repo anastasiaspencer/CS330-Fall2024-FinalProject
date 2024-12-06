@@ -69,37 +69,53 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
+
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
+            [CustomValidation(typeof(InputModel), nameof(ValidateEmail))]
+            [RegularExpression(@"^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)?ua\.edu$", ErrorMessage = "Only University of Alabama email addresses are allowed.")]
+
+            // the below regular expression is checking pattern=“.+@+(.+\.)?ua/.edu” to ensure that only UA emails are being registered
+            // cybersecurity check to ensure the site will not get filled with spam emails. Additionally, this flow sends a confirmation email to the registered email to confirm account, else they cannot login
+            // therefore, fake UA emails (fake@crimson.ua.edu for example) can never login to the website as they cannot click on the link sent to fake@crimson.ua.edu to verify their account
+
+            // this is a double check, this one lets the user know while they type that this is not allowed
+            // the second check is below, when they press to register.
+
+            // brian's personal note while coding since navbar currently doesn't have login partial (_Layout.cshtml)
+            //http://localhost:5121/Identity/Account/Register is how i access registration page
             public string Email { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-        }
 
+            public static ValidationResult ValidateEmail(string email, ValidationContext context)
+            {
+                if (string.IsNullOrEmpty(email))
+                {
+                    return new ValidationResult("Email is required.");
+                }
+
+                var uaEduRegex = new System.Text.RegularExpressions.Regex(@"^[^+]+@([a-zA-Z0-9-]+\.)?ua\.edu$");
+                if (!uaEduRegex.IsMatch(email))
+                {
+                    return new ValidationResult("Email must be a valid .ua.edu address and cannot contain +<number> before @.");
+                }
+
+                return ValidationResult.Success;
+            }
+        }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -107,10 +123,12 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
@@ -154,6 +172,7 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
             // If we got this far, something failed, redisplay form
             return Page();
         }
+
 
         private Athlete CreateUser()
         {
