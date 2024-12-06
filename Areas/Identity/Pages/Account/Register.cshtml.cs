@@ -150,8 +150,40 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    // await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    //     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                    await _emailSender.SendEmailAsync(
+                        Input.Email,
+                        "Confirm your email",
+                        $@"
+                            <div style='font-family: Arial, sans-serif; color: #333;'>
+                                <h3 style='color: #49A097; margin-bottom: 20px;'>Hello,</h3>
+                                <p style='font-size: 16px; line-height: 1.5;'>
+                                    Thank you for registering with us! Please confirm your email address by clicking the link below:
+                                </p>
+                                <div style='background-color: #f4f4f4; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;'>
+                                    <a href='{HtmlEncoder.Default.Encode(callbackUrl)}' style='display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #49A097; text-decoration: none; border-radius: 5px;'>
+                                        Confirm Email Address
+                                    </a>
+                                </div>
+                                <p style='font-size: 16px; line-height: 1.5;'>
+                                    If you did not register for this account, you can ignore this email.
+                                </p>
+                                <p style='font-size: 16px; line-height: 1.5; margin-top: 20px;'>
+                                    Best regards,<br>
+                                    <span style='font-weight: bold; color: #49A097;'>Snow Ski</span>
+                                </p>
+                                <hr style='border: none; border-top: 1px solid #49A097; margin-top: 30px;'/>
+                                
+                            </div>"
+                    );
+                    // ommited paragraph, goes at bottom of email to show link. but need deployed link later
+                    // <p style='font-size: 12px; color: #777;'>
+                    //     This email was sent from <strong>Snow Ski</strong>. To learn more, visit
+                    //     <a href='https://jeongbinson.com/' style='color: #49A097; text-decoration: none;'>https://jeongbinson.com/</a>.
+                    // </p>
+
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
