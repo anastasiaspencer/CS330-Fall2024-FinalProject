@@ -22,7 +22,7 @@ public class RosterController : Controller
             {
                 Name = a.Name,
                 // Number = a.Number,
-                Id = a.Id,
+              //  Id = a.Id,
                 Birthday = a.Birthday,
                 SkiLevel = a.SkiLevel,
                 BestTime = a.Stats?.BestTime ?? 0,

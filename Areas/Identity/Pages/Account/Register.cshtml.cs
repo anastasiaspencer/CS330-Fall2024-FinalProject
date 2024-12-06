@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
+using CS330_Fall2024_FinalProject.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -23,17 +24,17 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
 {
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
-        private readonly IUserStore<IdentityUser> _userStore;
-        private readonly IUserEmailStore<IdentityUser> _emailStore;
+        private readonly SignInManager<Athlete> _signInManager;
+        private readonly UserManager<Athlete> _userManager;
+        private readonly IUserStore<Athlete> _userStore;
+        private readonly IUserEmailStore<Athlete> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            IUserStore<IdentityUser> userStore,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<Athlete> userManager,
+            IUserStore<Athlete> userStore,
+            SignInManager<Athlete> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -68,37 +69,53 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
         ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
         ///     directly from your code. This API may change or be removed in future releases.
         /// </summary>
+
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
+            [CustomValidation(typeof(InputModel), nameof(ValidateEmail))]
+            [RegularExpression(@"^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)?ua\.edu$", ErrorMessage = "Only University of Alabama email addresses are allowed.")]
+
+            // the below regular expression is checking pattern=“.+@+(.+\.)?ua/.edu” to ensure that only UA emails are being registered
+            // cybersecurity check to ensure the site will not get filled with spam emails. Additionally, this flow sends a confirmation email to the registered email to confirm account, else they cannot login
+            // therefore, fake UA emails (fake@crimson.ua.edu for example) can never login to the website as they cannot click on the link sent to fake@crimson.ua.edu to verify their account
+
+            // this is a double check, this one lets the user know while they type that this is not allowed
+            // the second check is below, when they press to register.
+
+            // brian's personal note while coding since navbar currently doesn't have login partial (_Layout.cshtml)
+            //http://localhost:5121/Identity/Account/Register is how i access registration page
             public string Email { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-        }
 
+            public static ValidationResult ValidateEmail(string email, ValidationContext context)
+            {
+                if (string.IsNullOrEmpty(email))
+                {
+                    return new ValidationResult("Email is required.");
+                }
+
+                var uaEduRegex = new System.Text.RegularExpressions.Regex(@"^[^+]+@([a-zA-Z0-9-]+\.)?ua\.edu$");
+                if (!uaEduRegex.IsMatch(email))
+                {
+                    return new ValidationResult("Email must be a valid .ua.edu address and cannot contain +<number> before @.");
+                }
+
+                return ValidationResult.Success;
+            }
+        }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
@@ -106,10 +123,12 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
+
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
             if (ModelState.IsValid)
             {
                 var user = CreateUser();
@@ -131,8 +150,40 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    // await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    //     $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+                    await _emailSender.SendEmailAsync(
+                        Input.Email,
+                        "Confirm your email",
+                        $@"
+                            <div style='font-family: Arial, sans-serif; color: #333;'>
+                                <h3 style='color: #49A097; margin-bottom: 20px;'>Hello,</h3>
+                                <p style='font-size: 16px; line-height: 1.5;'>
+                                    Thank you for registering with us! Please confirm your email address by clicking the link below:
+                                </p>
+                                <div style='background-color: #f4f4f4; padding: 15px; border-radius: 8px; margin: 20px 0; text-align: center;'>
+                                    <a href='{HtmlEncoder.Default.Encode(callbackUrl)}' style='display: inline-block; padding: 10px 20px; font-size: 16px; color: #fff; background-color: #49A097; text-decoration: none; border-radius: 5px;'>
+                                        Confirm Email Address
+                                    </a>
+                                </div>
+                                <p style='font-size: 16px; line-height: 1.5;'>
+                                    If you did not register for this account, you can ignore this email.
+                                </p>
+                                <p style='font-size: 16px; line-height: 1.5; margin-top: 20px;'>
+                                    Best regards,<br>
+                                    <span style='font-weight: bold; color: #49A097;'>Snow Ski</span>
+                                </p>
+                                <hr style='border: none; border-top: 1px solid #49A097; margin-top: 30px;'/>
+                                
+                            </div>"
+                    );
+                    // ommited paragraph, goes at bottom of email to show link. but need deployed link later
+                    // <p style='font-size: 12px; color: #777;'>
+                    //     This email was sent from <strong>Snow Ski</strong>. To learn more, visit
+                    //     <a href='https://jeongbinson.com/' style='color: #49A097; text-decoration: none;'>https://jeongbinson.com/</a>.
+                    // </p>
+
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -154,27 +205,28 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private IdentityUser CreateUser()
+
+        private Athlete CreateUser()
         {
             try
             {
-                return Activator.CreateInstance<IdentityUser>();
+                return Activator.CreateInstance<Athlete>();
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
-                    $"Ensure that '{nameof(IdentityUser)}' is not an abstract class and has a parameterless constructor, or alternatively " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(Athlete)}'. " +
+                    $"Ensure that '{nameof(Athlete)}' is not an abstract class and has a parameterless constructor, or alternatively " +
                     $"override the register page in /Areas/Identity/Pages/Account/Register.cshtml");
             }
         }
 
-        private IUserEmailStore<IdentityUser> GetEmailStore()
+        private IUserEmailStore<Athlete> GetEmailStore()
         {
             if (!_userManager.SupportsUserEmail)
             {
                 throw new NotSupportedException("The default UI requires a user store with email support.");
             }
-            return (IUserEmailStore<IdentityUser>)_userStore;
+            return (IUserEmailStore<Athlete>)_userStore;
         }
     }
 }

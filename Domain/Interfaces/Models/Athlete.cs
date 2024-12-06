@@ -1,11 +1,16 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Reflection.Metadata;
+using Microsoft.AspNetCore.Identity;
 namespace CS330_Fall2024_FinalProject.Models;
-public class Athlete
+
+public class UserRole : IdentityRole{
+    
+}
+public class Athlete : IdentityUser
 {
 
-    public int Id { get; set; }  // This is the primary key
+   // public int Id { get; set; }  // This is the primary key
     public string Name  { get; set; } = "Unknown";
     public int Number { get; set; }
 
@@ -32,6 +37,8 @@ public class Athlete
         ProfilePicture = profilePicture?? Array.Empty<byte>(); ;
     }
 }
+
+
 
 
 

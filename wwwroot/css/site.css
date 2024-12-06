@@ -25,10 +25,10 @@ body {
 
 }
 
-h1, h2{
+/* h1, h2, h4{
     font-family: 'Arial', sans-serif;
-    color: #0056b3;
-}
+    color: #ffffff;
+} */
 
 p.text-muted{
     font-size: 1.1rem;
@@ -66,7 +66,7 @@ p.text-muted{
 
 /* snow report .js file's location name css styling */
 #snowReport-locationName {
-    color: #6A7FF3;
+    color: #67b0d1;
 }
 
 
@@ -106,7 +106,7 @@ p.text-muted{
 /* home page index.cshtml file; sthe 3 snow report div's background color (grayish) */
 #snow-report1, #snow-report2, #snow-report3  {
     /* background-color: #F2F2F3; */
-    background-color: #EFEFEF;
+    background-color: #ffffff;
 
 }
 
@@ -160,8 +160,8 @@ p.text-muted{
 
 .btn-chat:hover {
   background-color: #fff; 
-  background-color: #1b6ec2; 
-  border-color: #1b6ec2; 
+  background-color: #4b99bb; 
+  border-color: #67b0d1; 
 }
 
 .btn-chat:hover .btn-label {
@@ -173,7 +173,7 @@ p.text-muted{
   position: fixed;
   bottom: 20px; 
   right: 20px; 
-  background-color: #7C8BDE;
+  background-color: #67b0d1;
   color: #fff;
   font-size: 1.2rem;
   font-weight: 500;
@@ -186,7 +186,7 @@ p.text-muted{
 }
 
 #chat-bot-button:hover {
-  background-color: #0056b3;
+  background-color: #4b99bb;
   transform: scale(1.05);
 }
 
