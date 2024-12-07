@@ -708,6 +708,13 @@ h6 {
   color: color-mix(in srgb, var(--default-color), transparent 50%);
 }
 
+/* .page-title .accent-backgrounds {
+  --background-color: #67b0d1;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --surface-color: #8ec4dd;
+} */
+
 /*--------------------------------------------------------------
 # Global Sections
 --------------------------------------------------------------*/
@@ -916,6 +923,8 @@ section,
 # Services Section
 --------------------------------------------------------------*/
 .services .service-item {
+  cursor: pointer;
+  width: 1 1 calc(25% - 20px); /* Take 25% of the row minus margin/gaps */
   background-color: var(--surface-color);
   box-shadow: 0px 0 25px 0 rgba(0, 0, 0, 0.1);
   padding: 50px 30px;
@@ -926,12 +935,13 @@ section,
 }
 
 .services .service-item:before {
+  cursor: pointer;
   content: "";
   position: absolute;
   background: var(--accent-color);
   inset: 100% 0 0 0;
   transition: all 0.3s;
-  z-index: -1;
+  z-index: 1;
 }
 
 .services .service-item .icon {
