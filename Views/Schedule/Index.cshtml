@@ -1,68 +1,120 @@
-﻿@* -schedule page for games, practices, and events- *@
+@* -schedule page for games, practices, and events- *@
 @{
     ViewData["Title"] = "Snow Ski Team Schedule Page";
 }
 
-<div class="container text-center mt-5">
-    <h1 class="display-6 text-primary fw-bold">Snow Ski Team Schedule</h1>
-    <p class="lead text-secondary mt-3 fs-6">Stay up-to-date with our games, practices, and upcoming events.</p>
-</div>
-
-<!-- Divider -->
-<hr class="my-5 border-primary">
-
-<!-- Schedule Content -->
-<div class="container mt-5">
-    <div class="row align-items-center mb-5">
-        <!-- Games Section -->
-        <div class="col-md-12 text-center">
-            <!-- site.css for games,practices,events text-->
-            <h2 id="schedule-page-section-titles-1" class="mb-4">Games</h2>
-            <img id="schedule-page-image-1" src="~/Images/schedulepage-1.svg" alt="Games Schedule" class="img-fluid mb-3">
-            <br><br>
-            <br><br>
-            <ul class="list-group w-50 mx-auto">
-                <li class="list-group-item">Game 1: TBD</li>
-                <li class="list-group-item">Game 2: TBD</li>
-                <li class="list-group-item">Game 3: TBD</li>
-            </ul>
+<body class="secondary-page">
+    <main class="main">
+        <div class="page-title accent-background">
+            <div class="container position-relative">
+                <h2>Snow Ski Team Schedule</h2>
+                <p>Stay up-to-date with our games, practices, and upcoming events.</p>
+            </div>
         </div>
-    </div>
 
-    <!-- Divider -->
-    <hr class="my-5 border-secondary">
+    <!-- Schedules Section -->
+    <section id="services" class="services section">
 
-    <div class="row align-items-center mb-5">
-        <!-- Practices Section -->
-        <div class="col-md-12 text-center">
-            <h2 id="schedule-page-section-titles-2" class="mb-4">Practices</h2>
-            <img id="schedule-page-image-2" src="~/Images/schedulepage-2.svg" alt="Practices Schedule" class="img-fluid mb-3">
-            <br><br>
-            <br><br>
-            <ul class="list-group w-50 mx-auto">
-                <li class="list-group-item">Practice 1: TBD</li>
-                <li class="list-group-item">Practice 2: TBD</li>
-                <li class="list-group-item">Practice 3: TBD</li>
-            </ul>
+      <div class="container">
+
+        <div class="row justify-content-between pb-5">
+
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item position-relative d-flex flex-column align-items-center text-decoration-none">
+              <div class="icon"><i class="bi bi-activity icon"></i></div>
+              <h4><a href="#games" class="stretched-link">Games</a></h4>
+              <p>Come support us at our games!</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="200">
+            <div class="service-item position-relative d-flex flex-column align-items-center text-decoration-none">
+              <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
+              <h4><a href="#practices" class="stretched-link">Practices</a></h4>
+              <p>Drop in to a practice!</p>
+            </div>
+          </div><!-- End Service Item -->
+
+          <div class="col-lg-4 d-flex" data-aos="fade-up" data-aos-delay="300">
+            <div class="service-item position-relative d-flex flex-column align-items-center text-decoration-none">
+              <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
+              <h4><a href="#events" class="stretched-link">Events</a></h4>
+              <p>Support the team at an event.</p>
+            </div>
+          </div><!-- End Service Item -->
+
         </div>
-    </div>
 
-    <!-- Divider -->
-    <hr class="my-5 border-primary">
+      </div>
 
-    <div class="row align-items-center">
-        <!-- Events Section -->
-        <div class="col-md-12 text-center">
-            <h2 id="schedule-page-section-titles-3" class="mb-4">Events</h2>
-            <img id="schedule-page-image-3" src="~/Images/schedulepage-3.svg" alt="Events Schedule" class="img-fluid mb-3">
-            <br><br>
-            <br><br>
-            <ul class="list-group w-50 mx-auto">
-                <li class="list-group-item">Event 1: TBD</li>
-                <li class="list-group-item">Event 2: TBD</li>
-                <li class="list-group-item">Event 3: TBD</li>
-            </ul>
-        </div>
-    </div>
-    <br><br>
-</div>
+    </section><!-- /Schedules Section -->
+
+        <!-- Divider -->
+        <hr class="my-5 border-primary">
+
+        <!-- Schedule Content -->
+            <section id="games" class="games">
+                <div class="row align-items-center mb-5">
+                    <div class="col-md-12 text-center">
+                        <!-- site.css for games,practices,events text-->
+                        <h2 id="schedule-page-section-titles-1" class="mb-4">Games</h2>
+                        <img id="schedule-page-image-1" src="~/Images/schedulepage-1.svg" alt="Games Schedule" class="img-fluid mb-3">
+                        <br><br>
+                        <br><br>
+                        <ul class="list-group w-50 mx-auto">
+                            <li class="list-group-item">Game 1: TBD</li>
+                            <li class="list-group-item">Game 2: TBD</li>
+                            <li class="list-group-item">Game 3: TBD</li>
+                        </ul>
+                    </div>
+                
+                </div>
+            </section>
+
+            <!-- Divider -->
+            <hr class="my-5 border-secondary">
+            <section id="practices" class="practices">
+                <div class="row align-items-center mb-5">
+                    <!-- Practices Section -->
+                    <div class="col-md-12 text-center">
+                        <h2 id="schedule-page-section-titles-2" class="mb-4">Practices</h2>
+                        <img id="schedule-page-image-2" src="~/Images/schedulepage-2.svg" alt="Practices Schedule" class="img-fluid mb-3">
+                        <br><br>
+                        <br><br>
+                        <ul class="list-group w-50 mx-auto">
+                            <li class="list-group-item">Practice 1: TBD</li>
+                            <li class="list-group-item">Practice 2: TBD</li>
+                            <li class="list-group-item">Practice 3: TBD</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- Divider -->
+            <hr class="my-5 border-primary">
+
+            <section id="events" class="events">
+                <div class="row align-items-center">
+                    <!-- Events Section -->
+                    <div class="col-md-12 text-center">
+                        <h2 id="schedule-page-section-titles-3" class="mb-4">Events</h2>
+                        <img id="schedule-page-image-3" src="~/Images/schedulepage-3.svg" alt="Events Schedule" class="img-fluid mb-3">
+                        <br><br>
+                        <br><br>
+                        <ul class="list-group w-50 mx-auto">
+                            <li class="list-group-item">Event 1: TBD</li>
+                            <li class="list-group-item">Event 2: TBD</li>
+                            <li class="list-group-item">Event 3: TBD</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+    </main>
+
+    <script src="assets/js/main.js"></script>
+    
+</body>
+
+

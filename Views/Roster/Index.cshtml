@@ -10,18 +10,22 @@
     <script src="~/js/roster.js"></script>
 }
 
-<div class="container text-center mt-5">
-    <h1 class="display-6 text-primary fw-bold">Team Roster</h1>
-    <p class="lead text-secondary mt-3 fs-6">Meet our amazing athletes and view their stats.</p>
-</div>
-
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-12">
-            <!-- search bar -->
-            <div class="mb-4">
-                <input type="text" id="searchInput" class="form-control" placeholder="Search athletes by name or number">
+<body class="secondary-page">
+    <main class="main">
+        <div class="page-title accent-background">
+            <div class="ccontainer position-relative">
+                <h2>Team Roster</h2>
+                <p>Meet our amazing athletes and view their stats.</p>
             </div>
+        </div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12">
+                    <!-- search bar -->
+                    <div class="mb-4">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search athletes by name or number">
+                    </div>
 
             <form asp-action="GenerateAverageReport" method="post">
                 <input type="hidden" name="id" >
