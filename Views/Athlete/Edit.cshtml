@@ -24,6 +24,11 @@
         @Html.HiddenFor(h => @Model.Athlete.Id);
         <div class="row">
             <div class="col-md-6 mb-3">
+                <label asp-for="@Model.Athlete.ProfilePicture" class = "form-label"></label>
+                <input asp-for="@Model.Athlete.ProfilePicture" class="form-control" autocomplete="username" aria-required = "true" />
+                <span asp-validation-for="@Model.Athlete.ProfilePicture" class ="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
                 <label asp-for="@Model.Athlete.Name" class = "form-label"></label>
                 <input asp-for="@Model.Athlete.Name" class="form-control" autocomplete="username" aria-required = "true" />
                 <span asp-validation-for="@Model.Athlete.Name" class ="text-danger"></span>

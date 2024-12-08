@@ -34,7 +34,7 @@ public class Athlete : IdentityUser
         Stats = stats;
         SkiLevel = skilevel ?? "Unknown";
         Birthday = birthday;
-        ProfilePicture = profilePicture?? Array.Empty<byte>(); ;
+        ProfilePicture = profilePicture;
     }
 }
 

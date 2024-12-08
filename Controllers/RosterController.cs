@@ -23,6 +23,7 @@ public class RosterController : Controller
                 Name = a.Name,
                 // Number = a.Number,
               //  Id = a.Id,
+                ProfilePicture = a.ProfilePicture,
                 Birthday = a.Birthday,
                 SkiLevel = a.SkiLevel,
                 BestTime = a.Stats?.BestTime ?? 0,
