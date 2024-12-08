@@ -100,6 +100,48 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
 
+            [Required]
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+
+            [Required]
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+
+            [Required]
+            [Display(Name = "Number")]
+            public int Number { get; set; }
+
+            [Required]
+            [DataType(DataType.Date)]
+            [Display(Name = "Birthday")]
+            public DateTime Birthday { get; set; }
+
+            [Required]
+            [Display(Name = "Ski Level")]
+
+            public string SkiLevel { get; set; }
+
+            [Required]
+            [Display(Name = "Best Time")]
+            public double BestTime { get; set; }
+
+            [Required]
+            [Display(Name = "Top Speed")]
+            public double TopSpeed { get; set; }
+
+            [Required]
+            [Display(Name = "Best Distance")]
+            public double BestDistance { get; set; }
+
+            [Required]
+            [Display(Name = "Vertical Drop")]
+            public double VerticalDrop { get; set; }
+
+            [Required]
+            [Display(Name = "Ski Ranking")]
+            public double Ranking { get; set; }
+
             public static ValidationResult ValidateEmail(string email, ValidationContext context)
             {
                 if (string.IsNullOrEmpty(email))
@@ -137,9 +179,28 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
+                user.Name = $"{Input.FirstName} {Input.LastName}";
+                user.Number = Input.Number;
+                user.Birthday = Input.Birthday;
+                user.SkiLevel = Input.SkiLevel;
+
+                user.Stats = new SkiStats
+                {
+                    BestTime = Input.BestTime,
+                    TopSpeed = Input.TopSpeed,
+                    BestDistance = Input.BestDistance,
+                    VerticalDrop = Input.VerticalDrop,
+                    Ranking = Input.Ranking
+                };
+
+                
+
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    await _userManager.AddToRoleAsync(user, "Athlete");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
