@@ -1,0 +1,33 @@
+@model IEnumerable<CS330_Fall2024_FinalProject.Models.UserRoleViewModel>
+
+<h2>Manage Roles</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Current Role(s)</th>
+            <th>Assign Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@string.Join(", ", user.Roles)</td>
+                <td>
+                    <form asp-action="AssignRole" asp-controller="ManageRoles" method="post">
+                        <input type="hidden" name="userId" value="@user.UserId" />
+                        <select name="role" class="form-select">
+                            <option value="Athlete">Athlete</option>
+                            <option value="Coach">Coach</option>
+                            <option value="Manager">Manager</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Assign</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
