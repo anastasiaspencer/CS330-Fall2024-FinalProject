@@ -68,6 +68,7 @@ namespace CS330_Fall2024_FinalProject.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ProfilePicture = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Number = table.Column<int>(type: "int", nullable: false),
                     SkiLevel = table.Column<string>(type: "nvarchar(max)", nullable: true),

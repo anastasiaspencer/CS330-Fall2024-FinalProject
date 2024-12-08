@@ -56,7 +56,7 @@ public class CreateAthleteController : Controller
     }
 
     // for if validaiton fails
-    return View("index");
+    return View(model);
     }
 
     
