@@ -45,7 +45,8 @@
 
 
 <body>
-    <header id="header" class="header d-flex align-items-center fixed-top">
+    @* <header id="header" class="header d-flex align-items-center fixed-top"> *@
+    <header id="header" class="header d-flex align-items-center fixed-top @((ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index") ? "navbar-home" : "navbar-other")">
         <!--<nav id="navbar-section" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">-->
             <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
                 <!-- Logo Section -->
@@ -53,70 +54,109 @@
                     <h1 class="sitename">Snow Ski Team</h1>
                 </a>
                 <!-- Navbar Section -->
-                <nav id="navmenu" class="navmenu"> 
+                <nav id="navmenu" class="navmenu">
                     <ul>
-                    <!-- Standard Links -->
+                        <!-- Standard Links -->
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                         <li><a asp-controller="Schedule" asp-action="Index">Schedule</a></li>
                         <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
-                    <!-- Role-Based Links -->
-                        <li>
-                            @if (User.Identity?.IsAuthenticated == true)
-                            {
-                                <a asp-controller="Role" asp-action="Index">Athletes Page</a>
-                            }
-                        </li>
-                        <li>
-                            @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Coach"))
-                            {
-                                <a asp-controller="Role" asp-action="Coach">Coach's Page</a>
-                            }
-                        </li>
-                        <li>
-                            @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Coach"))
-                            {
-                                <a asp-controller="ManageRoles" asp-action="Index">Manage Roles</a>
-                            }
-                        </li>
-                        <li>
-                            @if (User.Identity?.IsAuthenticated == true && User.IsInRole("Manager"))
-                            {
-                                <a asp-controller="Role" asp-action="Manager">Manager's Page</a>
-                            }
-                        </li>
 
+                        <!-- Role-Based Links -->
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            if (User.IsInRole("Athlete") && User.IsInRole("Manager") && User.IsInRole("Coach"))
+                            {
+                                <!-- Dropdown for multiple roles -->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                                        Role Pages <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a asp-controller="Role" asp-action="Index">Athletes Page</a></li>
+                                        <li><a asp-controller="Role" asp-action="Coach">Coach's Page</a></li>
+                                        <li><a asp-controller="Role" asp-action="Manager">Manager's Page</a></li>
+                                        <li><a asp-controller="ManageRoles" asp-action="Index">Manage Roles</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            else if (User.IsInRole("Athlete") && User.IsInRole("Manager")){
+                                <!-- Dropdown for multiple roles -->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                                        Role Pages <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a asp-controller="Role" asp-action="Index">Athletes Page</a></li>
+                                        <li><a asp-controller="Role" asp-action="Manager">Manager's Page</a></li>
+                                        @* <li><a asp-controller="ManageRoles" asp-action="Index">Manage Roles</a></li> *@
+                                    </ul>
+                                </li>
+                            }
+                            else if (User.IsInRole("Athlete") && User.IsInRole("Coach")){
+                                <!-- Dropdown for multiple roles -->
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                                        Role Pages <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a asp-controller="Role" asp-action="Index">Athletes Page</a></li>
+                                        <li><a asp-controller="Role" asp-action="Coach">Coach's Page</a></li>
+                                        <li><a asp-controller="Role" asp-action="Manager">Manager's Page</a></li>
+                                        <li><a asp-controller="ManageRoles" asp-action="Index">Manage Roles</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <!-- Individual Role Links -->
+                                @if (User.IsInRole("Athlete"))
+                                {
+                                    <li><a asp-controller="Role" asp-action="Index">Athletes Page</a></li>
+                                }
+                                @if (User.IsInRole("Coach"))
+                                {
+                                    <li><a asp-controller="Role" asp-action="Coach">Coach's Page</a></li>
+                                    <li><a asp-controller="ManageRoles" asp-action="Index">Manage Roles</a></li>
+                                }
+                                @if (User.IsInRole("Manager"))
+                                {
+                                    <li><a asp-controller="Role" asp-action="Manager">Manager's Page</a></li>
+                                }
+                            }
+                        }
 
+                        <!-- Additional Links -->
                         <li><a asp-controller="CreateAthlete" asp-action="Index">Create New Athlete</a></li>
                         <li><a asp-controller="Roster" asp-action="Index">Roster</a></li>
 
+                        <!-- Login/Logout/Register Links -->
                         <li>
-                                @if (SignInManager.IsSignedIn(User))
-                                {
-                                    <li>
-                                        <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-                                    </li>
-                                    <li>
-                                        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                                        </form>
-                                    </li>
-                                }
-                                else
-                                {
-                                    <li>
-                                        <a asp-area="Identity" asp-page="/Account/Register">Register</a>
-                                    </li>
-                                    <li>
-                                        <a asp-area="Identity" asp-page="/Account/Login">Login</a>
-                                    </li>
-                                }
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <li>
+                                    <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+                                </li>
+                                <li>
+                                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="nav-link btn btn-link">Logout</button>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li>
+                                    <a asp-area="Identity" asp-page="/Account/Register">Register</a>
+                                </li>
+                                <li>
+                                    <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                </li>
+                            }
                         </li>
-
                     </ul>
 
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-
                 </nav>
+
             </div>
         <!--</nav> -->
     </header> 
@@ -134,23 +174,23 @@
         <img id="chat-bot-button-icon" src="~/Images/chatbot-icon.svg" alt="ChatBot Icon" />
     </button>
 
-    <footer id="footer" class="footer dark-background">
+    <footer id="footer" class="footer dark-background py-3">
         <div class="container footer-top">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 footer-about">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-6 footer-about d-flex align-items-center">
                     <a href="~/" class="logo d-flex align-items-center">
-                        <h1 class="sitename">Snow Ski</h1>
+                        <h1 class="sitename me-3">Snow Ski</h1>
                     </a>
-
-                    <div class="container pb-4">
-                        This website is built by Anastasia Spencer, Brooke Boskus, Collin Price, Owen McMenaman, and Jeongbin Son for CS 330 - Final
-                        Project
-                    </div>
                 </div>
-                <!-- Add other footer columns as needed -->
+                <div class="col-lg-6 col-md-6 text-end">
+                    <p class="mb-0">
+                        This website is built by Anastasia Spencer, Brooke Boskus, Collin Price, Owen McMenaman, and Jeongbin Son for CS 330 - Final Project.
+                    </p>                
+                </div>
             </div>
         </div>
     </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -163,6 +203,12 @@
     <script src="~/assets/js/main.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
+    @* style="display: none;" *@
+    @* i cant figure out how to make this button only show up when theuser has scrolled 300 pixels down *@
+    @* <button id="scrollToTopButton" class="scroll-to-top" onclick="scrollToTop()"  > 
+    ↑
+    </button> *@
+
 </body>
 
 </html>
