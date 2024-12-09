@@ -97,6 +97,7 @@ namespace CS330_Fall2024_FinalProject.Controllers
             }
 
             athlete.Birthday = data.Athlete.Birthday;
+            athlete.ProfilePicture = data.Athlete.ProfilePicture;
             athlete.Name = data.Athlete.Name;
             athlete.Number = data.Athlete.Number;
             athlete.Email = data.Athlete.Email;

@@ -15,7 +15,7 @@ public class AthleteService : IAthleteService
 
     public async Task AddAsync(Athlete athlete)
     {
-        Console.WriteLine($"Athlete: {JsonConvert.SerializeObject(athlete)}");
+        // Console.WriteLine($"Athlete: {JsonConvert.SerializeObject(athlete)}");
 
         Console.WriteLine("-------********------------------------------", athlete.SkiLevel);
         await _context.Users.AddAsync(athlete);
