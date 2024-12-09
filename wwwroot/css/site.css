@@ -81,11 +81,12 @@ p.text-muted{
 
 /* home page snow particle effect styling */
 #snow-particles {
+  background: #b3e0ee; 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: -1;
   pointer-events: none;
 }
