@@ -1,8 +1,8 @@
 ﻿@{
     Layout = "~/Views/ChatBot/chatbot_Layout.cshtml";
 }
-
 @model CS330_Fall2024_FinalProject.Models.ChatBot
+
 <head>
     <meta charset="utf-8" />
     <title></title>
@@ -11,12 +11,31 @@
 
 <body>
     <div class="container text-center my-5 border-1">
-        <h1 class="display-6 text-primary fw-bold" id="Title"> Welcome to Ski Bot! </h1> <!-- our chat bot -->
+        <h1 id="chatbot-text-1" class="display-6 fw-bold" id="Title" > Welcome to Ski Bot! </h1> <!-- our chat bot -->
         <p class="lead text-secondary"> Your helpful assistant for all things snow skiing. </p>
         <hr>
 
         <br>
         @if (Model == null) {
+            <!-- FAQ Buttons -->
+            <div class="form-group">
+                <h3 class="text-left" style="font-size: 0.875em;">Frequently Asked Questions:</h3>
+                <form asp-action="GenerateResponse" method="post">
+                    <input type="hidden" name="userPrompt" value="How can I get started with snow skiing?" />
+                    <button id="chatbot-faq-1" type="submit" class="btn mt-2">How can I get started with snow skiing?</button>
+                </form>
+
+                <form asp-action="GenerateResponse" method="post">
+                    <input type="hidden" name="userPrompt" value="What equipment do I need to start snow skiing?" />
+                    <button id="chatbot-faq-2" type="submit" class="btn mt-2">What equipment do I need to start snow skiing?</button>
+                </form>
+
+                <form asp-action="GenerateResponse" method="post">
+                    <input type="hidden" name="userPrompt" value="What are some safety tips I should know?" />
+                    <button id="chatbot-faq-3" type="submit" class="btn mt-2">What are some safety tips I should know?</button>
+                </form>
+                <br>
+            </div>
             <form asp-action="GenerateResponse" method="post">
                 <div class="form-group">
                     <div class="row justify-content-center">
@@ -26,7 +45,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary mt-2">Submit</button>
+                <button id="chatbot-button-1" type="submit" class="btn mt-2">Submit</button>
             
             </form>
         }
@@ -36,7 +55,7 @@
                     @foreach (var response in Model.response) {
                         <p class="mb-2 text-dark">@Html.Raw(response.Replace("\n", "<br>"))</p>
                     }
-                    <a href="/ChatBot" class="btn btn-primary mt-2">Go Back</a>
+                    <a href="/ChatBot" id="chatbot-button-1" class="btn mt-2">Go Back</a>
 
 
                 </div>

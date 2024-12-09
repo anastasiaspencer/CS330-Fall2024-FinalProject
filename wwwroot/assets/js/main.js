@@ -207,3 +207,21 @@
   document.addEventListener('scroll', navmenuScrollspy);
 
 })();
+
+
+
+// shows or hides the scroll-to-top button in layout cshtml
+// not in use, bc can't figure out how to make this only show up the element when the user scrolled down 300 pixels
+// function scrollToTop() {
+//   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+//       console.log("User scrolled 300 pixels down");
+//   } else {
+//       console.log("User is at the top of the page");
+//       document.getElementById("scrollToTop").style.display = "none";
+//   }
+//   window.scrollTo({
+//       top: 0,
+//       behavior: "smooth", 
+//   });
+// }
+

@@ -3,20 +3,78 @@
 @{
     ViewData["Title"] = "Register";
 }
+<div class="page-title accent-background">
+    <div class="container position-relative">
+        <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+        <h2 class="h5 text-center mb-3">Create a new account.</h2>
+    </div>
+</div>
+<br>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 
 <div class="d-flex justify-content-center align-items-center min-vh-100">
-    <div id="register-cshtml-1" class="card shadow-lg p-4">
+    <div id="snow-particles" style="background:#b3e0ee; position: absolute; width: 100%; height: 100%;"></div>
+
+    <div id="register-cshtml-1" class="card shadow-lg p-4 pt-5" style="margin:100px;">
         <div class="card-body">
-            <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+            @* <h1 class="text-center mb-4">@ViewData["Title"]</h1> *@
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <h2 class="h5 text-center mb-3">Create a new account.</h2>
-                <hr />
+                @* <h2 class="h5 text-center mb-3">Create a new account.</h2> *@
+                @* <hr /> *@
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
                     <label asp-for="Input.Email">Email</label>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.FirstName">First Name</label>
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.LastName">Last Name</label>
+                    <span asp-validation-for="Input.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Birthday" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Birthday">Birthday</label>
+                    <span asp-validation-for="Input.Birthday" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.SkiLevel" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.SkiLevel">Ski Level</label>
+                    <span asp-validation-for="Input.SkiLevel" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.BestTime" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.BestTime">Best Time</label>
+                    <span asp-validation-for="Input.BestTime" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.TopSpeed" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.TopSpeed">Top Speed</label>
+                    <span asp-validation-for="Input.TopSpeed" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.BestDistance" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.BestDistance">Best Distance</label>
+                    <span asp-validation-for="Input.BestDistance" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.VerticalDrop" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.VerticalDrop">Vertical Drop</label>
+                    <span asp-validation-for="Input.VerticalDrop" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Input.Ranking" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <label asp-for="Input.Ranking">Ranking</label>
+                    <span asp-validation-for="Input.Ranking" class="text-danger"></span>
+                </div>
+
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
                     <label asp-for="Input.Password">Password</label>
@@ -37,7 +95,9 @@
         </div>
     </div>
 </div>
+<br>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/homepageSnowParticles.js"></script>
 }

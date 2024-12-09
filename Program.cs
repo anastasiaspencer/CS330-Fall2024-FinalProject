@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using CS330_Fall2024_FinalProject.Core.Repositories;
 using CS330_Fall2024_FinalProject.Repositories;
 using CS330_Fall2024_FinalProject.Models;
+using Microsoft.Extensions.DependencyInjection;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -42,6 +43,8 @@ builder.Services.AddScoped<SnowReportApplicationService>();
 builder.Services.AddScoped<IAthleteService, AthleteService>();
 builder.Services.AddScoped<AthleteApplicationService>();
 
+builder.Services.AddScoped<IScheduleService, ScheduleService>();
+
 
 // for email service
 builder.Services.AddTransient<IEmailSender, EmailSender>();
@@ -71,6 +74,20 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    string[] roleNames = { "Athlete", "Coach", "Admin" };
+
+    foreach (var roleName in roleNames)
+    {
+        if (!await roleManager.RoleExistsAsync(roleName))
+        {
+            await roleManager.CreateAsync(new IdentityRole(roleName));
+        }
+    }
+}
+
 app.Run();
 
 //Add authorization and add athlete only policy that requires the athletenumber claim as a requirement
@@ -83,8 +100,8 @@ void AddAuthorizationPolicies(){
     builder.Services.AddAuthorization(options =>
     {
         options.AddPolicy("RequireCoach", policy => policy.RequireRole("Coach"));
-        options.AddPolicy("RequireManager", policy=> policy.RequireRole("Manager"));
-        options.AddPolicy("RequireAthlete", policy=> policy.RequireRole("Athlete"));
+        options.AddPolicy("RequireManager", policy => policy.RequireRole("Manager"));
+        options.AddPolicy("RequireAthlete", policy => policy.RequireRole("Athlete"));
     });
 }
 

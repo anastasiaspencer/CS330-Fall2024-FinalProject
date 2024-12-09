@@ -1,4 +1,5 @@
 @* -schedule page for games, practices, and events- *@
+@model List<CS330_Fall2024_FinalProject.Models.Schedule>
 @{
     ViewData["Title"] = "Snow Ski Team Schedule Page";
 }
@@ -13,7 +14,7 @@
         </div>
 
     <!-- Schedules Section -->
-    <section id="services" class="services section">
+    <section id="services" class="services section pb-5">
 
       <div class="container">
 
@@ -47,69 +48,99 @@
 
       </div>
 
-    </section><!-- /Schedules Section -->
-
-        <!-- Divider -->
-        <hr class="my-5 border-primary">
-
-        <!-- Schedule Content -->
-            <section id="games" class="games">
-                <div class="row align-items-center mb-5">
-                    <div class="col-md-12 text-center">
-                        <!-- site.css for games,practices,events text-->
-                        <h2 id="schedule-page-section-titles-1" class="mb-4">Games</h2>
-                        <img id="schedule-page-image-1" src="~/Images/schedulepage-1.svg" alt="Games Schedule" class="img-fluid mb-3">
-                        <br><br>
-                        <br><br>
-                        <ul class="list-group w-50 mx-auto">
-                            <li class="list-group-item">Game 1: TBD</li>
-                            <li class="list-group-item">Game 2: TBD</li>
-                            <li class="list-group-item">Game 3: TBD</li>
-                        </ul>
-                    </div>
-                
+        <section id="games" class="games">
+            <div class="container pt-5">
+                <div class="text-center mb-5 pt-2">
+                    <h2 id="schedule-page-section-titles-1" class="mb-4" style="color: var(--heading-color);">Games</h2>
+                    <img id="schedule-page-image-1" src="~/Images/schedulepage-1.svg" alt="Games Schedule" class="img-fluid mb-3">
+                    <p style="color: var(--default-color);">Come support us at our upcoming games and cheer for the Snow Ski Team!</p>
                 </div>
-            </section>
+
+                <div class="row justify-content-center">
+                    @foreach (var schedule in Model.Where(s => s.Type == "Game"))
+                    {
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card shadow-sm border-0" style="background-color: var(--surface-color); border-radius: 15px; transition: transform 0.3s, box-shadow 0.3s;">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title" style="color: var(--heading-color);">@schedule.Description</h5>
+                                    <p class="card-text text-muted" style="color: var(--default-color);">
+                                        <i class="bi bi-calendar-event" style="color: var(--accent-color);"></i> @schedule.Date.ToString("MMMM dd, yyyy")<br>
+                                        <i class="bi bi-clock" style="color: var(--accent-color);"></i> @schedule.Date.ToString("HH:mm")
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </section>
 
             <!-- Divider -->
             <hr class="my-5 border-secondary">
+
             <section id="practices" class="practices">
-                <div class="row align-items-center mb-5">
-                    <!-- Practices Section -->
-                    <div class="col-md-12 text-center">
-                        <h2 id="schedule-page-section-titles-2" class="mb-4">Practices</h2>
+                <div class="container pt-5">
+                    <div class="text-center mb-5 pt-2">
+                        <h2 id="schedule-page-section-titles-2" class="mb-4" style="color: var(--heading-color);">Practices</h2>
                         <img id="schedule-page-image-2" src="~/Images/schedulepage-2.svg" alt="Practices Schedule" class="img-fluid mb-3">
-                        <br><br>
-                        <br><br>
-                        <ul class="list-group w-50 mx-auto">
-                            <li class="list-group-item">Practice 1: TBD</li>
-                            <li class="list-group-item">Practice 2: TBD</li>
-                            <li class="list-group-item">Practice 3: TBD</li>
-                        </ul>
+                        <p style="color: var(--default-color);">Come stop by our practices!</p>
+                    </div>
+
+                    <div class="row justify-content-center">
+                            @foreach (var schedule in Model.Where(s => s.Type == "Practice"))
+                            {
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0" style="background-color: var(--surface-color); border-radius: 15px; transition: transform 0.3s, box-shadow 0.3s;">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title" style="color: var(--heading-color);">@schedule.Description</h5>
+                                            <p class="card-text text-muted" style="color: var(--default-color);">
+                                                <i class="bi bi-calendar-event" style="color: var(--accent-color);"></i> @schedule.Date.ToString("MMMM dd, yyyy")<br>
+                                                <i class="bi bi-clock" style="color: var(--accent-color);"></i> @schedule.Date.ToString("HH:mm")
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                     </div>
                 </div>
             </section>
-
 
             <!-- Divider -->
             <hr class="my-5 border-primary">
 
             <section id="events" class="events">
-                <div class="row align-items-center">
-                    <!-- Events Section -->
-                    <div class="col-md-12 text-center">
-                        <h2 id="schedule-page-section-titles-3" class="mb-4">Events</h2>
+                <div class="container pt-5">
+                    <div class="text-center mb-5 pt-2">
+                        <h2 id="schedule-page-section-titles-2" class="mb-4" style="color: var(--heading-color);">Events</h2>
                         <img id="schedule-page-image-3" src="~/Images/schedulepage-3.svg" alt="Events Schedule" class="img-fluid mb-3">
-                        <br><br>
-                        <br><br>
-                        <ul class="list-group w-50 mx-auto">
-                            <li class="list-group-item">Event 1: TBD</li>
-                            <li class="list-group-item">Event 2: TBD</li>
-                            <li class="list-group-item">Event 3: TBD</li>
-                        </ul>
+                        <p style="color: var(--default-color);">Come support the team at some of our planned events!</p>
+                    </div>
+
+                    <div class="row justify-content-center">
+                            @foreach (var schedule in Model.Where(s => s.Type == "Event"))
+                            {
+                                <div class="col-lg-4 col-md-6 mb-4">
+                                    <div class="card shadow-sm border-0" style="background-color: var(--surface-color); border-radius: 15px; transition: transform 0.3s, box-shadow 0.3s;">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title" style="color: var(--heading-color);">@schedule.Description</h5>
+                                            <p class="card-text text-muted" style="color: var(--default-color);">
+                                                <i class="bi bi-calendar-event" style="color: var(--accent-color);"></i> @schedule.Date.ToString("MMMM dd, yyyy")<br>
+                                                <i class="bi bi-clock" style="color: var(--accent-color);"></i> @schedule.Date.ToString("HH:mm")
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                     </div>
                 </div>
             </section>
+
+        <!-- Add Event Button for Coaches and Managers -->
+        <div class="text-center mt-5">
+            <a asp-action="Create" asp-controller="Schedule" class="btn btn-success btn-lg">
+                Add Event
+            </a>
+        </div>
 
     </main>
 
