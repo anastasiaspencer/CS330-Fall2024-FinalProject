@@ -2,7 +2,7 @@
 const resorts = [
     { name: "Mt.Rose Ski Tahoe", id: "1" },
     { name: "Alta Ski Area", id: "2" },
-    { name: "Breckenridge, Colorado", id: "3" }
+    { name: "Breckenridge, CO", id: "3" }
 ];
 
 // Function to fetch snow report data for a given resort

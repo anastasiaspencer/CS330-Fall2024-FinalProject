@@ -21,7 +21,7 @@ public class RosterController : Controller
             Athletes = athletes.Select(a => new CreateAthleteViewModel
             {
                 Name = a.Name,
-                // Number = a.Number,
+                Number = a.Number,
                 Id = a.Id,
                 ProfilePictureBytes = a.ProfilePicture,
                 Birthday = a.Birthday,

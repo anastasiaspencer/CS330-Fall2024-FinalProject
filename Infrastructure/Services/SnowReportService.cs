@@ -26,7 +26,7 @@ public class SnowReportService : ISnowReportService
                 _latitude = 39.315;
                 _longitude = 119.882;
             break;
-            case "Breckenridge, Colorado":
+            case "Breckenridge, CO)":
                 _latitude = 39.481;
                 _longitude = 106.038;
             break;
