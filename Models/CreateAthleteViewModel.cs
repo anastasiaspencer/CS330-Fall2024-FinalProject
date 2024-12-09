@@ -4,7 +4,7 @@ namespace CS330_Fall2024_FinalProject.Models;
 public class CreateAthleteViewModel
 {
     public required string Name { get; set; }
-    public int Id { get; set; }
+    public string Id { get; set; }
     
     [Required]
     public int Number { get; set; }

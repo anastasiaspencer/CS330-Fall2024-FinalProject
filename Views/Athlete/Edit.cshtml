@@ -88,8 +88,15 @@
                 }
             }
         </div>
+        <div class="d-flex justify-content-between align-items-center mt-4">
 
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Save</button>
+            <button class="btn btn-primary btn-lg" type="submit">Save</button>
+
+            <form asp-action="DeleteAthlete" method="post">
+                @Html.HiddenFor(h => @Model.Athlete.Id)
+                <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+            </form>
+        </div>
 
     }
 </div>

@@ -45,6 +45,7 @@ builder.Services.AddScoped<AthleteApplicationService>();
 
 builder.Services.AddScoped<IScheduleService, ScheduleService>();
 
+builder.Services.AddScoped<SkiStatsRepository>();
 
 // for email service
 builder.Services.AddTransient<IEmailSender, EmailSender>();

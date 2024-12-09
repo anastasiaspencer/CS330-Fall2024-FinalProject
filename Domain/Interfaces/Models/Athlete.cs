@@ -20,6 +20,7 @@ public class Athlete : IdentityUser
     //Add fields for other data we want stored in each athlete model
     // public SkiStats Stats { get; set; }
 
+    public int? StatsId { get; set; }
     public SkiStats? Stats { get; set; } = null;
     public DateTime Birthday { get; set; } 
 

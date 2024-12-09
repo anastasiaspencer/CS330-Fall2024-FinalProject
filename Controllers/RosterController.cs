@@ -22,7 +22,7 @@ public class RosterController : Controller
             {
                 Name = a.Name,
                 // Number = a.Number,
-              //  Id = a.Id,
+                Id = a.Id,
                 ProfilePictureBytes = a.ProfilePicture,
                 Birthday = a.Birthday,
                 SkiLevel = a.SkiLevel,
