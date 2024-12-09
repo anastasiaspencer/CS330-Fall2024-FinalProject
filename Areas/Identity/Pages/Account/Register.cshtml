@@ -3,14 +3,21 @@
 @{
     ViewData["Title"] = "Register";
 }
+<div class="page-title accent-background">
+    <div class="container position-relative">
+        <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+        <h2 class="h5 text-center mb-3">Create a new account.</h2>
+    </div>
+</div>
+<br>
 
 <div class="d-flex justify-content-center align-items-center min-vh-100">
     <div id="register-cshtml-1" class="card shadow-lg p-4">
         <div class="card-body">
-            <h1 class="text-center mb-4">@ViewData["Title"]</h1>
+            @* <h1 class="text-center mb-4">@ViewData["Title"]</h1> *@
             <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                <h2 class="h5 text-center mb-3">Create a new account.</h2>
-                <hr />
+                @* <h2 class="h5 text-center mb-3">Create a new account.</h2> *@
+                @* <hr /> *@
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
                 <div class="form-floating mb-3">
                     <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
@@ -83,6 +90,7 @@
         </div>
     </div>
 </div>
+<br>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
