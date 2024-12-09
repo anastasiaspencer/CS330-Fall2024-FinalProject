@@ -6,15 +6,18 @@ public class SkiStats{
     public double VerticalDrop { get; set; } 
     public double Ranking { get; set; } //
 
+    public byte[]? ProfilePicture { get; set; } = null;
+    
     //parameterless constructor that EF expects when creating the object
     public SkiStats(){}
 
-    public SkiStats(double time, double speed, double distance, double verticalDrop, double ranking)
+    public SkiStats(double time, double speed, double distance, double verticalDrop, double ranking, byte[]? profilePicture)
     {
         BestTime = time;
         TopSpeed = speed;
         BestDistance = distance;
         VerticalDrop = verticalDrop;
         Ranking = ranking;
+        ProfilePicture = profilePicture ?? Array.Empty<byte>();
     }
 }

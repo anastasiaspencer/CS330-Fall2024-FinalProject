@@ -142,6 +142,11 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
             [Display(Name = "Ski Ranking")]
             public double Ranking { get; set; }
 
+            [Display(Name = "Profile Picture")]
+            public IFormFile ProfilePicture { get; set; }
+
+            public byte[]ProfilePictureBytes { get; set; } // For display
+
             public static ValidationResult ValidateEmail(string email, ValidationContext context)
             {
                 if (string.IsNullOrEmpty(email))
@@ -192,6 +197,16 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
                     VerticalDrop = Input.VerticalDrop,
                     Ranking = Input.Ranking
                 };
+
+                if (Input.ProfilePicture != null)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await Input.ProfilePicture.CopyToAsync(memoryStream);
+                        user.ProfilePicture = memoryStream.ToArray(); // Save the picture as a byte array
+                         Input.ProfilePictureBytes = user.ProfilePicture;
+                    }
+                }
 
                 
 

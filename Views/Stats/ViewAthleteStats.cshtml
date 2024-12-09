@@ -8,6 +8,29 @@
     <main class="main">
         <div class="page-title accent-background">
             <div class="container position-relative">
+                    @{
+                        var athlete = Model?.FirstOrDefault();
+                        var athleteName = athlete?.AthleteName ?? "Unknown Athlete";
+                        var profilePictureBytes = athlete?.ProfilePictureBytes;
+                    }
+
+                    @* @if (athlete.ProfilePictureBytes != null) *@
+                    @if (profilePictureBytes != null && profilePictureBytes.Length > 0)
+                    {
+                        <img src="data:image/jpeg;base64,@Convert.ToBase64String(profilePictureBytes)" 
+                            alt="Profile Picture" 
+                            class="img-thumbnail mb-3" 
+                            style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;" />
+                    }
+                    else
+                    {
+                        <img src="/assets/img/defaultProfile.png" 
+                            alt="Default Profile Picture" 
+                            class="img-thumbnail mb-3" 
+                            style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;" />
+                    }
+
+
                 <h2>@Model.FirstOrDefault()?.AthleteName's Stats</h2>
                 <p>Review the performance metrics for this athlete.</p>
             </div>

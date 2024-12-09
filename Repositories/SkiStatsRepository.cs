@@ -12,7 +12,7 @@ namespace CS330_Fall2024_FinalProject.Repositories
             _context = context;
         }
 
-        public (double Value, string AthleteName) GetBestTime()
+        public (double Value, string? AthleteName) GetBestTime()
         {
             var bestTime = _context.SkiStats
                 .OrderBy(s => s.BestTime)
@@ -35,7 +35,7 @@ namespace CS330_Fall2024_FinalProject.Repositories
             return (bestTime.Value, athleteName);
         }
 
-        public (double Value, string AthleteName) GetTopSpeed()
+        public (double Value, string? AthleteName) GetTopSpeed()
         {
             var topSpeed = _context.SkiStats
                 .OrderByDescending(s => s.TopSpeed)
@@ -58,7 +58,7 @@ namespace CS330_Fall2024_FinalProject.Repositories
             return (topSpeed.Value, athleteName);
         }
 
-        public (double Value, string AthleteName) GetBestDistance()
+        public (double Value, string? AthleteName) GetBestDistance()
         {
             var bestDistance = _context.SkiStats
                 .OrderByDescending(s => s.BestDistance)
@@ -81,7 +81,7 @@ namespace CS330_Fall2024_FinalProject.Repositories
             return (bestDistance.Value, athleteName);
         }
 
-        public (double Value, string AthleteName) GetVerticalDrop()
+        public (double Value, string? AthleteName) GetVerticalDrop()
         {
             var verticalDrop = _context.SkiStats
                 .OrderByDescending(s => s.VerticalDrop)
@@ -211,6 +211,25 @@ namespace CS330_Fall2024_FinalProject.Repositories
             return (verticalDrop, athlete.Name);
         }
 
+
+        public (string AthleteName, byte[]? ProfilePictureBytes) GetAthleteProfile(string athleteId)
+        {
+            var athlete = _context.Users
+                .Where(u => u.Id == athleteId)
+                .Select(u => new
+                {
+                    AthleteName = u.Name,
+                    ProfilePictureBytes = u.ProfilePicture
+                })
+                .FirstOrDefault();
+
+            if (athlete == null)
+            {
+                return ("Unknown", null);
+            }
+
+            return (athlete.AthleteName, athlete.ProfilePictureBytes);
+        }
 
 
     }
