@@ -322,3 +322,7 @@ nav#navbar-section {
 }
 
 
+.custom-header {
+  background-color: #b3e0ee; /* Light blue background */
+  color: #000; /* Black text for readability */
+}
