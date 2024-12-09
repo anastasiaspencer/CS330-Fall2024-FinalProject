@@ -1857,3 +1857,21 @@ main {
 .scroll-to-top:active {
   transform: scale(1.05);
 } */
+
+.create-event .buy-btn {
+  color: var(--accent-color);
+  display: inline-block;
+  padding: 8px 35px 10px 35px;
+  border-radius: 50px;
+  transition: none;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: var(--heading-font);
+  transition: 0.3s;
+  border: 1px solid var(--accent-color);
+}
+
+.create-event .buy-btn:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}

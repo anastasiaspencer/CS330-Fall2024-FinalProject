@@ -4,38 +4,48 @@
     ViewData["Title"] = "Add Event";
 }
 
-<h1 class="text-center mt-5">Add New Event</h1>
 
-<div class="container mt-5">
-    <form asp-action="Create" asp-controller="Schedule" method="post">
-        <div class="form-group">
-            <label asp-for="Type" class="form-label">Event Type</label>
-            <select asp-for="Type" class="form-select" required>
-                <option value="Game">Game</option>
-                <option value="Practice">Practice</option>
-                <option value="Event">Event</option>
-            </select>
-        </div>
-        <div class="form-group mt-3">
-            <label asp-for="Date" class="form-label">Event Date</label>
-            <input asp-for="Date" class="form-control" type="date" value="@Model?.Date.ToString("yyyy-MM-dd")" required />
-        </div>
+<div class="page-title accent-background">
+    <div class="container position-relative">
+        <h2>Add New Event</h2>
+        <p >This page is only for members with the Manager / Coach role.</p>
+    </div>
+</div>
 
-        <div class="form-group mt-3">
-            <label for="Time" class="form-label">Event Time</label>
-            <input class="form-control" type="time" id="Time" name="Time" value="@Model?.Date.ToString("HH:mm")" required />
+<div id="create-event-sections" class="pricing">
+    <div class="card-body"> 
+        <div class="container mt-5 pb-5">
+            <form asp-action="Create" asp-controller="Schedule" method="post">
+                <div class="form-group">
+                    <label asp-for="Type" class="form-label">Event Type</label>
+                    <select asp-for="Type" class="form-select" required>
+                        <option value="Game">Game</option>
+                        <option value="Practice">Practice</option>
+                        <option value="Event">Event</option>
+                    </select>
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="Date" class="form-label">Event Date</label>
+                    <input asp-for="Date" class="form-control" type="date" value="@Model?.Date.ToString("yyyy-MM-dd")" required />
+                </div>
+
+                <div class="form-group mt-3">
+                    <label for="Time" class="form-label">Event Time</label>
+                    <input class="form-control" type="time" id="Time" name="Time" value="@Model?.Date.ToString("HH:mm")" required />
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="Description" class="form-label">Description</label>
+                    <textarea asp-for="Description" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="Location" class="form-label">Location</label>
+                    <input asp-for="Location" class="form-control" type="text" required />
+                </div>
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn buy-btn">Add Event</button>
+                    <a asp-action="Index" asp-controller="Schedule" class="btn buy-btn">Cancel</a>
+                </div>
+            </form>
         </div>
-        <div class="form-group mt-3">
-            <label asp-for="Description" class="form-label">Description</label>
-            <textarea asp-for="Description" class="form-control" rows="3" required></textarea>
-        </div>
-        <div class="form-group mt-3">
-            <label asp-for="Location" class="form-label">Location</label>
-            <input asp-for="Location" class="form-control" type="text" required />
-        </div>
-        <div class="text-center mt-4">
-            <button type="submit" class="btn btn-success">Add Event</button>
-            <a asp-action="Index" asp-controller="Schedule" class="btn btn-secondary">Cancel</a>
-        </div>
-    </form>
+    </div>
 </div>
