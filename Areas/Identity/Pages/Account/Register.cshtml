@@ -8,7 +8,9 @@
 
 
 <div class="d-flex justify-content-center align-items-center min-vh-100">
-    <div id="snow-particles" style="background: linear-gradient(to bottom, #b3e0ee, #ffffff); position: absolute; width: 100%; height: 100%;"></div>
+    <div id="snow-particles"
+        style="background: linear-gradient(to bottom, #b3e0ee, #ffffff); position: absolute; width: 100%; height: 100%;">
+    </div>
 
     <div id="register-cshtml-1" class="card shadow-lg p-4 pt-5" style="margin:100px;">
         <div class="card-body">
@@ -19,63 +21,99 @@
 
                 <div asp-validation-summary="ModelOnly" class="text-danger mb-3" role="alert"></div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"
+                        placeholder="name@example.com" />
                     <label asp-for="Input.Email">Email</label>
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.FirstName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.FirstName" class="form-control" autocomplete="username" aria-required="true"
+                        placeholder="name@example.com" />
                     <label asp-for="Input.FirstName">First Name</label>
                     <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.LastName" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.LastName" class="form-control" autocomplete="username" aria-required="true"
+                        placeholder="name@example.com" />
                     <label asp-for="Input.LastName">Last Name</label>
                     <span asp-validation-for="Input.LastName" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.Birthday" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.Birthday" class="form-control" autocomplete="username" aria-required="true"
+                        placeholder="name@example.com" />
                     <label asp-for="Input.Birthday">Birthday</label>
                     <span asp-validation-for="Input.Birthday" class="text-danger"></span>
                 </div>
+                @* <div class="form-floating mb-3">
+                <input asp-for="Input.SkiLevel" class="form-control" autocomplete="username" aria-required="true"
+                placeholder="name@example.com" />
+                <label asp-for="Input.SkiLevel">Ski Level</label>
+                <span asp-validation-for="Input.SkiLevel" class="text-danger"></span>
+                </div> *@
+
+                @* <div class="form-floating mb-3">
+                <select asp-for="Input.SkiLevel" class="form-select" id="SkiLevel" required>
+                <option value="" disabled selected>Select your level</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Professional">Professional</option>
+                </select>
+                <label for="SkiLevel">Ski Level</label>
+                <span asp-validation-for="Input.SkiLevel" class="text-danger"></span>
+                </div> *@
+
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.SkiLevel" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <select asp-for="Input.SkiLevel" class="form-select" id="SkiLevel" required>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="Professional">Professional</option>
+                    </select>
                     <label asp-for="Input.SkiLevel">Ski Level</label>
                     <span asp-validation-for="Input.SkiLevel" class="text-danger"></span>
                 </div>
+
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.BestTime" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.BestTime" class="form-control" autocomplete="username" aria-required="true"
+                        placeholder="name@example.com" />
                     <label asp-for="Input.BestTime">Best Time</label>
                     <span asp-validation-for="Input.BestTime" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.TopSpeed" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.TopSpeed" class="form-control" autocomplete="username" aria-required="true"
+                        placeholder="name@example.com" />
                     <label asp-for="Input.TopSpeed">Top Speed</label>
                     <span asp-validation-for="Input.TopSpeed" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.BestDistance" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.BestDistance" class="form-control" autocomplete="username"
+                        aria-required="true" placeholder="name@example.com" />
                     <label asp-for="Input.BestDistance">Best Distance</label>
                     <span asp-validation-for="Input.BestDistance" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.VerticalDrop" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.VerticalDrop" class="form-control" autocomplete="username"
+                        aria-required="true" placeholder="name@example.com" />
                     <label asp-for="Input.VerticalDrop">Vertical Drop</label>
                     <span asp-validation-for="Input.VerticalDrop" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.Ranking" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                    <input asp-for="Input.Ranking" class="form-control" autocomplete="username" aria-required="true"
+                        placeholder="name@example.com" />
                     <label asp-for="Input.Ranking">Ranking</label>
                     <span asp-validation-for="Input.Ranking" class="text-danger"></span>
                 </div>
 
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password"
+                        aria-required="true" placeholder="password" />
                     <label asp-for="Input.Password">Password</label>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
-                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password"
+                        aria-required="true" placeholder="password" />
                     <label asp-for="Input.ConfirmPassword">Confirm Password</label>
                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                 </div>
