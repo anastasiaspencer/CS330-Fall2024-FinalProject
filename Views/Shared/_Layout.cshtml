@@ -169,7 +169,7 @@
 
     <!-- Chat Bot Button on bottom right  -->
     <button id="chat-bot-button"
-        class="btn2 btn-primary btn2-chat shadow-lg d-flex align-items-center justify-content-center"
+        class="btn2 btn-primary btn2-chat border border-1 shadow-lg d-flex align-items-center justify-content-center"
         onclick="goToChatBot()">
         <img id="chat-bot-button-icon" src="~/Images/chatbot-icon.svg" alt="ChatBot Icon" />
     </button>
@@ -204,7 +204,7 @@
 
     @await RenderSectionAsync("Scripts", required: false)
     @* style="display: none;" *@
-    @* i cant figure out how to make this button only show up when theuser has scrolled 300 pixels down *@
+    @* i cant figure out how to make this button only show up when the user has scrolled 300 pixels down *@
     @* <button id="scrollToTopButton" class="scroll-to-top" onclick="scrollToTop()"  > 
     ↑
     </button> *@
