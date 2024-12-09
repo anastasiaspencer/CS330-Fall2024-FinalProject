@@ -66,7 +66,7 @@ public class StatsController : Controller
     public IActionResult ViewAthleteStats(string id)
     {
 
-        Console.WriteLine($"Received Athlete ID: {id}");
+        //Console.WriteLine($"Received Athlete ID: {id}");
 
         var athleteStats = new List<SkiStatsViewModel>
         {
