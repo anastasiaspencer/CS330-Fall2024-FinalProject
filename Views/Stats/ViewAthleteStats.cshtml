@@ -1,0 +1,31 @@
+﻿@model List<SkiStatsViewModel>
+
+@{
+    ViewData["Title"] = $"{Model.FirstOrDefault()?.AthleteName}'s Stats";
+}
+
+<body class="secondary-page">
+    <main class="main">
+        <div class="page-title accent-background">
+            <div class="container position-relative">
+                <h2>@Model.FirstOrDefault()?.AthleteName's Stats</h2>
+                <p>Review the performance metrics for this athlete.</p>
+            </div>
+        </div>
+
+        <hr class="my-5 border-primary">
+
+        <!-- Athlete Stats -->
+        <div class="container mt-5">
+            <h3>Performance Metrics</h3>
+            <ul class="list-group">
+                @foreach (var stat in Model)
+                {
+                    <li class="list-group-item">
+                        <strong>@stat.StatName:</strong> @stat.Value.ToString("F2")
+                    </li>
+                }
+            </ul>
+        </div>
+    </main>
+</body>

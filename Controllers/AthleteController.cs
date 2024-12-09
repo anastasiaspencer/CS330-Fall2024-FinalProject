@@ -19,12 +19,15 @@ namespace CS330_Fall2024_FinalProject.Controllers
             _unitOfWork = unitOfWork;
             _signInManager = signInManager;
         }
+
+        [Authorize(Roles = "Coach")]
         public IActionResult Index()
         {
             var athletes = _unitOfWork.Athlete.GetUser();
             return View(athletes);
         }
 
+        [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Edit(string id)
         {
             var athlete = _unitOfWork.Athlete.GetUser(id);
@@ -48,6 +51,8 @@ namespace CS330_Fall2024_FinalProject.Controllers
             };
             return View(vm);
         }
+
+        [Authorize(Roles = "Coach")]
         [HttpPost]
         public async Task<IActionResult> OnPostAsync(EditAthleteViewModel data)
         {
