@@ -12,9 +12,36 @@ public class AthleteApplicationService
       
     }
 
-  public async Task AddAthleteAsync(CreateAthleteViewModel model)
-{
+//   public async Task AddAthleteAsync(CreateAthleteViewModel model)
+// {
    
+//     // Map the ViewModel to domain models
+//     var skiStats = new SkiStats(
+//         model.BestTime,
+//         model.TopSpeed,
+//         model.BestDistance,
+//         model.VerticalDrop,
+//         model.Ranking
+//     );
+//     var athlete = new Athlete(model.Number, model.Name, skiStats, model.SkiLevel, model.Birthday, model.ProfilePicture); //model.ProfilePicture
+
+    
+//     await _athleteService.AddAsync(athlete);
+// }
+
+public async Task AddAthleteAsync(CreateAthleteViewModel model)
+{
+    // Convert IFormFile to byte[] (if not already done in the controller)
+    byte[]? profilePictureBytes = null;
+    if (model.ProfilePicture != null && model.ProfilePicture.Length > 0)
+    {
+        using (var memoryStream = new MemoryStream())
+        {
+            await model.ProfilePicture.CopyToAsync(memoryStream);
+            profilePictureBytes = memoryStream.ToArray();
+        }
+    }
+
     // Map the ViewModel to domain models
     var skiStats = new SkiStats(
         model.BestTime,
@@ -23,9 +50,16 @@ public class AthleteApplicationService
         model.VerticalDrop,
         model.Ranking
     );
-    var athlete = new Athlete(model.Number, model.Name, skiStats, model.SkiLevel, model.Birthday); //model.ProfilePicture
 
-    
+    var athlete = new Athlete(
+        model.Number,
+        model.Name,
+        skiStats,
+        model.SkiLevel,
+        model.Birthday, 
+        profilePictureBytes
+    );
+
     await _athleteService.AddAsync(athlete);
 }
 

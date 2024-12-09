@@ -9,8 +9,8 @@ public class CreateAthleteViewModel
     [Required]
     public int Number { get; set; }
     public string? SkiLevel { get; set; } = null;
-    
-    // public byte[]? ProfilePicture { get; set; } = null;
+    public IFormFile? ProfilePicture { get; set; } // For uploading
+    public byte[]? ProfilePictureBytes { get; set; } // For displaying
     public DateTime Birthday { get; set; } 
     public double BestTime { get; set; }
     public double TopSpeed { get; set; }

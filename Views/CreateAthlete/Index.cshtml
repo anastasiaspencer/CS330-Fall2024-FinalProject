@@ -19,7 +19,13 @@
         <div class="card-body">
             <h3 id="create-athlete-text1" class="card-title text-center mb-4">Athlete Information</h3>
 
-            <form asp-action="CreateAthlete" method="post">
+            <form asp-action="CreateAthlete" method="post"  enctype="multipart/form-data">
+
+                <div class="form-group mb-3">
+                    <label for="ProfilePicture" class="form-label">Enter the ProfilePicture:</label>
+                    <input type="file" id="ProfilePicture" name="ProfilePicture" class="form-control" accept="image/*" required />
+                </div>
+
                 <div class="form-group mb-3">
                     <label for="Name" class="form-label">Enter the Name:</label>
                     <input type="text" id="Name" name="Name" class="form-control" required />

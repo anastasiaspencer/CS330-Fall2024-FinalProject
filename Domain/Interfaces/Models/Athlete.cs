@@ -24,17 +24,17 @@ public class Athlete : IdentityUser
     public DateTime Birthday { get; set; } 
 
     // public byte[] ProfilePicture { get; set; }
-    // public byte[]? ProfilePicture { get; set; } = null;
+    public byte[]? ProfilePicture { get; set; } = null;
 
     public Athlete() { } //paramaterless constructor that EF Core Expects
-    public Athlete(int number, string name, SkiStats stats, string? skilevel, DateTime birthday) //, byte[] profilePicture
+    public Athlete(int number, string name, SkiStats stats, string? skilevel, DateTime birthday, byte[]? profilePicture) //, byte[] profilePicture
     {
         Number = number;
         Name = name;
         Stats = stats;
         SkiLevel = skilevel ?? "Unknown";
         Birthday = birthday;
-        // ProfilePicture = profilePicture;
+        ProfilePicture = profilePicture ?? Array.Empty<byte>();
     }
 }
 
