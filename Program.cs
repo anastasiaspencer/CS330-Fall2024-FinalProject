@@ -25,7 +25,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<Athlete>(options =>
     {
-        options.SignIn.RequireConfirmedAccount = false; //change this later
+        options.SignIn.RequireConfirmedAccount = true; //change this later
         options.Tokens.EmailConfirmationTokenProvider = "Default";
     })
     .AddRoles<IdentityRole>()
