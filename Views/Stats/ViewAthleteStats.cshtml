@@ -6,7 +6,7 @@
 
 <body class="secondary-page">
     <main class="main">
-        <div class="page-title accent-background">
+        <div class="page-title accent-background pb-5">
             <div class="container position-relative">
                     @{
                         var athlete = Model?.FirstOrDefault();
@@ -39,7 +39,7 @@
         <hr class="my-5 border-primary">
 
         <!-- Athlete Stats -->
-        <div class="container mt-5">
+        <div class="container mt-5 pb-5">
             <h3>Performance Metrics</h3>
             <ul class="list-group">
                 @foreach (var stat in Model)
