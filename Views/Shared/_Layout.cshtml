@@ -59,7 +59,7 @@
                         <!-- Standard Links -->
                         <li><a asp-controller="Home" asp-action="Index">Home</a></li>
                         <li><a asp-controller="Schedule" asp-action="Index">Schedule</a></li>
-                        <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
+                       
 
                         <!-- Role-Based Links -->
                         @if (User.Identity?.IsAuthenticated == true)
@@ -67,6 +67,7 @@
                             if (User.IsInRole("Athlete") && User.IsInRole("Manager") && User.IsInRole("Coach"))
                             {
                                 <!-- Dropdown for multiple roles -->
+                                 <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
                                         Role Pages <span class="caret"></span>
@@ -80,6 +81,7 @@
                                 </li>
                             }
                             else if (User.IsInRole("Athlete") && User.IsInRole("Manager")){
+                                 <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
                                 <!-- Dropdown for multiple roles -->
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
@@ -94,6 +96,7 @@
                             }
                             else if (User.IsInRole("Athlete") && User.IsInRole("Coach")){
                                 <!-- Dropdown for multiple roles -->
+                                 <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false">
                                         Role Pages <span class="caret"></span>
@@ -112,14 +115,17 @@
                                 @if (User.IsInRole("Athlete"))
                                 {
                                     <li><a asp-controller="Role" asp-action="Index">Athletes Page</a></li>
+                                     <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
                                 }
                                 @if (User.IsInRole("Coach"))
                                 {
+                                     <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
                                     <li><a asp-controller="Role" asp-action="Coach">Coach's Page</a></li>
                                     <li><a asp-controller="Athlete" asp-action="Index">Manage Roles</a></li>
                                 }
                                 @if (User.IsInRole("Manager"))
                                 {
+                                     <li><a asp-controller="Stats" asp-action="Index">Stats</a></li>
                                     <li><a asp-controller="Role" asp-action="Manager">Manager's Page</a></li>
                                 }
                             }
