@@ -25,18 +25,24 @@
     div.appendChild(iframe);
 
     var closeButton = document.createElement('button');
-    closeButton.innerHTML = 'X';
+    closeButton.innerHTML = 'x';
     closeButton.style.position = 'absolute';
     closeButton.style.top = '5px';
-    closeButton.style.right = '5px';
+    closeButton.style.right = '12px';
     // closeButton.style.backgroundColor = 'white';
-    closeButton.style.color = 'red';
+    closeButton.style.color = 'gray';
     closeButton.style.border = 'none';
     closeButton.style.padding = '5px 10px';
     closeButton.style.cursor = 'pointer';
     closeButton.style.borderRadius = '5px';
     closeButton.onclick = function() {
         document.body.removeChild(div);
+    };
+    closeButton.onmouseover = function() {
+        closeButton.style.color = 'red';
+    };
+    closeButton.onmouseout = function() {
+        closeButton.style.color = 'gray';
     };
 
     div.appendChild(closeButton);
