@@ -14,4 +14,8 @@ Run the following commands:
 	dotnet user-secrets set "EmailSettings:AppPassword" "uvem-osyr-rxdu-trui"
 ```
 Note:
-	dotnet user-secrets init will probably yield "The MSBuild project '~\CS330-Fall2024-FinalProject.csproj' has already been initialized with a UserSecretsId.
+`dotnet user-secrets init` will probably yield "The MSBuild project '~\CS330-Fall2024-FinalProject.csproj' has already been initialized with a UserSecretsId."
+
+But it's fine you can run the next 3
+	
+
