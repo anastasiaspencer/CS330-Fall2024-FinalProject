@@ -4,6 +4,10 @@
     ViewData["Title"] = "Snow Ski Team Schedule Page";
 }
 
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Athlete> SignInManager
+@inject UserManager<Athlete> UserManager
+
 <body class="secondary-page">
     <main class="main">
         <div class="page-title accent-background">
@@ -162,12 +166,16 @@
                 </div>
             </section>
 
-        <!-- Add Event Button for Coaches and Managers -->
-        <div class="pricing text-center mt-5">
-            <a asp-action="Create" asp-controller="Schedule" class="btn buy-btn">
-                Add Event
-            </a>
-        </div>
+        @if (User.Identity?.IsAuthenticated == true){
+            if (User.IsInRole("Manager") && User.IsInRole("Coach")){
+                <!-- Add Event Button for Coaches and Managers -->
+                <div class="pricing text-center mt-5">
+                    <a asp-action="Create" asp-controller="Schedule" class="btn buy-btn">
+                        Add Event
+                    </a>
+                </div>
+            }
+        }
 
     </main>
 

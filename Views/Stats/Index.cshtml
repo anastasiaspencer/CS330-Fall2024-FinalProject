@@ -1,4 +1,4 @@
-﻿@* @model TeamStatsViewModel
+﻿@model TeamStatsViewModel
 
 @{
     ViewData["Title"] = "Snow Ski Team Stats Page";
@@ -13,106 +13,80 @@
             </div>
         </div>
 
-        <hr class="my-5 border-primary">
-
         <!-- Team Records Section -->
         <div class="container mt-5">
-            <h2 class="mb-4 text-center">Team Records</h2>
-            <table class="table table-striped table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th>Stat</th>
-                        <th>Value</th>
-                        <th>Record Holder</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var record in Model.TeamRecords)
-                    {
-                        <tr>
-                            <td>@record.StatName</td>
-                            <td>@record.Value</td>
-                            <td>@record.AthleteName</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                    <img id="statspage-charts-svg" src="~/Images/statspage-charts.svg" alt="Team Stats Charts" class="img-fluid p-5">
+                    <h2 class="mb-4">Team Records</h2>
+                </div>
 
-        <hr class="my-5 border-secondary">
-
-        <!-- Team Averages Section -->
-        <div class="container mt-5">
-            <h2 class="mb-4 text-center">Team Averages</h2>
-            <table class="table table-striped table-bordered text-center">
-                <thead>
-                    <tr>
-                        <th>Stat</th>
-                        <th>Average</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var average in Model.TeamAverages)
-                    {
-                        <tr>
-                            <td>@average.StatName</td>
-                            <td>@average.Average.ToString("F2")</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </main>
-</body> *@
-
-@model TeamStatsViewModel
-
-@{
-    ViewData["Title"] = "Snow Ski Team Stats Page";
-}
-
-<body class="secondary-page">
-    <main class="main">
-        <div class="page-title accent-background">
-            <div class="container position-relative">
-                <h2>Snow Ski Team Stats</h2>
-                <p>Explore the team's record-breaking performances and overall statistics.</p>
+                <div class="col-lg-6">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered text-center shadow-sm">
+                            <thead class="custom-header">
+                                <tr>
+                                    <th>Stat</th>
+                                    <th>Value</th>
+                                    <th>Record Holder</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var record in Model.TeamRecords)
+                                {
+                                    <tr>
+                                        <td class="fw-bold">@record.StatName</td>
+                                        <td class="fw-normal">@record.Value</td>
+                                        <td class="fw-normal">@record.AthleteName</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <hr class="my-5 border-primary">
-
-        <!-- Team Records Section -->
-        <div class="container mt-5">
-            <h2 class="mb-4 text-center">Team Records</h2>
-            <div class="table-responsive">
-                <table class="table table-hover table-bordered text-center shadow-sm">
-                    <thead class="custom-header" style="background-color: #b3e0ee;">
-                        <tr>
-                            <th>Stat</th>
-                            <th>Value</th>
-                            <th>Record Holder</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var record in Model.TeamRecords)
-                        {
-                            <tr>
-                                <td class="fw-bold">@record.StatName</td>
-                                <td class="fw-normal">@record.Value</td>
-                                <td class="fw-normal">@record.AthleteName</td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+            <div class="curvy-line-divider">
+                <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                    <path
+                        d="M0,50 C360,100 720,0 1080,50 C1440,100 1800,0 2160,50 L2160,100 L0,100 Z"
+                        class="curvy-line">
+                    </path>
+                </svg>
             </div>
-        </div>
-
-        <hr class="my-5 border-secondary">
 
         <!-- Team Averages Section -->
         <div class="container mt-5 pb-5">
-            <h2 class="mb-4 text-center">Team Averages</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered text-center shadow-sm">
+                            <thead class="custom-header">
+                                <tr>
+                                    <th>Stat</th>
+                                    <th>Average</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var average in Model.TeamAverages)
+                                {
+                                    <tr>
+                                        <td class="fw-bold">@average.StatName</td>
+                                        <td class="fw-normal">@average.Average.ToString("F2")</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center mb-4 mb-lg-0">
+                    <img id="statspage-charts2-svg" src="~/Images/statspage-charts2.svg" alt="Team Stats Charts" class="img-fluid p-5">
+                    <h2 class="mb-4">Team Averages</h2>
+                </div>
+            </div>
+
+            @* <h2 class="mb-4 text-center">Team Averages</h2>
             <div class="table-responsive">
                 <table class="table table-hover table-bordered text-center shadow-sm">
                     <thead class="custom-header" style="background-color: #b3e0ee;">
@@ -131,7 +105,8 @@
                         }
                     </tbody>
                 </table>
-            </div>
+            </div> *@
         </div>
     </main>
 </body>
+

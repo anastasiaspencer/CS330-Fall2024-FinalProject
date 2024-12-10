@@ -15,7 +15,7 @@ public class StatsController : Controller
 
     private readonly SkiStatsRepository _skiStatsRepository;
 
-    private readonly ApplicationDbContext _context;
+    private readonly ApplicationDbContext? _context;
 
     public StatsController(SkiStatsRepository skiStatsRepository)
     {
@@ -67,6 +67,7 @@ public class StatsController : Controller
     {
 
         //Console.WriteLine($"Received Athlete ID: {id}");
+        var athleteProfile = _skiStatsRepository.GetAthleteProfile(id);
 
         var athleteStats = new List<SkiStatsViewModel>
         {
@@ -74,25 +75,29 @@ public class StatsController : Controller
             {
                 StatName = "Best Time",
                 Value = _skiStatsRepository.GetAthleteBestTime(id).Value,
-                AthleteName = _skiStatsRepository.GetAthleteBestTime(id).AthleteName
+                AthleteName = _skiStatsRepository.GetAthleteBestTime(id).AthleteName,
+                ProfilePictureBytes = athleteProfile.ProfilePictureBytes 
             },
             new SkiStatsViewModel
             {
                 StatName = "Top Speed",
                 Value = _skiStatsRepository.GetAthleteTopSpeed(id).Value,
-                AthleteName = _skiStatsRepository.GetAthleteTopSpeed(id).AthleteName
+                AthleteName = _skiStatsRepository.GetAthleteTopSpeed(id).AthleteName,
+                ProfilePictureBytes = athleteProfile.ProfilePictureBytes 
             },
             new SkiStatsViewModel
             {
                 StatName = "Best Distance",
                 Value = _skiStatsRepository.GetAthleteBestDistance(id).Value,
-                AthleteName = _skiStatsRepository.GetAthleteBestDistance(id).AthleteName
+                AthleteName = _skiStatsRepository.GetAthleteBestDistance(id).AthleteName,
+                ProfilePictureBytes = athleteProfile.ProfilePictureBytes 
             },
             new SkiStatsViewModel
             {
                 StatName = "Vertical Drop",
                 Value = _skiStatsRepository.GetAthleteVerticalDrop(id).Value,
-                AthleteName = _skiStatsRepository.GetAthleteVerticalDrop(id).AthleteName
+                AthleteName = _skiStatsRepository.GetAthleteVerticalDrop(id).AthleteName,
+                ProfilePictureBytes = athleteProfile.ProfilePictureBytes 
             }
         };
 
