@@ -10,6 +10,8 @@ namespace CS330_Fall2024_FinalProject.Core.Repositories
         Athlete GetUser(string id);
 
         Athlete UpdateAthlete(Athlete athlete);
+
+        Task Delete(Athlete athlete);
     }
 }
 

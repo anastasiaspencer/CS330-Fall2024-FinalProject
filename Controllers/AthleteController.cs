@@ -27,6 +27,24 @@ namespace CS330_Fall2024_FinalProject.Controllers
             return View(athletes);
         }
 
+        public IActionResult DeleteUser(string id)
+        {
+            try
+            {
+                var athlete = _unitOfWork.Athlete.GetUser(id);
+
+                _unitOfWork.Athlete.Delete(athlete);
+
+            }
+            catch
+            {
+                return BadRequest("Athlete could not be deleted.");
+            }
+
+            return View("Index");
+
+        }
+
         [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Edit(string id)
         {
@@ -109,7 +127,7 @@ namespace CS330_Fall2024_FinalProject.Controllers
 
             _unitOfWork.Athlete.UpdateAthlete(athlete);
 
-            return RedirectToAction("Edit", new {id = athlete.Id});
+            return RedirectToAction("Index", new { id = athlete.Id });
         }
 
 

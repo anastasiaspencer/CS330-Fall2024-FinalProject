@@ -29,6 +29,10 @@ namespace CS330_Fall2024_FinalProject.Repositories
                 ?? throw new InvalidOperationException($"Athlete with ID {id} not found.");
         }
 
+        public async Task Delete(Athlete athlete){
+            _context.Users.Remove(athlete);
+             await _context.SaveChangesAsync();
+        }
     
         public Athlete UpdateAthlete(Athlete athlete)
         {

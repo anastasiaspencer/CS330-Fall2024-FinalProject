@@ -1,41 +1,54 @@
 @{
-    ViewData["Title"] = "Athlete Page";
+    ViewData["Title"] = "User Page";
 }
 @model ICollection<Athlete>
 <div class="page-title accent-background">
     <div class="container position-relative">
-        <h2>View Members Page</h2>
+        <h2>View User Information</h2>
         <p></p>
     </div>
 </div>
 <div class="container mt-5">
     <div class="text-center mb-5">
-        <h1 class="display-6 text-primary fw-bold">Athlete Page</h1>
+        <h1 class="display-6 text-primary fw-bold">Users</h1>
         @if (@Model != null && @Model.Any())
         {
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">Profile Picture</th>
                         <th scope="col">Email</th>
-                         <th scope="col">Name</th>
-                         <th scope="col">Birthday</th>
-                         <th scope="col">Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">SkiLevel</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Jersey Number</th>
                         <th scope="col">Edit</th>
-                   
+
                     </tr>
                 </thead>
 
                 <tbody>
                     @foreach (var user in Model)
                     {
-                        <tr>
+                        <th>
+                             @if (user.ProfilePicture != null)
+                                        {
+                                            <img src="data:image/jpeg;base64,@Convert.ToBase64String(user.ProfilePicture)" alt="Profile Picture" width="100" />
+                                        }
+                                        else
+                                        {
+                                            <img src="~/assets/img/defaultProfile.png" alt="Default Profile Picture" class="img-thumbnail" width="100" />
+                                        }
+                      </th>
                             <th scope="row">@user.Email</th>
                             <th scope="row">@user.Name</th>
-                            <th scope="row">@user.Birthday</th>
+                            <th scope="row">@user.SkiLevel</th>
+                            <th scope="row">@user.Birthday.ToShortDateString()</th>
                             <th scope="row">@user.Number</th>
                             <td>
                                 <a asp-controller="Athlete" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
                             </td>
+                        <tr>
                         </tr>
                     }
 
