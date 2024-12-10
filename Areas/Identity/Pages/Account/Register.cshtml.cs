@@ -188,6 +188,7 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
                 user.Number = Input.Number;
                 user.Birthday = Input.Birthday;
                 user.SkiLevel = Input.SkiLevel;
+               
 
                 user.Stats = new SkiStats
                 {

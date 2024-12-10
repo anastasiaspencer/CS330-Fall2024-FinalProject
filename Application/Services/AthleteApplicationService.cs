@@ -48,8 +48,8 @@ public async Task AddAthleteAsync(CreateAthleteViewModel model)
         model.TopSpeed,
         model.BestDistance,
         model.VerticalDrop,
-        model.Ranking,
-        profilePictureBytes
+        model.Ranking
+        
     );
 
     var athlete = new Athlete(
