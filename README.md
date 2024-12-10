@@ -4,6 +4,8 @@
 Anastasia Spencer, Brooke Boskus, Collin Price, Owen McMenaman, Jeongbin Son
 
 **For Secrets**
+
+
 Run the following commands:
 	dotnet user-secrets init
 	dotnet user-secrets set "OpenWeatherMap:ApiKey" "8eee3eeab787efbe3c0c82d3d3872f5e"
