@@ -1,5 +1,6 @@
 using CS330_Fall2024_FinalProject.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CS330_Fall2024_FinalProject.Core.Repositories
 {
@@ -10,6 +11,8 @@ namespace CS330_Fall2024_FinalProject.Core.Repositories
         Athlete GetUser(string id);
 
         Athlete UpdateAthlete(Athlete athlete);
+
+        Task Delete(Athlete athlete);
     }
 }
 

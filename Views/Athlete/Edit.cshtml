@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = "Athlete Edit Page";
+    ViewData["Title"] = "Athlete Users Page";
 }
 
 @model CS330_Fall2024_FinalProject.Core.ViewModels.EditAthleteViewModel;
@@ -13,7 +13,7 @@
 
 <div class="page-title accent-background">
     <div class="container position-relative">
-        <h2>Edit Members Page</h2>
+        <h2>Edit Users Page</h2>
         <p></p>
     </div>
 </div>
@@ -26,27 +26,34 @@
 <div class="col-md-8 order-md-1">
     @using (Html.BeginForm("OnPost", "Athlete"))
     {
-        @Html.HiddenFor(h => @Model.Athlete.Id);
+        @Html.HiddenFor(h => @Model.Athlete.Id)
+        ;
         <div class="row">
             <div class="col-md-6 mb-3">
-                <label asp-for="@Model.Athlete.Name" class = "form-label"></label>
-                <input asp-for="@Model.Athlete.Name" class="form-control" autocomplete="username" aria-required = "true" />
-                <span asp-validation-for="@Model.Athlete.Name" class ="text-danger"></span>
+                <label asp-for="@Model.Athlete.Name" class="form-label"></label>
+                <input asp-for="@Model.Athlete.Name" class="form-control" autocomplete="username" aria-required="true" />
+                <span asp-validation-for="@Model.Athlete.Name" class="text-danger"></span>
             </div>
             <div class="col-md-6 mb-3">
-                <label asp-for="@Model.Athlete.Email" class = "form-label"></label>
-                <input asp-for="@Model.Athlete.Email" class="form-control" autocomplete="username" aria-required = "true" />
-                <span asp-validation-for="@Model.Athlete.Email" class ="text-danger"></span>
+                <label asp-for="@Model.Athlete.Email" class="form-label"></label>
+                <input asp-for="@Model.Athlete.Email" class="form-control" autocomplete="username" aria-required="true" />
+                <span asp-validation-for="@Model.Athlete.Email" class="text-danger"></span>
             </div>
             <div class="col-md-6 mb-3">
-                <label asp-for="@Model.Athlete.Birthday" class = "form-label"></label>
-                <input asp-for="@Model.Athlete.Birthday" class="form-control" autocomplete="username" aria-required = "true" />
-                <span asp-validation-for="@Model.Athlete.Birthday" class ="text-danger"></span>
+                <label asp-for="@Model.Athlete.Birthday" class="form-label"></label>
+                <input asp-for="@Model.Athlete.Birthday" class="form-control" autocomplete="username"
+                    aria-required="true" />
+                <span asp-validation-for="@Model.Athlete.Birthday" class="text-danger"></span>
             </div>
             <div class="col-md-6 mb-3">
-                <label asp-for="@Model.Athlete.Number" class = "form-label"></label>
-                <input asp-for="@Model.Athlete.Number" class="form-control" autocomplete="username" aria-required = "true" />
-                <span asp-validation-for="@Model.Athlete.Number" class ="text-danger"></span>
+                <label asp-for="@Model.Athlete.Number" class="form-label"></label>
+                <input asp-for="@Model.Athlete.Number" class="form-control" autocomplete="username" aria-required="true" />
+                <span asp-validation-for="@Model.Athlete.Number" class="text-danger"></span>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label asp-for="@Model.Athlete.Id" class="form-label"></label>
+                <input asp-for="@Model.Athlete.Id" class="form-control" autocomplete="username" aria-required="true" />
+                <span asp-validation-for="@Model.Athlete.Id" class="text-danger"></span>
             </div>
         </div>
 
@@ -55,17 +62,17 @@
         <h4 class="mb-3">Roles</h4>
         @* <div class="d-block my-3">
 
-            @for (int i = 0; i < @Model.Roles.Count(); i++)
-            {
-                <div class="form-check">
-                    @Html.CheckBoxFor(c => @Model.Roles[i].Selected)
-                    @Html.HiddenFor(h => @Model.Roles[i].Value)
+    @for (int i = 0; i < @Model.Roles.Count(); i++)
+    {
+    <div class="form-check">
+    @Html.CheckBoxFor(c => @Model.Roles[i].Selected)
+    @Html.HiddenFor(h => @Model.Roles[i].Value)
 
-                    @Html.LabelFor(l => @Model.Roles[i].Selected, @Model.Roles[i].Text, new{@class="form-check-label" })
-                    @Html.HiddenFor(h=> @Model.Roles[i].Text)
-                </div>
-            }
-        </div> *@
+    @Html.LabelFor(l => @Model.Roles[i].Selected, @Model.Roles[i].Text, new{@class="form-check-label" })
+    @Html.HiddenFor(h=> @Model.Roles[i].Text)
+    </div>
+    }
+    </div> *@
 
         <div class="d-block my-3">
             @if (Model.Roles == null || !Model.Roles.Any())
@@ -90,12 +97,17 @@
         </div>
         <div class="d-flex justify-content-between align-items-center mt-4">
 
-            <button class="btn btn-primary btn-lg" type="submit">Save</button>
-
-            <form asp-action="DeleteAthlete" method="post">
+            <form asp-action="Save" method="post">
                 @Html.HiddenFor(h => @Model.Athlete.Id)
+                <button type="submit" class="btn btn-primary btn-lg">Save</button>
+            </form>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" name="id" value="@Model.Athlete.Id" />
                 <button type="submit" class="btn btn-danger btn-lg">Delete</button>
             </form>
+
+            
         </div>
 
     }

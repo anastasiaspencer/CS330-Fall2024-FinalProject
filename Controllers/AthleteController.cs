@@ -26,6 +26,30 @@ namespace CS330_Fall2024_FinalProject.Controllers
             var athletes = _unitOfWork.Athlete.GetUser();
             return View(athletes);
         }
+        [Authorize(Roles = "Coach")]
+        [HttpPost]
+        [Authorize(Roles = "Coach")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            Console.WriteLine($"Delete Method Received ID: {id}");
+
+            if (string.IsNullOrEmpty(id))
+            {
+                return BadRequest("ID cannot be null or empty.");
+            }
+
+            var athlete = _unitOfWork.Athlete.GetUser(id);
+            if (athlete == null)
+            {
+                return NotFound($"Athlete with ID {id} not found.");
+            }
+
+            await _unitOfWork.Athlete.Delete(athlete);
+
+            // Redirect to the Index action (or another view)
+            return RedirectToAction("Index");
+        }
+
 
         [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Edit(string id)
@@ -109,7 +133,7 @@ namespace CS330_Fall2024_FinalProject.Controllers
 
             _unitOfWork.Athlete.UpdateAthlete(athlete);
 
-            return RedirectToAction("Edit", new {id = athlete.Id});
+            return RedirectToAction("Index", new { id = athlete.Id });
         }
 
 
