@@ -26,6 +26,30 @@ namespace CS330_Fall2024_FinalProject.Controllers
             var athletes = _unitOfWork.Athlete.GetUser();
             return View(athletes);
         }
+ 
+        [HttpPost]
+        [Authorize(Roles = "Coach")]
+        public async Task<IActionResult> Delete(string id)
+        {
+            Console.WriteLine($"Delete Method Received ID: {id}");
+
+            if (string.IsNullOrEmpty(id))
+            {
+                return BadRequest("ID cannot be null or empty.");
+            }
+
+            var athlete = _unitOfWork.Athlete.GetUser(id);
+            if (athlete == null)
+            {
+                return NotFound($"Athlete with ID {id} not found.");
+            }
+
+            await _unitOfWork.Athlete.Delete(athlete);
+
+            // Redirect to the Index action (or another view)
+            return RedirectToAction("Index");
+        }
+
 
         public IActionResult DeleteUser(string id)
         {
@@ -120,10 +144,11 @@ namespace CS330_Fall2024_FinalProject.Controllers
             }
 
             athlete.Birthday = data.Athlete.Birthday;
-            athlete.ProfilePicture = data.Athlete.ProfilePicture;
+            //athlete.ProfilePicture = data.Athlete.ProfilePicture;
             athlete.Name = data.Athlete.Name;
             athlete.Number = data.Athlete.Number;
-            athlete.Email = data.Athlete.Email;
+            athlete.SkiLevel = data.Athlete.SkiLevel;
+            //athlete.Email = data.Athlete.Email;
 
             _unitOfWork.Athlete.UpdateAthlete(athlete);
 
