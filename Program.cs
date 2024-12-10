@@ -9,13 +9,18 @@ using CS330_Fall2024_FinalProject.Core.Repositories;
 using CS330_Fall2024_FinalProject.Repositories;
 using CS330_Fall2024_FinalProject.Models;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Data.SqlClient;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+var conStrBuilder = new SqlConnectionStringBuilder(connectionString);
+conStrBuilder.Password = builder.Configuration["DbPassword"];
+string connectionString_withPass = conStrBuilder.ConnectionString;
+
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString_withPass));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<Athlete>(options =>
