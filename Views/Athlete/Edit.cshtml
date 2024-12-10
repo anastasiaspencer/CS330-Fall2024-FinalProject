@@ -10,67 +10,76 @@
     </div>
 </div>
 <div class="col-md-8 order-md-1">
-    @using (Html.BeginForm("OnPost", "Athlete"))
+    @if ((@Model.Athlete == null) || (@Model.Roles == null))
     {
-        @Html.HiddenFor(h => @Model.Athlete.Id);
-        <div class="row">
-            <div class="col-md-6 mb-3">
-                <label asp-for="@Model.Athlete.Name" class = "form-label"></label>
-                <input asp-for="@Model.Athlete.Name" class="form-control" autocomplete="username" aria-required = "true" />
-                <span asp-validation-for="@Model.Athlete.Name" class ="text-danger"></span>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label asp-for="@Model.Athlete.SkiLevel" class = "form-label"></label>
-                <input asp-for="@Model.Athlete.SkiLevel" class="form-control" autocomplete="username" aria-required = "true" />
-                <span asp-validation-for="@Model.Athlete.SkiLevel" class ="text-danger"></span>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label asp-for="@Model.Athlete.Birthday" class = "form-label"></label>
-                <input asp-for="@Model.Athlete.Birthday" class="form-control" autocomplete="username" aria-required = "true" />
-                <span asp-validation-for="@Model.Athlete.Birthday" class ="text-danger"></span>
-            </div>
-            <div class="col-md-6 mb-3">
-                <label asp-for="@Model.Athlete.Number" class = "form-label"></label>
-                <input asp-for="@Model.Athlete.Number" class="form-control" autocomplete="username" aria-required = "true" />
-                <span asp-validation-for="@Model.Athlete.Number" class ="text-danger"></span>
-            </div>
+        <div class="alert alert-danger" role="alert">
+            Athlete not found
         </div>
-
-        <hr class="mb-4">
-        <hr class="mb-4">
-        <h4 class="mb-3">Roles</h4>
-        <div class="d-block my-3">
-
-            @for (int i = 0; i < @Model.Roles.Count(); i++)
+    }
+    else
+    {
+        @using (Html.BeginForm("OnPost", "Athlete"))
             {
-                <div class="form-check">
-                    @Html.CheckBoxFor(c => @Model.Roles[i].Selected)
-                    @Html.HiddenFor(h => @Model.Roles[i].Value)
-
-                    @Html.LabelFor(l => @Model.Roles[i].Selected, @Model.Roles[i].Text, new{@class="form-check-label" })
-                    @Html.HiddenFor(h=> @Model.Roles[i].Text)
+                @Html.HiddenFor(h => @Model.Athlete.Id);
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="@Model.Athlete.Name" class = "form-label"></label>
+                        <input asp-for="@Model.Athlete.Name" class="form-control" autocomplete="username" aria-required = "true" />
+                        <span asp-validation-for="@Model.Athlete.Name" class ="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="@Model.Athlete.SkiLevel" class = "form-label"></label>
+                        <input asp-for="@Model.Athlete.SkiLevel" class="form-control" autocomplete="username" aria-required = "true" />
+                        <span asp-validation-for="@Model.Athlete.SkiLevel" class ="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="@Model.Athlete.Birthday" class = "form-label"></label>
+                        <input asp-for="@Model.Athlete.Birthday" class="form-control" autocomplete="username" aria-required = "true" />
+                        <span asp-validation-for="@Model.Athlete.Birthday" class ="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="@Model.Athlete.Number" class = "form-label"></label>
+                        <input asp-for="@Model.Athlete.Number" class="form-control" autocomplete="username" aria-required = "true" />
+                        <span asp-validation-for="@Model.Athlete.Number" class ="text-danger"></span>
+                    </div>
                 </div>
+
+                <hr class="mb-4">
+                <hr class="mb-4">
+                <h4 class="mb-3">Roles</h4>
+                <div class="d-block my-3">
+                    @for (int i = 0; i < @Model.Roles.Count(); i++)
+                    {
+                        <div class="form-check">
+                            @Html.CheckBoxFor(c => @Model.Roles[i].Selected)
+                            @Html.HiddenFor(h => @Model.Roles[i].Value)
+
+                            @Html.LabelFor(l => @Model.Roles[i].Selected, @Model.Roles[i].Text, new{@class="form-check-label" })
+                            @Html.HiddenFor(h=> @Model.Roles[i].Text)
+                        </div>
+                    }
+                    @* @foreach (var role in @Model.Roles)
+                    {
+                        <div class="form-check">
+                            <input id="@role.Value" name="paymentMethod" type="radio" class="form-check-input" checked="@role.Selected"
+                                required="">
+                            <label class="form-check-label" asp-for="@role.Value">@role.Text</label>
+                        </div>
+                    } *@
+                </div>
+                <form asp-action="Save" method="post">
+                    <input type="hidden" name="id" value="@Model.Athlete.Id" />
+                    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                </form>
+
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" name="id" value="@Model.Athlete.Id" />
+                    <button type="submit" class="btn btn-danger btn-lg">Delete</button>
+                </form>
             }
-            @* @foreach (var role in @Model.Roles)
-            {
-                <div class="form-check">
-                    <input id="@role.Value" name="paymentMethod" type="radio" class="form-check-input" checked="@role.Selected"
-                        required="">
-                    <label class="form-check-label" asp-for="@role.Value">@role.Text</label>
-                </div>
-            } *@
-        </div>
-         <form asp-action="Save" method="post">
-                <input type="hidden" name="id" value="@Model.Athlete.Id" />
-                <button type="submit" class="btn btn-primary btn-lg">Save</button>
-            </form>
-
-            <form asp-action="Delete" method="post">
-                <input type="hidden" name="id" value="@Model.Athlete.Id" />
-                <button type="submit" class="btn btn-danger btn-lg">Delete</button>
-            </form>
 
     }
+    
 </div>
 </div>
 </div>

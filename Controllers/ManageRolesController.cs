@@ -30,7 +30,8 @@ namespace CS330_Fall2024_FinalProject.Controllers
                 model.Add(new UserRoleViewModel
                 {
                     UserId = await _userManager.GetUserIdAsync(user),
-                    Email = user.Email,
+                    Email = user.Email?.ToString() ?? "No Email Provided",
+                    // Email = user.Email,
                     Roles = roles.ToList()
                 });
             }

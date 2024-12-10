@@ -109,10 +109,11 @@
 
   /**
    * Initiate glightbox
+   * brian: commented out bc it's not being used? it was a red console error saying GLightBox was initialized / not used in console
    */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+  // const glightbox = GLightbox({
+  //   selector: '.glightbox'
+  // });
 
   /**
    * Init isotope layout and filters

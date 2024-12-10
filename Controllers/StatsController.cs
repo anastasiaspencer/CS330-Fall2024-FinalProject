@@ -15,7 +15,7 @@ public class StatsController : Controller
 
     private readonly SkiStatsRepository _skiStatsRepository;
 
-    private readonly ApplicationDbContext? _context;
+    // private readonly ApplicationDbContext? _context;
 
     public StatsController(SkiStatsRepository skiStatsRepository)
     {
