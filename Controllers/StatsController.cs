@@ -76,28 +76,28 @@ public class StatsController : Controller
                 StatName = "Best Time",
                 Value = _skiStatsRepository.GetAthleteBestTime(id).Value,
                 AthleteName = _skiStatsRepository.GetAthleteBestTime(id).AthleteName,
-                ProfilePictureBytes = athleteProfile.ProfilePictureBytes 
+          
             },
             new SkiStatsViewModel
             {
                 StatName = "Top Speed",
                 Value = _skiStatsRepository.GetAthleteTopSpeed(id).Value,
                 AthleteName = _skiStatsRepository.GetAthleteTopSpeed(id).AthleteName,
-                ProfilePictureBytes = athleteProfile.ProfilePictureBytes 
+
             },
             new SkiStatsViewModel
             {
                 StatName = "Best Distance",
                 Value = _skiStatsRepository.GetAthleteBestDistance(id).Value,
                 AthleteName = _skiStatsRepository.GetAthleteBestDistance(id).AthleteName,
-                ProfilePictureBytes = athleteProfile.ProfilePictureBytes 
+           
             },
             new SkiStatsViewModel
             {
                 StatName = "Vertical Drop",
                 Value = _skiStatsRepository.GetAthleteVerticalDrop(id).Value,
                 AthleteName = _skiStatsRepository.GetAthleteVerticalDrop(id).AthleteName,
-                ProfilePictureBytes = athleteProfile.ProfilePictureBytes 
+
             }
         };
 
