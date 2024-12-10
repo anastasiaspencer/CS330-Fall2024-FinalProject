@@ -16,12 +16,13 @@
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">Profile Picture</th>
                         <th scope="col">Email</th>
-                         <th scope="col">Name</th>
-                         <th scope="col">Birthday</th>
-                         <th scope="col">Number</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Birthday</th>
+                        <th scope="col">Jersey Number</th>
+                        <th scope="col">Ski Level</th>
                         <th scope="col">Edit</th>
-                   
                     </tr>
                 </thead>
 
@@ -29,17 +30,28 @@
                     @foreach (var user in Model)
                     {
                         <tr>
-                            <th scope="row">@user.Email</th>
-                            <th scope="row">@user.Name</th>
-                            <th scope="row">@user.Birthday</th>
-                            <th scope="row">@user.Number</th>
+                            <td>
+                                @if (user.ProfilePicture != null)
+                                {
+                                    <img src="data:image/jpeg;base64,@Convert.ToBase64String(user.ProfilePicture)" alt="Profile Picture" class="img-thumbnail" width="100" height="100" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/defaultProfile.png" alt="Default Profile Picture" class="img-thumbnail" width="100" height="100" />
+                                }
+                            </td>
+                            <td scope="row">@user.Email</td>
+                            <td scope="row">@user.Name</td>
+                            <td scope="row">@user.Birthday.ToShortDateString()</td>
+                            <td scope="row">@user.Number</td>
+                            <td scope="row">@user.SkiLevel</td>
                             <td>
                                 <a asp-controller="Athlete" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
                             </td>
                         </tr>
                     }
-
                 </tbody>
             </table>
         }
     </div>
+</div>

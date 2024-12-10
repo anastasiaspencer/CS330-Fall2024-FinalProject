@@ -26,7 +26,7 @@ namespace CS330_Fall2024_FinalProject.Controllers
             var athletes = _unitOfWork.Athlete.GetUser();
             return View(athletes);
         }
-        [Authorize(Roles = "Coach")]
+ 
         [HttpPost]
         [Authorize(Roles = "Coach")]
         public async Task<IActionResult> Delete(string id)
@@ -126,10 +126,11 @@ namespace CS330_Fall2024_FinalProject.Controllers
             }
 
             athlete.Birthday = data.Athlete.Birthday;
-            athlete.ProfilePicture = data.Athlete.ProfilePicture;
+            //athlete.ProfilePicture = data.Athlete.ProfilePicture;
             athlete.Name = data.Athlete.Name;
             athlete.Number = data.Athlete.Number;
-            athlete.Email = data.Athlete.Email;
+            athlete.SkiLevel = data.Athlete.SkiLevel;
+            //athlete.Email = data.Athlete.Email;
 
             _unitOfWork.Athlete.UpdateAthlete(athlete);
 
