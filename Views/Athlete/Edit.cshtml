@@ -4,12 +4,20 @@
 
 @model CS330_Fall2024_FinalProject.Core.ViewModels.EditAthleteViewModel;
 
-<div class="container">
+@* <div class="container">
     <div class="py-5 text-center">
         <h2>Edit User</h2>
     </div>
+</div> *@
+<div class="page-title accent-background">
+    <div class="container position-relative">
+        <h2>Edit User Information</h2>
+        <p></p>
+    </div>
 </div>
-<div class="col-md-8 order-md-1">
+<br>
+<br>
+<div class="col-md-8 mx-auto">
     @if ((@Model.Athlete == null) || (@Model.Roles == null))
     {
         <div class="alert alert-danger" role="alert">

@@ -19,8 +19,8 @@ public class ChatBotController : Controller
     private readonly ApplicationDbContext _context; 
 
     private readonly string apiUrl = "https://fall2024-akspencer1-openai.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-08-01-preview";
-    private readonly string apiKey;
-    private readonly IConfiguration _configuratiodotnn;
+    private readonly string? apiKey;
+    // private readonly IConfiguration _configuratiodotnn;
     private readonly ILogger<ChatBotController> _logger;
 
 
