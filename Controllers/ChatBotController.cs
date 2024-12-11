@@ -19,14 +19,16 @@ public class ChatBotController : Controller
     private readonly ApplicationDbContext _context; 
 
     private readonly string apiUrl = "https://fall2024-akspencer1-openai.openai.azure.com/openai/deployments/gpt-35-turbo/chat/completions?api-version=2024-08-01-preview";
-    private readonly string apiKey = "621a53b06eaa453396b06be276cbc4e4";
+    private readonly string apiKey;
+    private readonly IConfiguration _configuratiodotnn;
     private readonly ILogger<ChatBotController> _logger;
 
 
-    public ChatBotController(ApplicationDbContext context, ILogger<ChatBotController> logger)
+    public ChatBotController(ApplicationDbContext context, ILogger<ChatBotController> logger, IConfiguration configuration)
     {
         _context = context;
         _logger = logger;
+        apiKey = configuration.GetValue<string>("OpenAi:ApiKey");
     }
 
     public IActionResult Index()
