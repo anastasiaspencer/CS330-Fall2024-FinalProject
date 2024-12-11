@@ -4,6 +4,14 @@
     ViewData["Title"] = "Snow Ski Team Stats Page";
 }
 
+@if (User.Identity?.IsAuthenticated != true)
+{
+    <script>
+        window.location.href = "/Identity/Account/Login";
+    </script>
+}
+
+
 <body class="secondary-page">
     <main class="main">
         <div class="page-title accent-background">
