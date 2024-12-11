@@ -167,7 +167,7 @@
             </section>
 
         @if (User.Identity?.IsAuthenticated == true){
-            if (User.IsInRole("Manager") && User.IsInRole("Coach")){
+            if (User.IsInRole("Manager") || User.IsInRole("Coach")){
                 <!-- Add Event Button for Coaches and Managers -->
                 <div class="pricing text-center mt-5">
                     <a asp-action="Create" asp-controller="Schedule" class="btn buy-btn">

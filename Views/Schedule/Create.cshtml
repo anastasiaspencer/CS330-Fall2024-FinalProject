@@ -3,7 +3,12 @@
 @{
     ViewData["Title"] = "Add Event";
 }
-
+@if (!User.IsInRole("Manager") && !User.IsInRole("Coach"))
+{
+    <script>
+        window.location.href = "/";
+    </script>
+}
 
 <div class="page-title accent-background">
     <div class="container position-relative">
