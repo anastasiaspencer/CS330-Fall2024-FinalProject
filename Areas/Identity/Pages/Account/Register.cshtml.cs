@@ -252,14 +252,12 @@ namespace CS330_Fall2024_FinalProject.Areas.Identity.Pages.Account
                                     <span style='font-weight: bold; color: #49A097;'>Snow Ski</span>
                                 </p>
                                 <hr style='border: none; border-top: 1px solid #49A097; margin-top: 30px;'/>
-                                
+                                <p style='font-size: 12px; color: #777;'>
+                                    This email was sent from <strong>Snow Ski</strong>. To learn more, visit
+                                    <a href='https://cs330-fall2024-finalproject.azurewebsites.net/' style='color: #49A097; text-decoration: none;'>https://cs330-fall2024-finalproject.azurewebsites.net/</a>.
+                                </p>
                             </div>"
                     );
-                    // ommited paragraph, goes at bottom of email to show link. but need deployed link later
-                    // <p style='font-size: 12px; color: #777;'>
-                    //     This email was sent from <strong>Snow Ski</strong>. To learn more, visit
-                    //     <a href='https://jeongbinson.com/' style='color: #49A097; text-decoration: none;'>https://jeongbinson.com/</a>.
-                    // </p>
 
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
